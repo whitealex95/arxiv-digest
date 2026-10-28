@@ -48,9 +48,20 @@ email_settings:
   smtp_user: "${SMTP_USER}"  # Will be replaced with GitHub secret
   smtp_password: "${SMTP_PASSWORD}"  # Will be replaced with GitHub secret
 
-# send email
-send_email: True
+# send email. Off by default: the --send-email flag turns it on, and the daily
+# workflow passes that flag only when the SMTP_PASSWORD secret is set.
+send_email: False
 email_recipient: "${EMAIL_RECIPIENT}"  # Will be replaced with GitHub secret
+
+# web digest (GitHub Pages): each run saves its digest slice (the same papers
+# the email would carry) to data_dir as YYYY-MM-DD.json. The site build
+# renders the newest keep_days days into site_dir, and the daily workflow
+# deploys site_dir to GitHub Pages.
+web_digest:
+  enabled: True
+  data_dir: './logs/digests'
+  site_dir: './site'
+  keep_days: 14
 
 # email dedup: each paper is dispatched at most once. The state file records
 # already-emailed paper keys across runs so a stalled newest-day (e.g. arXiv's

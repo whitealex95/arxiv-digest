@@ -130,7 +130,14 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: |
-          uv run python -m src.arxiv_digest --send-email
+          # Email is optional. Without the SMTP_PASSWORD secret the run only
+          # updates the web digest.
+          if [ -n "$SMTP_PASSWORD" ]; then
+            uv run python -m src.arxiv_digest --send-email
+          else
+            echo "SMTP_PASSWORD secret not set; skipping email (web digest only)"
+            uv run python -m src.arxiv_digest
+          fi
 
       - name: Run Archive Old Papers
         # Best-effort maintenance: the monthly workflow is the real archiver,
@@ -139,6 +146,10 @@ jobs:
         continue-on-error: true
         run: |
           uv run python -m src.arxiv_digest.archive
+
+      - name: Build web digest site
+        run: |
+          uv run python -m src.arxiv_digest.web
 
       - name: Ensure on results branch
         run: |
@@ -175,3 +186,25 @@ jobs:
           done
           echo "All push attempts failed"
           exit 1
+
+      - name: Upload web digest site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  # Needs Settings -> Pages -> Source set to "GitHub Actions".
+  deploy:
+    name: deploy web digest
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -69,6 +69,7 @@ Thumbs.db
 # Project specific - exclude all logs and generated content from main branch
 logs/
 docs_backup/
+site/
 
 # Keep configuration but ignore sensitive files
 *.log

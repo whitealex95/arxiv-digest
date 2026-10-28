@@ -4,17 +4,20 @@
 [![License][license-shield]][license-url]
 [![Python 3.11+][python-shield]][python-url]
 
-> **A personal, curated arXiv digest — delivered as a daily email.**
+> **A personal, curated arXiv digest, delivered as a daily web page (GitHub Pages) and optional email.**
 
 arxiv-digest watches your research areas on arXiv (plus Hugging Face's
 community-curated Daily Papers), scores every match against your own
-keywords, and emails you a ranked shortlist each day — not a raw dump.
+keywords, and publishes a ranked shortlist each day — not a raw dump.
 Papers are deduplicated across runs, so you see each one at most once, and
 everything is archived to browsable markdown.
 
 ## ✨ What you get
 
-- 📧 **Daily arXiv Digest email** — a capped shortlist (top-4 per section,
+- 🌐 **Web digest on GitHub Pages** — the same shortlist as a web page, one
+  page per day, with links to the last 14 days (`web_digest.keep_days`) so a
+  missed day is one click away. No email setup needed.
+- 📧 **Daily arXiv Digest email** (optional) — a capped shortlist (top-4 per section,
   15 overall by default), sections ordered by your `priority`, each paper
   sorted by relevance score with a score badge and a `matched:` line showing
   exactly which keywords put it there
@@ -80,7 +83,8 @@ every fetched paper scores at least one hit — the **caps** (per-category,
 then global, by score) are what make the email a digest instead of a dump.
 Archives and `PAPER_LIST.md` keep the full set either way.
 
-Email settings use environment variables — no secrets in the repo:
+Email is optional. To send it, set these environment variables (no secrets
+in the repo):
 
 ```bash
 export SMTP_USER="your-email@gmail.com"      # Gmail: use an app password
@@ -96,6 +100,9 @@ uv run python -m src.arxiv_digest
 
 # Full run: fetch, score, and send the digest email
 uv run python -m src.arxiv_digest --send-email
+
+# Build the web digest site (./site) from the saved daily digests
+uv run python -m src.arxiv_digest.web
 
 # Reset accumulated JSON state first
 uv run python -m src.arxiv_digest --fresh-run
@@ -114,22 +121,32 @@ The repo ships three workflows: a daily run (`daily-arxiv.yml`, 14:53 UTC), a
 monthly archive (`archive-old-papers.yml`), and state persistence — every run
 commits `logs/` (snapshots + dedup state) to the `results` branch.
 
+The daily run also deploys the web digest to GitHub Pages.
+
 To run your own copy:
 
-1. **Add repository secrets** (Settings → Secrets and variables → Actions):
-   - `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_RECIPIENT`
-2. **Allow workflow pushes** — the workflows declare
+1. **Turn on GitHub Pages**: Settings → Pages → Source: "GitHub Actions".
+   The site is then at `https://<user>.github.io/<repo>/`. Pages of a public
+   repo are public.
+2. **Enable workflows on a fork**: open the Actions tab and enable them
+   (GitHub turns off workflows, including scheduled ones, on new forks).
+3. **(Optional) email**: add repository secrets
+   (Settings → Secrets and variables → Actions):
+   `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_RECIPIENT`. Without `SMTP_PASSWORD`
+   the run skips email and only updates the web digest.
+4. **Allow workflow pushes** — the workflows declare
    `permissions: contents: write`; if your fork restricts the default
    `GITHUB_TOKEN`, set Settings → Actions → General → Workflow permissions to
    "Read and write".
-3. Push to `main` and trigger **Run Daily Arxiv** manually once to create the
-   `results` branch.
+5. Push to `main` and trigger **Run Daily Arxiv** manually once to create the
+   `results` branch and the first web page.
 
-If a required secret is missing the run **fails loudly** (non-zero exit) —
-it never silently skips your digest.
+If `SMTP_PASSWORD` is set but another email secret is missing, the run
+**fails loudly** (non-zero exit). It never silently skips your digest.
 
-Ops liveness alarm: with failures going red, **"the daily email stopped
-arriving" is a reliable signal** — enable failure notifications
+Ops liveness alarm: with failures going red, **"the web digest stopped
+updating" (or "the daily email stopped arriving") is a reliable signal**.
+Enable failure notifications
 (Settings → Notifications → Actions) or watch the
 [Actions tab][workflow-url]; a red run means the digest did not go out.
 
@@ -151,7 +168,8 @@ arriving" is a reliable signal** — enable failure notifications
 | `ARXIV_PAPERS.md` / `arxiv-web.md` | accumulated collection, grouped by category |
 | `daily-arxiv*.json` / dated `logs/json`, `logs/md` | per-day snapshots |
 | `PAPER_LIST.md` | flat, deduplicated, newest-first list |
-| `notified_papers.json` | dedup state (emailed paper keys) |
+| `digests/YYYY-MM-DD.json` | each day's digest shortlist, source of the web digest |
+| `notified_papers.json` | dedup state (dispatched paper keys) |
 | `archive/archive_YYYYMM.*` | monthly archive of >1-year-old papers |
 
 All of the above live on the `results` branch via the daily workflow.

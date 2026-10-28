@@ -35,6 +35,7 @@ from ..services.code_link_client import CodeLinkClient
 from ..services.email_service import EmailService
 from ..services.hf_papers_client import HfPapersClient
 from ..utils.date_utils import get_dated_file_paths
+from ..web.site_builder import save_day
 
 
 class DailyArxivApp:
@@ -215,13 +216,18 @@ class DailyArxivApp:
                     "HF daily-papers fetch failed; continuing arXiv-only: %s", e
                 )
 
+        web_cfg = config.get("web_digest")
+        web_enabled = bool(getattr(web_cfg, "enabled", False))
+        send_requested = bool(config.get('send_email', False))
+
         run_ok = True
         if not main_data and not email_papers_by_cat:
             # Zero arXiv papers across every category (with a 14-day fetch
             # window this is effectively impossible on a healthy day) and no
-            # fresh HF papers: almost certainly a fetch outage. A send-enabled
-            # run must fail loudly rather than sit green with no digest.
-            if config.get('send_email', False):
+            # fresh HF papers: almost certainly a fetch outage. A run with a
+            # delivery channel (email or web digest) must fail loudly rather
+            # than sit green with no digest.
+            if send_requested or web_enabled:
                 logging.warning(
                     "Nothing fetched from arXiv and no fresh HF papers; "
                     "digest not sent."
@@ -256,28 +262,41 @@ class DailyArxivApp:
             paper_list_md = generate_paper_list(all_scored)
             self.file_manager.write_paper_list(paper_list_md, toc_cfg.paper_list_path)
 
-        # Email the most-recent-day slice if requested. After a successful
-        # send, record the dispatched keys so they are never re-emailed.
+        # The web page carries the same slice as the email. It is keyed on the
+        # run date, not the paper date, so every daily run gets its own page.
+        web_saved = False
+        if web_enabled and email_papers_by_cat:
+            path = save_day(
+                web_cfg.data_dir, datetime.date.today(), email_papers_by_cat
+            )
+            web_saved = True
+            logging.info("Web digest day saved -> %s", path)
+
+        # Email the most-recent-day slice if requested. Dispatched keys are
+        # recorded only after a successful send, so failed sends retry. With
+        # email off, saving the web page counts as the dispatch.
         send_ok = True
-        if config.get('send_email', False) and email_papers_by_cat:
+        sent = False
+        if send_requested and email_papers_by_cat:
             sent = self._send_email_notification(
                 email_papers_by_cat, most_recent_date
             )
             send_ok = sent
-            if sent and dedup_enabled and delta_keys:
-                combined = load_notified(notified_path) | delta_keys
-                save_notified(
-                    notified_path, combined, max_age_days=dedup_max_age
-                )
-            elif not sent:
-                # Send failed — do NOT record keys, so they retry next run.
+            if not sent:
                 logging.warning(
                     "Email send failed; %d paper(s) will retry next run.",
                     len(delta_keys),
                 )
-        elif config.get('send_email', False):
+        elif send_requested:
             logging.info(
                 "No new papers since last dispatch; email skipped."
+            )
+
+        dispatched = sent or (web_saved and not send_requested)
+        if dispatched and dedup_enabled and delta_keys:
+            combined = load_notified(notified_path) | delta_keys
+            save_notified(
+                notified_path, combined, max_age_days=dedup_max_age
             )
 
         logging.info("Daily arXiv collection completed")

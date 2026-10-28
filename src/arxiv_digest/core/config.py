@@ -103,6 +103,20 @@ class HfPapersConfig:
     date_offset_days: int = 0
 
 
+@dataclass
+class WebDigestConfig:
+    """Static web digest (GitHub Pages) settings.
+
+    ``data_dir`` keeps every day's digest slice. Only the newest ``keep_days``
+    days are rendered into ``site_dir``.
+    """
+
+    enabled: bool = False
+    data_dir: str = "./logs/digests"
+    site_dir: str = "./site"
+    keep_days: int = 14
+
+
 # ---------------------------------------------------------------------------
 # Query building
 # ---------------------------------------------------------------------------
@@ -257,6 +271,16 @@ def _parse_hf_papers(raw: Dict[str, Any]) -> HfPapersConfig:
     )
 
 
+def _parse_web_digest(raw: Dict[str, Any]) -> WebDigestConfig:
+    raw = raw or {}
+    return WebDigestConfig(
+        enabled=bool(raw.get("enabled", False)),
+        data_dir=str(raw.get("data_dir", "./logs/digests")),
+        site_dir=str(raw.get("site_dir", "./site")),
+        keep_days=int(raw.get("keep_days", 14)),
+    )
+
+
 def _legacy_query_string(filters: List[str]) -> str:
     """Build the legacy bare ``"phrase" OR word`` query string for old code paths.
 
@@ -337,6 +361,7 @@ def load_config(config_file: str) -> Dict[str, Any]:
     config["rate_limit"] = _parse_rate_limit(config.get("rate_limit"))
     config["toc"] = _parse_toc(config.get("toc"))
     config["hf_papers"] = _parse_hf_papers(config.get("hf_papers"))
+    config["web_digest"] = _parse_web_digest(config.get("web_digest"))
 
     # Backward-compat ``kv`` shim: map topic name -> legacy bare query string.
     # New code should call build_category_query(category) instead.
@@ -376,6 +401,7 @@ __all__ = [
     "RateLimitConfig",
     "TocConfig",
     "HfPapersConfig",
+    "WebDigestConfig",
     "build_category_query",
     "load_config",
     "validate_config",

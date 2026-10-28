@@ -46,6 +46,7 @@ build-backend = "hatchling.build"
 # ``src.daily_arxiv...`` entry points failed with ModuleNotFoundError.
 arxiv-digest = "arxiv_digest.cli.main:main"
 archive-papers = "arxiv_digest.archive.archiver:main"
+build-site = "arxiv_digest.web.site_builder:main"
 
 [dependency-groups]
 dev = [

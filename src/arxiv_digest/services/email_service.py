@@ -244,6 +244,7 @@ class EmailService:
         papers_by_category: Dict[str, List[Paper]],
         date_now: str,
         stats: Optional[Dict[str, Any]] = None,
+        nav_html: str = "",
     ) -> str:
         """Render the 'Daily arXiv Digest' HTML email.
 
@@ -255,6 +256,8 @@ class EmailService:
                 "threshold": float}``.  When ``None``, ``total`` and
                 ``categories`` are derived from ``papers_by_category`` and
                 the threshold clause is omitted from the meta line.
+            nav_html: Optional block placed above the masthead (the web
+                digest's date navigation). Empty for the email.
 
         Returns:
             Complete HTML document string (``<!DOCTYPE html>...</html>``).
@@ -273,7 +276,7 @@ class EmailService:
         ]
         total_papers = sum(len(papers) for _, papers in sections)
 
-        body_parts: List[str] = [self._render_masthead(date_now, stats)]
+        body_parts: List[str] = [nav_html, self._render_masthead(date_now, stats)]
 
         if total_papers == 0:
             body_parts.append(self._render_empty_state())
@@ -403,6 +406,9 @@ class EmailService:
             'width:100% !important; '
             'padding-left:0 !important; padding-right:0 !important; }\n'
             '      .grid-gutter { display:none !important; }\n'
+            '      .surface { width:100% !important; }\n'
+            '      .outer-pad { padding:8px !important; }\n'
+            '      .card-pad { padding:24px 16px !important; }\n'
             '    }\n'
             '    a:hover { text-decoration: underline !important; }\n'
             '    details > summary { cursor: pointer; list-style: none; }\n'
@@ -426,13 +432,13 @@ class EmailService:
             f' border="0" width="100%" class="page" '
             f'style="background:{_PAGE};">\n'
             '    <tr>\n'
-            '      <td align="center" style="padding:24px;">\n'
+            '      <td align="center" class="outer-pad" style="padding:24px;">\n'
             '        <table role="presentation" cellpadding="0" '
             'cellspacing="0" border="0" width="600" class="surface card" '
             f'style="background:{_PAPER}; border:1px solid {_HAIRLINE}; '
             f'width:600px; max-width:600px; border-collapse:separate;">\n'
             '          <tr>\n'
-            '            <td style="padding:32px 28px;">\n'
+            '            <td class="card-pad" style="padding:32px 28px;">\n'
             + body_html +
             '            </td>\n'
             '          </tr>\n'

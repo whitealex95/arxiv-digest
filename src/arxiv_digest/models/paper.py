@@ -8,7 +8,7 @@ authors, arxiv link, code link).
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import date
 from typing import Optional
 
@@ -98,3 +98,16 @@ class Paper:
                 f"Paper: [@{self.paper_key}]({self.abs_url})\n"
             )
         return f"{head}> **Abstract:** {self.abstract}\n"
+
+    def to_dict(self) -> dict:
+        data = asdict(self)
+        data["published"] = self.published.isoformat()
+        data["updated"] = self.updated.isoformat()
+        return data
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "Paper":
+        data = dict(data)
+        data["published"] = date.fromisoformat(data["published"])
+        data["updated"] = date.fromisoformat(data["updated"])
+        return cls(**data)
