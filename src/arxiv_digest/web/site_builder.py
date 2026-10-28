@@ -81,20 +81,40 @@ def save_day(
     return path
 
 
-def config_edit_url(config_path: str) -> Optional[str]:
-    """GitHub web-editor URL for the config, when building inside Actions."""
+# The daily workflow commits logs/ to this branch, not to main.
+RESULTS_BRANCH = "results"
+
+
+def _github_url(kind: str, branch: Optional[str], path: str) -> Optional[str]:
+    """URL of ``path`` in the repo of the running Actions job, else None."""
     repo = os.environ.get("GITHUB_REPOSITORY")
-    if not repo or os.path.isabs(config_path):
+    if not repo or os.path.isabs(path):
         return None
     server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
-    branch = os.environ.get("GITHUB_REF_NAME", "main")
-    return f"{server}/{repo}/edit/{branch}/{os.path.normpath(config_path)}"
+    branch = branch or os.environ.get("GITHUB_REF_NAME", "main")
+    return f"{server}/{repo}/{kind}/{branch}/{os.path.normpath(path)}"
+
+
+def config_edit_url(config_path: str) -> Optional[str]:
+    return _github_url("edit", None, config_path)
+
+
+def paper_list_url(paper_list_path: str) -> Optional[str]:
+    return _github_url("blob", RESULTS_BRANCH, paper_list_path)
+
+
+def _nav_link(label: str, url: str) -> str:
+    return (
+        f'<a href="{_esc(url)}" class="accent" style="color:{_ACCENT}; '
+        f'text-decoration:none;">{label}</a>'
+    )
 
 
 def _render_nav(
     days: List[datetime.date],
     current: datetime.date,
     edit_url: Optional[str] = None,
+    list_url: Optional[str] = None,
 ) -> str:
     items = []
     for day in days:
@@ -109,15 +129,25 @@ def _render_nav(
                 f'<a href="{day.isoformat()}.html" class="muted" '
                 f'style="color:{_MUTED}; text-decoration:none;">{label}</a>'
             )
+    tools = []
+    if list_url:
+        tools.append(_nav_link("full&nbsp;paper&nbsp;list&nbsp;↗", list_url))
     if edit_url:
-        items.append(
-            f'<a href="{_esc(edit_url)}" class="accent" style="color:{_ACCENT}; '
-            f'text-decoration:none;">edit&nbsp;config.yaml</a>'
-        )
+        tools.append(_nav_link("edit&nbsp;config.yaml&nbsp;↗", edit_url))
+    # Not inside the .muted div: its dark-mode "a" rule would turn these gray.
+    tools_html = (
+        f'<div style="font-family:{_MONO}; font-size:11px; line-height:2;">'
+        + " · ".join(tools)
+        + "</div>"
+        if tools else ""
+    )
     return (
+        f'<div style="padding-bottom:20px;">'
         f'<div class="muted" style="font-family:{_MONO}; color:{_MUTED}; '
-        f'font-size:11px; line-height:2; padding-bottom:20px;">'
+        f'font-size:11px; line-height:2;">'
         + " · ".join(items)
+        + "</div>"
+        + tools_html
         + "</div>"
     )
 
@@ -133,6 +163,7 @@ def build_site(
     keep_days: int,
     threshold: Optional[float] = None,
     edit_url: Optional[str] = None,
+    list_url: Optional[str] = None,
 ) -> int:
     """Render the newest ``keep_days`` digests into ``site_dir``.
 
@@ -157,7 +188,8 @@ def build_site(
         }
         page = renderer.render_email(
             papers_by_category, day.isoformat(), stats,
-            nav_html=_render_nav(days, day, edit_url),
+            nav_html=_render_nav(days, day, edit_url, list_url),
+            paper_list_url=list_url,
         )
         _write(os.path.join(site_dir, f"{day.isoformat()}.html"), page)
         if i == 0:
@@ -183,6 +215,7 @@ def main() -> int:
     count = build_site(
         web.data_dir, web.site_dir, web.keep_days, config["scoring"].threshold,
         edit_url=config_edit_url(args.config_path),
+        list_url=paper_list_url(config["toc"].paper_list_path),
     )
     logging.info("Web digest site: %d day page(s) -> %s", count, web.site_dir)
     return 0
