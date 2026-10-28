@@ -75,7 +75,7 @@
 |**2026-10-27**|**SplatScout: Query-Driven Part-Level Referring Segmentation in Gaussian Scenes**|Yihan Zang et.al.|[@2610.37098](http://arxiv.org/abs/2610.37098)|null|
 |**2026-10-27**|**Learning to Look Beyond Screens: Transferable Visual Observation from GUI Grounding**|Ruilin Yao et.al.|[@2610.37093](http://arxiv.org/abs/2610.37093)|null|
 |**2026-10-27**|**GAWM: A Compact Latent World-Action Model for Multi-Task Robot Manipulation**|Yang Liu et.al.|[@2610.37091](http://arxiv.org/abs/2610.37091)|null|
-|**2026-10-27**|**Zooming without Zooming v2: From Seeing Details to Connecting Evidence for Generalizable Multimodal Perception**|Lai Wei et.al.|[@2610.37037](http://arxiv.org/abs/2610.37037)|null|
+|**2026-10-27**|**Zooming without Zooming v2: From Seeing Details to Connecting Evidence for Generalizable Multimodal Perception**|Lai Wei et.al.|[@2610.37037](http://arxiv.org/abs/2610.37037)|**[link](https://github.com/inclusionAI/Zooming-without-Zooming-v2)**|
 |**2026-10-27**|**V-LUMEN: Visual Lookup Memory for Embedding Scaling in Vision-Language Models**|Miso Choi et.al.|[@2610.37019](http://arxiv.org/abs/2610.37019)|null|
 |**2026-10-27**|**LearnPrunerV2: Learnable Progressive Token Pruning for Vision-Language Models**|Rinyoichi Takezoe et.al.|[@2610.36986](http://arxiv.org/abs/2610.36986)|null|
 |**2026-10-27**|**Explicit Regional Representations For Video Quality Assessment**|Fuyi Yang et.al.|[@2610.36978](http://arxiv.org/abs/2610.36978)|null|
