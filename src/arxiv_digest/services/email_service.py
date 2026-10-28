@@ -199,6 +199,44 @@ def _upvote_badge(upvotes: int) -> str:
     )
 
 
+def _link_button(label: str, url: str) -> str:
+    """Filled accent button for the links readers act on (code, website).
+
+    Must not sit inside a ``.ink`` / ``.muted`` element: their dark-mode
+    ``a`` color rules are more specific than ``a.btn`` and would win.
+    """
+    return (
+        f'<a href="{_esc(url)}" class="btn" style="display:inline-block; '
+        f'font-family:{_MONO}; font-size:11px; font-weight:600; '
+        f'line-height:1.4; padding:5px 10px; margin:0 6px 6px 0; '
+        f'border-radius:6px; background:{_ACCENT}; '
+        f'border:1px solid {_ACCENT}; color:#FFFFFF; '
+        f'text-decoration:none; white-space:nowrap;">{_esc(label)}</a>'
+    )
+
+
+def _link_chip(label: str, url: str) -> str:
+    """Secondary link (arXiv, HF page) in the ``.badge`` tint. Same placement
+    rule as :func:`_link_button`."""
+    return (
+        f'<a href="{_esc(url)}" class="badge" style="display:inline-block; '
+        f'font-family:{_MONO}; font-size:11px; font-weight:500; '
+        f'line-height:1.4; padding:5px 10px; margin:0 6px 6px 0; '
+        f'border-radius:6px; background:{_ACCENT_TINT}; '
+        f'border:1px solid {_ACCENT_TINT_BORDER}; color:{_ACCENT_S}; '
+        f'text-decoration:none; white-space:nowrap;">{_esc(label)}</a>'
+    )
+
+
+def _primary_links(paper: Paper) -> List[str]:
+    links = []
+    if paper.code_url:
+        links.append(_link_button("Code ↗", paper.code_url))
+    if paper.project_url:
+        links.append(_link_button("Website ↗", paper.project_url))
+    return links
+
+
 # --- EmailService -----------------------------------------------------------
 
 class EmailService:
@@ -245,6 +283,7 @@ class EmailService:
         date_now: str,
         stats: Optional[Dict[str, Any]] = None,
         nav_html: str = "",
+        paper_list_url: Optional[str] = None,
     ) -> str:
         """Render the 'Daily arXiv Digest' HTML email.
 
@@ -258,6 +297,8 @@ class EmailService:
                 the threshold clause is omitted from the meta line.
             nav_html: Optional block placed above the masthead (the web
                 digest's date navigation). Empty for the email.
+            paper_list_url: Optional URL that turns the footer's
+                ``logs/PAPER_LIST.md`` mention into a link.
 
         Returns:
             Complete HTML document string (``<!DOCTYPE html>...</html>``).
@@ -289,7 +330,7 @@ class EmailService:
             body_parts.append(self._render_index(sections))
             body_parts.append(self._render_sections(sections))
 
-        body_parts.append(self._render_footer())
+        body_parts.append(self._render_footer(paper_list_url))
         return self._render_document(date_now, "".join(body_parts))
 
     # ----------------------------------------------------------- SMTP helpers
@@ -371,11 +412,13 @@ class EmailService:
         The ``<head>`` ``<style>`` block carries ONLY:
         (1) ``@media (prefers-color-scheme: dark)`` overrides on a small
             reusable class set (``.page .surface .card .ink .muted .rule
-            .accent .badge`` + ``svg .accent``) with ``!important``;
+            .rule-line .accent .badge`` + ``svg .accent`` + ``a.btn``) with
+            ``!important``. ``.rule`` paints hairline cells (background),
+            ``.rule-line`` only recolors a border;
         (2) the ``.badge`` light default (outside the dark block, so the
             class owns badge bg / border / color in both modes);
-        (3) ``@media (max-width: 520px)`` grid-collapse rules with
-            ``!important``;
+        (3) ``@media (max-width: 520px)`` grid-collapse and fluid-card rules
+            with ``!important``;
         (4) ``a:hover`` underline + ``summary`` cursor / marker niceties.
 
         Every visual also works without this block — light defaults are
@@ -392,11 +435,14 @@ class EmailService:
             '      .muted, .muted a { color:#93989D !important; }\n'
             '      .rule { background:#2A3137 !important; '
             'border-color:#2A3137 !important; }\n'
+            '      .rule-line { border-color:#2A3137 !important; }\n'
             '      .accent { color:#6BA8FF !important; }\n'
             '      .badge { background:#1C2733 !important; '
             'border-color:#2A3A4A !important; color:#8FBCFF !important; }\n'
             '      svg .accent { stroke:#6BA8FF !important; '
             'fill:#6BA8FF !important; }\n'
+            '      a.btn { background:#6BA8FF !important; '
+            'border-color:#6BA8FF !important; color:#13171A !important; }\n'
             '    }\n'
             '    .badge { background:' + _ACCENT_TINT + '; '
             'border:1px solid ' + _ACCENT_TINT_BORDER + '; '
@@ -501,6 +547,11 @@ class EmailService:
 
         def _mini_card(paper: Paper) -> str:
             teaser = _teaser(paper.abstract, 110)
+            primary = _primary_links(paper)
+            links_html = (
+                f'<div style="margin-top:8px;">{"".join(primary)}</div>'
+                if primary else ""
+            )
             return (
                 # Nested 1-cell table = the mini-card.
                 '<table role="presentation" cellpadding="0" cellspacing="0"'
@@ -528,6 +579,7 @@ class EmailService:
                 f'<div style="font-family:{_MONO}; color:{_INK_SOFT}; '
                 f'font-size:11px; line-height:1.4; margin-top:6px;">'
                 f'{_esc(teaser)}</div>'
+                f'{links_html}'
                 '</td></tr>'
                 '</table>'
             )
@@ -561,7 +613,7 @@ class EmailService:
             '<table role="presentation" cellpadding="0" cellspacing="0"'
             ' border="0" width="100%">'
             # Eyebrow row with hairline border-bottom.
-            f'<tr><td class="rule" style="padding-bottom:6px; '
+            f'<tr><td class="rule-line" style="padding-bottom:6px; '
             f'border-bottom:1px solid {_HAIRLINE};">'
             f'<div class="muted" style="font-family:{_MONO}; '
             f'color:{_MUTED}; font-size:10px; font-weight:500; '
@@ -648,7 +700,7 @@ class EmailService:
             '<table role="presentation" cellpadding="0" cellspacing="0"'
             ' border="0" width="100%">'
             # Eyebrow row with hairline border-bottom.
-            f'<tr><td class="rule" style="padding-bottom:6px; '
+            f'<tr><td class="rule-line" style="padding-bottom:6px; '
             f'border-bottom:1px solid {_HAIRLINE};">'
             f'<div class="muted" style="font-family:{_MONO}; '
             f'color:{_MUTED}; font-size:10px; font-weight:500; '
@@ -691,13 +743,13 @@ class EmailService:
                 f'letter-spacing:2px; padding-right:10px; padding-bottom:8px; '
                 f'vertical-align:baseline;">§ {section_num}</td>'
                 # Title — serif ink (carries the id anchor + border-bottom).
-                f'<td id="{slug}" width="100%" class="ink rule" '
+                f'<td id="{slug}" width="100%" class="ink rule-line" '
                 f'style="width:100%; font-family:{_SERIF}; color:{_INK}; '
                 f'font-size:18px; font-weight:600; line-height:1.2; '
                 f'padding-bottom:8px; border-bottom:1px solid {_HAIRLINE}; '
                 f'vertical-align:baseline;">{_esc(name)}</td>'
                 # Count — mono muted, right-aligned (also carries the border).
-                f'<td align="right" class="muted rule" '
+                f'<td align="right" class="muted rule-line" '
                 f'style="text-align:right; font-family:{_MONO}; '
                 f'color:{_MUTED}; font-size:10px; font-weight:500; '
                 f'letter-spacing:1.5px; text-transform:uppercase; '
@@ -724,26 +776,17 @@ class EmailService:
         pub_str = (
             paper.published.strftime("%Y-%m-%d") if paper.published else ""
         )
-        # Link row, built from whatever the paper carries. Order: arXiv key
-        # (always) · code · project · hf paper page (community-signal only —
-        # surfaces the HF upvotes/comments thread).
-        link_pairs: List[Tuple[str, str]] = [
-            (f"arXiv:{paper.paper_key}", paper.abs_url)
-        ]
-        if paper.code_url:
-            link_pairs.append(("code", paper.code_url))
-        if paper.project_url:
-            link_pairs.append(("project", paper.project_url))
+        # Link row, built from whatever the paper carries. Code and website
+        # come first as filled buttons, then arXiv (always) and the HF paper
+        # page (community-signal only, it holds the upvotes/comments thread).
+        links = _primary_links(paper)
+        links.append(_link_chip(f"arXiv:{paper.paper_key}", paper.abs_url))
         if paper.is_community_signal:
-            link_pairs.append(
-                ("hf", f"https://huggingface.co/papers/{paper.paper_key}")
-            )
-        link_row = " · ".join(
-            f'<a href="{_esc(url)}" class="muted" '
-            f'style="color:{_MUTED}; text-decoration:none;">'
-            f'{_esc(label)}</a>'
-            for label, url in link_pairs
-        )
+            links.append(_link_chip(
+                "Hugging Face",
+                f"https://huggingface.co/papers/{paper.paper_key}",
+            ))
+        link_row = "".join(links)
         # Badge: community-signal papers show their HF upvote count; scored
         # arXiv papers show the relevance score.
         badge = (
@@ -791,6 +834,7 @@ class EmailService:
             f'{badge}</td>'
             '</tr>'
             '</table>'
+            f'<div style="margin-top:10px;">{link_row}</div>'
             # Abstract — inline. No <details>/<summary> toggle: Outlook and
             # Gmail don't honor the toggle and render the summary as dead
             # text with the body forced open, so a static labelled block is
@@ -798,13 +842,10 @@ class EmailService:
             f'<div class="accent" style="font-family:{_MONO}; '
             f'color:{_ACCENT}; font-size:10px; font-weight:500; '
             f'text-transform:uppercase; letter-spacing:1.5px; '
-            f'margin-top:10px;">ABSTRACT</div>'
+            f'margin-top:4px;">ABSTRACT</div>'
             f'<div class="ink" style="font-family:{_SANS}; color:{_INK}; '
             f'font-size:13px; line-height:1.55; padding-top:4px;">'
             f'{_esc(abstract)}</div>'
-            # Link row.
-            f'<div class="muted" style="font-family:{_MONO}; color:{_MUTED}; '
-            f'font-size:10px; margin-top:8px;">{link_row}</div>'
             '</td>'
             '</tr>'
             '</table>'
@@ -828,8 +869,14 @@ class EmailService:
         )
 
     @staticmethod
-    def _render_footer() -> str:
+    def _render_footer(paper_list_url: Optional[str] = None) -> str:
         """Hairline · coupler mark · attribution + repo link."""
+        paper_list = (
+            f'<a href="{_esc(paper_list_url)}" class="accent" '
+            f'style="color:{_ACCENT}; text-decoration:none;">'
+            'logs/PAPER_LIST.md</a>'
+            if paper_list_url else 'logs/PAPER_LIST.md'
+        )
         return (
             '<table role="presentation" cellpadding="0" cellspacing="0"'
             ' border="0" width="100%">'
@@ -849,7 +896,7 @@ class EmailService:
             f'<a href="https://github.com/AlanSynn/arxiv-digest" class="muted" '
             f'style="color:{_MUTED}; text-decoration:none;">'
             'github.com/AlanSynn/arxiv-digest</a> · full list in '
-            'logs/PAPER_LIST.md'
+            f'{paper_list}'
             '</div>'
             '</td></tr>'
             '<tr><td style="padding-bottom:16px;"></td></tr>'

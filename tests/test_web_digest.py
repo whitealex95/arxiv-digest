@@ -4,7 +4,7 @@ from datetime import date
 
 from src.arxiv_digest.models.paper import Paper
 from src.arxiv_digest.web.site_builder import (
-    build_site, config_edit_url, list_days, load_day, save_day,
+    build_site, config_edit_url, list_days, load_day, paper_list_url, save_day,
 )
 
 
@@ -92,11 +92,21 @@ def test_config_edit_url_from_actions_env(monkeypatch):
     assert config_edit_url("/abs/config.yaml") is None
 
 
-def test_build_site_nav_has_edit_link(tmp_path):
+def test_paper_list_url_points_at_results_branch(monkeypatch):
+    monkeypatch.setenv("GITHUB_REPOSITORY", "someone/arxiv-digest")
+    assert paper_list_url("./logs/PAPER_LIST.md") == (
+        "https://github.com/someone/arxiv-digest/blob/results/logs/PAPER_LIST.md"
+    )
+
+
+def test_build_site_nav_has_tool_links(tmp_path):
     data_dir, site_dir = tmp_path / "data", tmp_path / "site"
     save_day(str(data_dir), date(2026, 10, 27), {"Motion": [_paper("1")]})
-    url = "https://github.com/someone/arxiv-digest/edit/main/config.yaml"
+    edit = "https://github.com/someone/arxiv-digest/edit/main/config.yaml"
+    full = "https://github.com/someone/arxiv-digest/blob/results/logs/PAPER_LIST.md"
 
-    build_site(str(data_dir), str(site_dir), keep_days=14, edit_url=url)
+    build_site(str(data_dir), str(site_dir), keep_days=14, edit_url=edit, list_url=full)
 
-    assert f'href="{url}"' in (site_dir / "index.html").read_text()
+    index = (site_dir / "index.html").read_text()
+    assert f'href="{edit}"' in index
+    assert index.count(f'href="{full}"') == 2  # nav row + footer

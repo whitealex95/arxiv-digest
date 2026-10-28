@@ -23,7 +23,7 @@ import datetime
 import logging
 from typing import Any, Callable, Dict, List, Set, Tuple
 
-from ..core.config import load_config, validate_config
+from ..core.config import TocConfig, load_config, validate_config
 from ..models.paper import Paper
 from ..processors.content_generator import ContentGenerator
 from ..processors.file_manager import FileManager
@@ -35,7 +35,7 @@ from ..services.code_link_client import CodeLinkClient
 from ..services.email_service import EmailService
 from ..services.hf_papers_client import HfPapersClient
 from ..utils.date_utils import get_dated_file_paths
-from ..web.site_builder import save_day
+from ..web.site_builder import paper_list_url, save_day
 
 
 class DailyArxivApp:
@@ -516,7 +516,10 @@ class DailyArxivApp:
 
         subject = f"Daily arXiv Digest — {date_str}"
         html_content = self.email_service.render_email(
-            papers_by_category, date_str, stats
+            papers_by_category, date_str, stats,
+            paper_list_url=paper_list_url(
+                (self.config.get('toc') or TocConfig()).paper_list_path
+            ),
         )
 
         success = self.email_service.send_email(recipient, subject, html_content)

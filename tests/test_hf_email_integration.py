@@ -129,9 +129,9 @@ def test_render_email_hf_paper_full_link_row():
         {"total": 1, "categories": 1, "threshold": None},
     )
     assert "huggingface.co/papers/2607.900" in html
-    assert "github.com/o/r" in html and ">code<" in html
-    assert "aka.ms/demo" in html and ">project<" in html
-    assert ">hf<" in html
+    assert "github.com/o/r" in html and ">Code ↗<" in html
+    assert "aka.ms/demo" in html and ">Website ↗<" in html
+    assert ">Hugging Face<" in html
 
 
 def test_render_email_no_hf_link_for_scored_papers():
@@ -142,7 +142,7 @@ def test_render_email_no_hf_link_for_scored_papers():
     scored.code_url = "https://github.com/o/r"
     html = service.render_email({"Character Motion": [scored]}, "2026-07-20")
     assert "huggingface.co/papers/2607.100" not in html
-    assert ">code<" in html
+    assert ">Code ↗<" in html
 
 
 def test_render_email_abstract_is_inline_not_toggle():
@@ -156,3 +156,28 @@ def test_render_email_abstract_is_inline_not_toggle():
     assert "▾" not in html
     assert "ABSTRACT" in html
     assert "Short abstract." in html      # body visible inline (not hidden)
+
+
+def test_code_and_website_render_as_buttons_before_abstract():
+    """Code / website links are filled buttons placed above the abstract,
+    and also appear on the Top-5 mini cards."""
+    service = EmailService({})
+    papers = [_scored(f"2607.{i:03d}", score=0.1 * i) for i in range(1, 7)]
+    papers[-1].code_url = "https://github.com/o/r"
+    papers[-1].project_url = "https://example.org/demo"
+    html = service.render_email({"Character Motion": papers}, "2026-07-20")
+
+    code_button = 'href="https://github.com/o/r" class="btn"'
+    assert html.count(code_button) == 2  # Top-5 mini card + section card
+    assert 'href="https://example.org/demo" class="btn"' in html
+    # The top-scored paper leads the section, so the first ABSTRACT label
+    # belongs to its card (mini cards have none).
+    section_button = html.index(code_button, html.index(code_button) + 1)
+    assert section_button < html.index("ABSTRACT")
+
+
+def test_footer_links_paper_list_when_url_given():
+    service = EmailService({})
+    url = "https://github.com/someone/arxiv-digest/blob/results/logs/PAPER_LIST.md"
+    assert f'href="{url}"' in service.render_email({}, "2026-07-20", paper_list_url=url)
+    assert 'href="' + url not in service.render_email({}, "2026-07-20")
