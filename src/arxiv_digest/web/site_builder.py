@@ -15,7 +15,7 @@ from typing import Dict, List, Optional
 
 from ..core.config import load_config
 from ..models.paper import Paper
-from ..services.email_service import _ACCENT, _MONO, _MUTED, EmailService
+from ..services.email_service import _ACCENT, _MONO, _MUTED, EmailService, _esc
 
 
 def _day_path(data_dir: str, day: datetime.date) -> str:
@@ -81,7 +81,21 @@ def save_day(
     return path
 
 
-def _render_nav(days: List[datetime.date], current: datetime.date) -> str:
+def config_edit_url(config_path: str) -> Optional[str]:
+    """GitHub web-editor URL for the config, when building inside Actions."""
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not repo or os.path.isabs(config_path):
+        return None
+    server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+    branch = os.environ.get("GITHUB_REF_NAME", "main")
+    return f"{server}/{repo}/edit/{branch}/{os.path.normpath(config_path)}"
+
+
+def _render_nav(
+    days: List[datetime.date],
+    current: datetime.date,
+    edit_url: Optional[str] = None,
+) -> str:
     items = []
     for day in days:
         label = day.strftime("%a&nbsp;%m-%d")
@@ -95,6 +109,11 @@ def _render_nav(days: List[datetime.date], current: datetime.date) -> str:
                 f'<a href="{day.isoformat()}.html" class="muted" '
                 f'style="color:{_MUTED}; text-decoration:none;">{label}</a>'
             )
+    if edit_url:
+        items.append(
+            f'<a href="{_esc(edit_url)}" class="accent" style="color:{_ACCENT}; '
+            f'text-decoration:none;">edit&nbsp;config.yaml</a>'
+        )
     return (
         f'<div class="muted" style="font-family:{_MONO}; color:{_MUTED}; '
         f'font-size:11px; line-height:2; padding-bottom:20px;">'
@@ -113,6 +132,7 @@ def build_site(
     site_dir: str,
     keep_days: int,
     threshold: Optional[float] = None,
+    edit_url: Optional[str] = None,
 ) -> int:
     """Render the newest ``keep_days`` digests into ``site_dir``.
 
@@ -137,7 +157,7 @@ def build_site(
         }
         page = renderer.render_email(
             papers_by_category, day.isoformat(), stats,
-            nav_html=_render_nav(days, day),
+            nav_html=_render_nav(days, day, edit_url),
         )
         _write(os.path.join(site_dir, f"{day.isoformat()}.html"), page)
         if i == 0:
@@ -161,7 +181,8 @@ def main() -> int:
     config = load_config(args.config_path)
     web = config["web_digest"]
     count = build_site(
-        web.data_dir, web.site_dir, web.keep_days, config["scoring"].threshold
+        web.data_dir, web.site_dir, web.keep_days, config["scoring"].threshold,
+        edit_url=config_edit_url(args.config_path),
     )
     logging.info("Web digest site: %d day page(s) -> %s", count, web.site_dir)
     return 0

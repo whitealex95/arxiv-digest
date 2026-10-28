@@ -3,7 +3,9 @@
 from datetime import date
 
 from src.arxiv_digest.models.paper import Paper
-from src.arxiv_digest.web.site_builder import build_site, list_days, load_day, save_day
+from src.arxiv_digest.web.site_builder import (
+    build_site, config_edit_url, list_days, load_day, save_day,
+)
 
 
 def _paper(key, cat="Motion", score=0.5, community=False):
@@ -76,3 +78,25 @@ def test_build_site_without_data_writes_index(tmp_path):
     site_dir = tmp_path / "site"
     assert build_site(str(tmp_path / "missing"), str(site_dir), keep_days=14) == 0
     assert "No new papers matched today" in (site_dir / "index.html").read_text()
+
+
+def test_config_edit_url_from_actions_env(monkeypatch):
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+    assert config_edit_url("config.yaml") is None
+
+    monkeypatch.setenv("GITHUB_REPOSITORY", "someone/arxiv-digest")
+    monkeypatch.setenv("GITHUB_REF_NAME", "main")
+    assert config_edit_url("./config.yaml") == (
+        "https://github.com/someone/arxiv-digest/edit/main/config.yaml"
+    )
+    assert config_edit_url("/abs/config.yaml") is None
+
+
+def test_build_site_nav_has_edit_link(tmp_path):
+    data_dir, site_dir = tmp_path / "data", tmp_path / "site"
+    save_day(str(data_dir), date(2026, 10, 27), {"Motion": [_paper("1")]})
+    url = "https://github.com/someone/arxiv-digest/edit/main/config.yaml"
+
+    build_site(str(data_dir), str(site_dir), keep_days=14, edit_url=url)
+
+    assert f'href="{url}"' in (site_dir / "index.html").read_text()
