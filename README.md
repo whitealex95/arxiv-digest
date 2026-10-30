@@ -76,11 +76,15 @@ scoring:
   exclude_penalty: 1.0
   email_max_per_category: 4            # digest shortlist caps (0 = uncapped)
   email_max_total: 15
+  digest_window_days: 4                # digest draws from the newest N publish days
 ```
 
 How selection works: include keywords are baked into the arXiv query, so
 every fetched paper scores at least one hit — the **caps** (per-category,
 then global, by score) are what make the email a digest instead of a dump.
+Candidates come from the newest `digest_window_days` publish days. Papers
+already shown in an earlier run are dropped first, then the caps apply, so a
+day with no new arXiv mailing still shows the best papers not yet shown.
 Archives and `PAPER_LIST.md` keep the full set either way.
 
 Email is optional. To send it, set these environment variables (no secrets
