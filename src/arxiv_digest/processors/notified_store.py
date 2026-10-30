@@ -2,11 +2,11 @@
 
 Problem this solves
 -------------------
-The email slice is "papers published on the single newest day"
-(:func:`~arxiv_digest.services.arxiv_client.filter_recent_day`).  arXiv posts
-new submissions on weekdays only, so over a weekend the "newest day" stalls
-and the *same* papers sit in the slice for 3 consecutive daily runs — each
-run re-emails them.  Without persistent state the runner cannot tell "already
+The email slice is "papers published in the newest few days"
+(:func:`~arxiv_digest.services.arxiv_client.filter_recent_day`), so the same
+papers sit in the slice for several consecutive daily runs, and longer when
+arXiv posts nothing new (weekends, skipped mailings).  Each run would
+re-email them.  Without persistent state the runner cannot tell "already
 sent" from "genuinely new".
 
 This module is the state half of the fix: a small JSON set of paper keys that

@@ -226,7 +226,7 @@ def test_load_real_config_yaml():
     cfg = load_config(os.path.join(here, "config.yaml"))
     assert len(cfg["categories"]) == 10
     assert validate_config(cfg) is True
-    assert cfg["max_results"] == 40
+    assert cfg["max_results"] == 100
     names = [c.name for c in cfg["categories"]]
     assert "Character Motion Synthesis & Animation" in names
     assert "World Models & Generative Video" in names
