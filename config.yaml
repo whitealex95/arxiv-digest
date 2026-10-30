@@ -22,7 +22,7 @@
 show_authors: True
 show_links: True
 show_badge: True
-max_results: 40
+max_results: 100   # one arXiv API page. VLA alone gets ~40 papers a day
 
 # file paths - all outputs go to logs directory
 json_readme_path: './logs/daily-arxiv.json'
@@ -64,9 +64,10 @@ web_digest:
   keep_days: 14
 
 # email dedup: each paper is dispatched at most once. The state file records
-# already-emailed paper keys across runs so a stalled newest-day (e.g. arXiv's
-# weekday-only posting over a weekend) never re-sends the same batch. The
-# workflow force-commits logs/ (incl. this file) to the results branch.
+# already-dispatched paper keys across runs. Dedup runs before the digest caps,
+# so a run with no new arXiv batch shows the best not-yet-shown papers of the
+# window instead of re-sending the same batch. The workflow force-commits
+# logs/ (incl. this file) to the results branch.
 email_dedup:
   enabled: True
   state_path: './logs/notified_papers.json'
@@ -99,6 +100,7 @@ scoring:
   exclude_penalty: 1.0         # subtracted from the score when any exclude keyword hits
   email_max_per_category: 4    # digest shortlist: top-4 per section (0 = uncapped)
   email_max_total: 15          # ...and top-15 overall (0 = uncapped)
+  digest_window_days: 4        # digest draws from the newest N publish days, minus already-shown papers
 
 # -----------------------------------------------------------------------------
 # Rate limiting & feature flags

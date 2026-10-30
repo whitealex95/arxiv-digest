@@ -177,6 +177,52 @@ def test_email_caps_ties_break_by_section_order():
     assert set(capped.keys()) == {"A", "B"}
 
 
+def _dated(key, cat, score, day):
+    p = _paper(key, cat, score)
+    p.published = day
+    return p
+
+
+def test_select_digest_dedups_before_caps():
+    """Already-shown top papers free their slots for the next unseen ones."""
+    papers = [_dated(f"2506.0000{i}", "A", 1.0 - i / 10, date(2025, 6, 17))
+              for i in range(4)]
+    scoring = ScoringConfig(email_max_per_category=2, email_max_total=0)
+
+    picked, keys = DailyArxivApp._select_digest(
+        papers, {"2506.00000", "2506.00001"}, scoring
+    )
+
+    assert [p.paper_key for p in picked["A"]] == ["2506.00002", "2506.00003"]
+    assert keys == {"2506.00002", "2506.00003"}
+
+
+def test_select_digest_window_spans_batch_days():
+    """A two-day arXiv batch keeps both days, older days fall out."""
+    papers = [
+        _dated("2506.00001", "A", 0.5, date(2025, 6, 19)),
+        _dated("2506.00002", "A", 0.5, date(2025, 6, 18)),
+        _dated("2506.00003", "A", 0.5, date(2025, 6, 15)),
+    ]
+    scoring = ScoringConfig(email_max_per_category=0, email_max_total=0,
+                            digest_window_days=4)
+
+    picked, keys = DailyArxivApp._select_digest(papers, set(), scoring)
+
+    assert keys == {"2506.00001", "2506.00002"}
+
+
+def test_select_digest_records_only_kept_papers():
+    """Papers cut by the caps stay unrecorded, so a later run can show them."""
+    papers = [_dated(f"2506.0000{i}", "A", 0.5, date(2025, 6, 17))
+              for i in range(3)]
+    scoring = ScoringConfig(email_max_per_category=1, email_max_total=0)
+
+    picked, keys = DailyArxivApp._select_digest(papers, set(), scoring)
+
+    assert keys == {"2506.00000"}
+
+
 # ---------------------------------------------------------------------------
 # priority ordering
 # ---------------------------------------------------------------------------

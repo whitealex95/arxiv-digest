@@ -58,6 +58,10 @@ class ScoringConfig:
     every fetched paper scores >= one abstract hit — and without caps the
     "digest" emails everything the query returned. ``0`` disables a cap.
     Archives and ``PAPER_LIST.md`` are unaffected (they keep the full set).
+
+    ``digest_window_days`` is how many trailing publish days the digest draws
+    from. One arXiv announcement spans up to four UTC days (Fri evening to
+    Mon), so a one-day window drops part of every batch.
     """
 
     threshold: float = 0.15
@@ -66,6 +70,7 @@ class ScoringConfig:
     exclude_penalty: float = 1.0
     email_max_per_category: int = 4
     email_max_total: int = 15
+    digest_window_days: int = 4
 
 
 @dataclass
@@ -239,6 +244,7 @@ def _parse_scoring(raw: Dict[str, Any]) -> ScoringConfig:
         exclude_penalty=float(raw.get("exclude_penalty", 1.0)),
         email_max_per_category=int(raw.get("email_max_per_category", 4)),
         email_max_total=int(raw.get("email_max_total", 15)),
+        digest_window_days=int(raw.get("digest_window_days", 4)),
     )
 
 

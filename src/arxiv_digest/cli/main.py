@@ -134,37 +134,19 @@ class DailyArxivApp:
             (p.published for p in all_scored), default=None
         )
 
-        # Email slice: only papers from the most recent published day.
-        # ``email_papers_by_cat`` feeds the Digest renderer directly.
-        email_papers = filter_recent_day(all_scored, window_days=1)
-        email_papers_by_cat: Dict[str, List[Paper]] = {}
-        for paper in email_papers:
-            email_papers_by_cat.setdefault(paper.category or "", []).append(paper)
-
-        # Digest caps: per-category top-N then a global cap, applied to the
-        # email slice only — archives and PAPER_LIST keep the full set.
-        # Runs BEFORE dedup (and before the HF section, which caps itself via
-        # its own top_n).
-        email_papers_by_cat = self._apply_email_caps(email_papers_by_cat, scoring)
-
-        # Cross-run dedup: drop papers already dispatched in a prior run so
-        # each paper is emailed at most once.  Guards against the newest-day
-        # stall on weekends (no new arXiv posts -> same slice 3 days running)
-        # re-sending the same batch every day.
+        # Cross-run dedup: each paper is dispatched at most once.
         dedup_cfg = self.config.get("email_dedup") or {}
         dedup_enabled = bool(dedup_cfg.get("enabled", True))
         notified_path = dedup_cfg.get(
             "state_path", "./logs/notified_papers.json"
         )
         dedup_max_age = int(dedup_cfg.get("max_age_days", 30))
-        delta_keys: Set[str] = set()
-        # ``notified`` is loaded unconditionally so the HF section can reuse it
-        # for cross-source dedup even when arXiv-slice dedup is disabled.
         notified = load_notified(notified_path) if dedup_enabled else set()
-        if dedup_enabled:
-            email_papers_by_cat, delta_keys = self._dedupe_email_slice(
-                email_papers_by_cat, notified
-            )
+
+        # ``email_papers_by_cat`` feeds the Digest renderer directly.
+        email_papers_by_cat, delta_keys = self._select_digest(
+            all_scored, notified, scoring
+        )
 
         # HuggingFace Daily Papers — community-signal section. Parallel
         # pipeline: HF curates by its own feature date, so these papers bypass
@@ -442,6 +424,28 @@ class DailyArxivApp:
         if after < before:
             logging.info("Digest caps: %d of %d paper(s) kept.", after, before)
         return capped
+
+    @classmethod
+    def _select_digest(
+        cls,
+        papers: List[Paper],
+        notified: Set[str],
+        scoring: Any,
+    ) -> Tuple[Dict[str, List[Paper]], Set[str]]:
+        """Recent papers, minus already-dispatched ones, then capped.
+
+        Dedup runs before the caps. Otherwise a run whose top papers were all
+        shown before (no new arXiv batch) ends up empty even though unseen
+        papers remain. Returns ``(papers_by_category, keys_to_record)``.
+        """
+        window = int(getattr(scoring, "digest_window_days", 1) or 1)
+        by_cat: Dict[str, List[Paper]] = {}
+        for paper in filter_recent_day(papers, window_days=window):
+            by_cat.setdefault(paper.category or "", []).append(paper)
+        by_cat, _ = cls._dedupe_email_slice(by_cat, notified)
+        by_cat = cls._apply_email_caps(by_cat, scoring)
+        keys = {p.paper_key for section in by_cat.values() for p in section}
+        return by_cat, keys
 
     @staticmethod
     def _dedupe_email_slice(
