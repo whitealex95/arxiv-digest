@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.10.30
+## 📚 Updated on 2026.10.31
 
 <details>
   <summary>Table of Contents</summary>
@@ -28,7 +28,7 @@
 - 2026-10-19, **Neural Controlled Directional Frame Generation for Sprite Animation**, Kenneth Alonso et.al., Paper: [@2610.27253](http://arxiv.org/abs/2610.27253)
 > **Abstract:** Sprite-based animation remains prevalent in video game development, but production workflows require capabilities beyond traditional in-betweening. While existing neural interpolation methods can generate intermediate frames, animators also need forward extrapolation to predict motion continuations and backward extrapolation for editing and reverse-engineering existing sprite sheets. Current video generation models either operate on natural video content with stochastic diffusion sampling incompatible with production requirements, or focus exclusively on interpolation without addressing extrapolation tasks. We present a deep learning approach for controlled directional frame generation in sprite animation using three specialized expert models that share identical U-Net encoder-decoder architectures and several domain-specific modifications, including RGBA-aware processing, multi-scale flow refinement, pixel-shuffle upsampling, and alpha-gated blending. Each model is trained on different temporal orderings of the same curated dataset: previous (frames 2,3>1), middle (frames 1,3>2), and next (frames 1,2>3). We demonstrate that only 280 carefully curated sprite triplets enable effective training for all three directional tasks without requiring massive generic datasets. Evaluation on 42 test triplets using the FLIP metric shows that all three models achieve comparable quality--previous (0.26), middle (0.26), and next (0.27)--with no significant degradation for extrapolation versus interpolation, outperforming general-purpose baselines by 17-57%. With deterministic single-pass generation and compact model, our method provides the first practical solution for controllable any-position frame generation specifically tailored for pixel art sprite animation workflows, validating that quality-over-quantity data curation enables specialized deep learning for niche visual domains.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -77,7 +77,7 @@
 - 2026-10-16, **ULIFLOW: Unified Latent Human-Object Interaction Flow**, Wenqi Cai et.al., Paper: [@2610.24286](http://arxiv.org/abs/2610.24286)
 > **Abstract:** Text-conditioned 3D human--object interaction (HOI) generation remains challenging because individually plausible human and object motions do not necessarily form a coherent interaction. We argue that a key limitation lies in conventional skeleton-based representations, which compactly describe body kinematics while leaving surface-level interaction geometry largely implicit, often requiring additional contact-specific regularizers. We propose ULIFlow, a framework that explicitly models continuous human--object relations within a unified latent space. To this end, we derive continuous marker--object relations from sparse body-surface markers and treat them as an explicit interaction modality alongside human motion and object dynamics. A Mixture-of-Transformers (MoT) autoencoder is then designed to jointly model these heterogeneous streams while preserving their modality-specific structures. Importantly, we let the relation stream directly participate in human and object reconstruction, encouraging the shared latent representation to preserve both individual dynamics and the interaction geometry that coordinates them. To further achieve variable-length generation, we introduce a blockwise Flow Forcing scheme with global sequence-progress conditioning, enabling progressive continuation from fixed-length training windows while maintaining consistent long-horizon dynamics. Extensive experiments demonstrate that ULIFlow consistently outperforms prior work in overall generation quality and human--object coordination, while preserving coherent interactions over requested durations beyond the training horizon.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -236,7 +236,7 @@
 - 2026-10-27, **GAWM: A Compact Latent World-Action Model for Multi-Task Robot Manipulation**, Yang Liu et.al., Paper: [@2610.37091](http://arxiv.org/abs/2610.37091)
 > **Abstract:** World-action models (WAMs) incorporate the prediction of future observations into robot policy learning. However, most WAMs build on billion-parameter vision-language or video-generation backbones, which incur high training cost and inference latency. In this letter, we present GAWM (Geometry-Aware World Model), a compact multi-task WAM that predicts future observations in the latent space of a frozen DINOv3 encoder. GAWM compresses the features of each camera view into a small set of tokens. A lightweight predictor, conditioned on the task rather than on actions, forecasts these tokens at two future horizons. The forecast is supervised with the dense patch features of future frames, which requires it to encode the spatial layout of the future scene. An action decoder directly regresses a chunk of future actions from the current and predicted tokens. With fewer than 100M parameters and no robot or video pretraining, GAWM outperforms billion-parameter WAMs on RoboTwin 2.0 and performs comparably to billion-parameter VLAs on LIBERO. On a dual-arm robot, it achieves lower action-prediction error on held-out demonstrations than a fine-tuned billion-parameter VLA, with substantially lower inference latency. Ablation studies show that the latent world model substantially improves performance when training data or training time is limited. Code is available at https://github.com/gaoxiang12/ga-wm.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -433,7 +433,7 @@
 - 2026-10-20, **Pair-Free Coarse-to-Real Video Generation via Real-to-Coarse Image Supervision**, Gonzalo Gómez-Nogales et.al., Paper: [@2610.28954](http://arxiv.org/abs/2610.28954)
 > **Abstract:** Coarse-to-real (C2R) video generation converts coarse animation, simulation, or game-rendered videos into photorealistic videos while preserving scene layout, camera motion, and dynamics. Training such models requires aligned (coarse, realistic) video pairs, which are expensive to create and confine prior systems to narrow synthetic domains. We exploit a simple asymmetry: paired videos are hard to obtain, but paired real-to-coarse images are easy to construct with existing editing and 3D reconstruction tools. Using these image pairs, we train the DINO-R2C model to transfer realistic images to coarse images in DINO feature space, and apply it frame-wise to ordinary real videos to synthesize pseudo-coarse videos. The C2R# model then learns to generate each real video from its pseudo-coarse counterpart, free from needing (coarse, realistic) video pairs. At inference, the DINO-R2C model is discarded and actual coarse videos drive the C2R# model directly. Thus, our pair-free training scales with any real-video corpora rather than with paired synthetic videos. We will release the model and project webpage at https://gonzalognogales.github.io/coarse2real-sharp/.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -444,7 +444,7 @@
 - 2026-10-21, **Make it Walk: Computational Design of LEGO Walkers**, Siqi Li et.al., Paper: [@2610.29505](http://arxiv.org/abs/2610.29505)
 > **Abstract:** LEGO walkers are walking automata constructed from modular LEGO Technic bricks. They exhibit intriguing locomotion and are also highly reconfigurable through the modular Technic bricks, making them widely applicable in education, recreation, and robotics research. However, existing LEGO walkers are designed mostly by reusing existing single-actuator walking mechanisms. Although the locomotion is stable, their fixed walking gaits limit their adaptability and versatility. This paper presents the first computational solution capable of designing LEGO walkers that not only walk stably, but also support a variety of walking gaits. Our idea is twofold. First, we control the foot motion trajectory of each leg mechanically via a specifically-designed gear-linkage mechanism, in which we incorporate a pair of 3D-printed non-circular gears to work with a LEGO Technic mechanism. Second, we drive each leg by an independent motor and synchronize the timings of multiple leg motions via a simple yet adaptable control algorithm, enabling stable and versatile locomotion. Importantly, we take this modeling as a foundation to co-design the morphology and control of the LEGO walkers to meet the target locomotion and appearance. Leveraging our approach, we created a variety of LEGO walkers, demonstrating various walking gaits and appearances, and fabricated some of them to show their locomotion capability in the real world.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -459,7 +459,7 @@
 - 2026-10-19, **Remote Expert Evaluation of Tabletop Avatar Gaze Control in Asymmetric Multi-Scale MR--VR Collaboration**, Carlos Mosquera et.al., Paper: [@2610.26360](http://arxiv.org/abs/2610.26360)
 > **Abstract:** This paper proposes an integrated setup for a multi-scale asymmetric collaboration scenario in the context of a remote-expert use case, focusing on the expert side. In this system, the remote expert (with an exocentric view in Mixed Reality (MR)) uses a Tangible User Interface (TUI) to precisely position and rotate their avatar within a scaled tabletop World-in-Miniature (WIM). Inside the WIM, the expert's avatar and the operator share the same scale and egocentric view, while the expert retains a global tabletop overview of the plant to support collaboration.   Interviews with industry experts during the participatory design phase revealed the need for an egocentric view inside the plant on the remote-expert side to enable full collaboration. We designed and studied three interaction-visualisation combinations to integrate and control the expert avatar's gaze: VR (fully immersive with direct head control), Head (floating screen with direct head control), and Touch (on-avatar screen with touchpad control).   We evaluated these methods with 29 participants across two fault-detection tasks: Same Machine, where both collaborators inspect the same machine, and Twin Machine, where they inspect identical machines in separate locations. The VR condition, which combines immersion, direct head control, and a full-scale view, yielded the strongest overall performance and user experience, while the tabletop avatar setup was well received for collaboration. Our findings inform the design of gaze-control techniques for asymmetric MR-VR collaboration and reveal challenges and opportunities for future work.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -624,7 +624,7 @@
 - 2026-10-19, **Rethinking Sparse-View 3D Gaussian Splatting: A Few-Shot Learning Perspective on Overfitting Prevention**, Lejia Ye et.al., Paper: [@2610.25887](http://arxiv.org/abs/2610.25887)
 > **Abstract:** Sparse-view novel view synthesis (NVS) is essential for AR/VR and real-time communication applications, yet remains challenging when reconstructing 3D scenes from limited viewpoints. While 3D Gaussian Splatting (3DGS) excels in dense-view scenarios, it suffers from overfitting and geometry degradation under sparse inputs. Current approaches often tackle these problems from a local perspective, addressing either data quality or training regularization individually, lacking a unified and interpretable framework for systematic improvement.   We introduce a new perspective that reframes sparse-view 3DGS from a few-shot learning viewpoint, treating each Gaussian primitive as a neuron and leveraging deep learning regularization techniques. Under this unified framework, our approach generates more effective supervision from scarce observations through two strategies: (1) data-related supervision enrichment via optical flow-guided pseudo-view synthesis and joint camera-scene optimization; and (2) training-time regularization via motion-aware dropout and early stopping, which suppress overfitting while preserving dynamic-scene stability. Extensive experiments on the SIGGRAPH Asia 2025 volumetric video challenge sparse-view dataset demonstrate significant improvements over state-of-the-art optimization-based and feed-forward baselines. Our system won first place in the sparse-view track of the SIGGRAPH Asia 2025 challenge.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -757,7 +757,7 @@
 - 2026-10-16, **CLARO: Clutter Aware Robot Orchestrator for Open-Vocabulary Grasping using VLM Agents**, Sungsu Kim et.al., Paper: [@2610.24016](http://arxiv.org/abs/2610.24016)
 > **Abstract:** Robots that follow natural-language instructions unlock a wide range of autonomous applications in households, warehouses, and labs. Real-world environments are diverse and often heavily cluttered, requiring robots to plan over multiple steps, act, and replan as they work toward a goal. We present CLARO (CLutter-Aware Robot Orchestrator), a VLM agent that orchestrates a set of perception and manipulation skills: open-vocabulary object detection, segmentation, 6-DoF grasping, and non-prehensile pushing to locate and retrieve a language-specified target in clutter. CLARO maintains a memory of its past actions to support long-horizon execution, and emits manipulation targets (grasp poses/3D waypoints) allowing transfer across robot arms without task-specific training. We evaluate CLARO against a range of methods on a dynamic simulation environment and standard image-based benchmarks, demonstrating strong generalization across object classes, lighting, and clutter levels. CLARO attains an average success rate of 89.1%, a relative improvement of over 16% on the strongest competing method in high cluttered scenes. We further analyze performance along grounding and grasping axes to characterize where each method succeeds and fails. Finally, we deploy CLARO on a robot arm across diverse cluttered scenes, achieving a success rate of 88.8%, and demonstrating strong sim2real generalizability.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -776,7 +776,7 @@
 - 2026-10-16, **OrTeN: Neural Inverse Graphics for Joint Terrain and Line-scan Camera Trajectory Reconstruction**, Josef Biberstein et.al., Paper: [@2610.24075](http://arxiv.org/abs/2610.24075)
 > **Abstract:** Digital terrain maps (DTMs) are used for landing site selection, terrain-relative navigation, and geological analysis in planetary exploration. Existing state-of-practice reconstruction techniques for creating DTMs from satellite imagery use multi-view stereo, requiring complex pipelines for dealing with camera error, changing illumination, and images with limited disparity. This work introduces Orbital Terrain Networks (OrTeN), a DTM construction method that uses neural inverse rendering to jointly optimize a textured height map and orbital camera corrections from line-scan satellite images. OrTeN operates directly on calibrated line-scan images with pixel values expressed as radiance factor (I/F) and corrects both broad trajectory pose inconsistencies and high-frequency pointing jitter jointly with surface reconstruction during training. Surface-projected patch normalized cross-correlation (NCC) enforces consistency between observations of the same terrain, refining an initial rough reconstruction. A semi-empirical reflectance model and shadow rendering are used to fit surface appearance from multi-date imagery with differing solar illumination. OrTeN requires only calibrated line-scan images and initial camera poses and does not use any structural priors including ranging/depth measurements or initial rough DTMs. OrTeN is evaluated on four planetary imagery datasets. Aligned terrain RMSEs are 2.35 m at Jezero Crater, 2.82 m at Gale Crater, 16.18 m at Olympus Mons, and 0.43 m at McGetchin Crater.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -791,7 +791,7 @@
 - 2026-10-16, **Semantic-Critical Regions for Video-to-Audio Generation**, Yun Fang et.al., Paper: [@2610.23021](http://arxiv.org/abs/2610.23021)
 > **Abstract:** In real-world videos, sound events are often associated with localized and fine-grained visual cues, such as object motion, object-part dynamics, contact events, and interactions between objects. Existing video-to-audio (V2A) methods employ implicit conditioning based on global visual representations or explicit control derived from temporal and spatial cues. However, subtle sound-producing and sound-indicative interactions remain insufficiently captured, leaving room for more precise visual conditioning of sound-event semantics and temporal dynamics. Motivated by this observation, we refer to regions containing such sound-relevant visual evidence as Semantic-Critical Regions (SCRs) and introduce SCR-V2A, a V2A generation framework that explicitly localizes and encodes SCRs as fine-grained visual guidance for audio generation. Specifically, we first identify SCRs through sound-related visual localization. We then transform the localized regions into a control representation through adapter-based dual visual encoding, which jointly captures global visual context and fine-grained sound-relevant evidence. The representation is used to condition a downstream audio generation model. Experiments on both in-domain and out-of-domain benchmarks demonstrate that SCR-V2A achieves strong performance in distribution matching and audio quality while remaining competitive in cross-modal alignment and requiring few trainable parameters. These results highlight the value of prioritizing fine-grained, sound-relevant visual regions for V2A generation.
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors

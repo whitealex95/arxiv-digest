@@ -3,22 +3,22 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.10.30
+## 📚 Updated on 2026.10.31
 
 <details open>
-<summary>📑 Table of Contents — 2026-10-30</summary>
+<summary>📑 Table of Contents — 2026-10-31</summary>
 
 **By category**
 - [Motion Authoring, Editing & Retargeting](#motion-authoring-editing--retargeting) (2)
-- [Character Motion Synthesis & Animation](#character-motion-synthesis--animation) (22)
+- [Character Motion Synthesis & Animation](#character-motion-synthesis--animation) (21)
 - [Vision-Language & Action Models (VLA/VLM)](#vision-language--action-models-vlavlm) (77)
 - [World Models & Generative Video](#world-models--generative-video) (96)
 - [Computational Design, Mechanism & Fabrication](#computational-design-mechanism--fabrication) (3)
 - [Sketch-based & Creative HCI Tools](#sketch-based--creative-hci-tools) (5)
 - [3D Understanding: Reconstruction & Generation](#3d-understanding-reconstruction--generation) (80)
-- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (64)
-- [Neural Rendering & Physics Simulation](#neural-rendering--physics-simulation) (7)
-- [Narrative & Long-form Audio](#narrative--long-form-audio) (5)
+- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (60)
+- [Neural Rendering & Physics Simulation](#neural-rendering--physics-simulation) (6)
+- [Narrative & Long-form Audio](#narrative--long-form-audio) (4)
 
 </details>
 
@@ -31,7 +31,7 @@
 |**2026-10-28**|**Decompose, Don't Expand: Capability-Independent AI Systems by Construction**|Tejaswi Gowda et.al.|[@2610.38144](http://arxiv.org/abs/2610.38144)|null|
 |**2026-10-19**|**Neural Controlled Directional Frame Generation for Sprite Animation**|Kenneth Alonso et.al.|[@2610.27253](http://arxiv.org/abs/2610.27253)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -60,7 +60,7 @@
 |**2026-10-17**|**MOMO: Human Motion from Moving Sounds**|Deli Cai et.al.|[@2610.24522](http://arxiv.org/abs/2610.24522)|null|
 |**2026-10-16**|**ULIFLOW: Unified Latent Human-Object Interaction Flow**|Wenqi Cai et.al.|[@2610.24286](http://arxiv.org/abs/2610.24286)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -144,7 +144,7 @@
 |**2026-10-27**|**Learning to Look Beyond Screens: Transferable Visual Observation from GUI Grounding**|Ruilin Yao et.al.|[@2610.37093](http://arxiv.org/abs/2610.37093)|null|
 |**2026-10-27**|**GAWM: A Compact Latent World-Action Model for Multi-Task Robot Manipulation**|Yang Liu et.al.|[@2610.37091](http://arxiv.org/abs/2610.37091)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -247,7 +247,7 @@
 |**2026-10-21**|**OccJEPA: Occlusion as Masking for Amodal Video Segmentation**|Genpei Zhang et.al.|[@2610.29061](http://arxiv.org/abs/2610.29061)|null|
 |**2026-10-20**|**Pair-Free Coarse-to-Real Video Generation via Real-to-Coarse Image Supervision**|Gonzalo Gómez-Nogales et.al.|[@2610.28954](http://arxiv.org/abs/2610.28954)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -257,7 +257,7 @@
 |**2026-10-22**|**Distributed Swarm Morphogenesis with Neural Cellular Automata**|Ray Verma et.al.|[@2610.31900](http://arxiv.org/abs/2610.31900)|null|
 |**2026-10-21**|**Make it Walk: Computational Design of LEGO Walkers**|Siqi Li et.al.|[@2610.29505](http://arxiv.org/abs/2610.29505)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -269,7 +269,7 @@
 |**2026-10-22**|**CoWriter: Guiding Methodological and Synergetic Human-LLM Co-Authoring**|Shmuel Amar et.al.|[@2610.31277](http://arxiv.org/abs/2610.31277)|null|
 |**2026-10-19**|**Remote Expert Evaluation of Tabletop Avatar Gaze Control in Asymmetric Multi-Scale MR--VR Collaboration**|Carlos Mosquera et.al.|[@2610.26360](http://arxiv.org/abs/2610.26360)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -356,7 +356,7 @@
 |**2026-10-19**|**Counting Contributions, Not Views: Occlusion-Aware Densification for 3D Gaussian Splatting**|Marcel Rogge et.al.|[@2610.27108](http://arxiv.org/abs/2610.27108)|null|
 |**2026-10-19**|**Rethinking Sparse-View 3D Gaussian Splatting: A Few-Shot Learning Perspective on Overfitting Prevention**|Lejia Ye et.al.|[@2610.25887](http://arxiv.org/abs/2610.25887)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -427,7 +427,7 @@
 |**2026-10-16**|**PASS: A Trustworthy Precision Approach Simulation System for CAT III Integrity Algorithm Development**|Lang Zhu et.al.|[@2610.23019](http://arxiv.org/abs/2610.23019)|null|
 |**2026-10-16**|**CLARO: Clutter Aware Robot Orchestrator for Open-Vocabulary Grasping using VLM Agents**|Sungsu Kim et.al.|[@2610.24016](http://arxiv.org/abs/2610.24016)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -441,7 +441,7 @@
 |**2026-10-17**|**Directionally Factorized Illumination with Spherical Harmonic Rotation**|Yimeng Dou et.al.|[@2610.24811](http://arxiv.org/abs/2610.24811)|null|
 |**2026-10-16**|**OrTeN: Neural Inverse Graphics for Joint Terrain and Line-scan Camera Trajectory Reconstruction**|Josef Biberstein et.al.|[@2610.24075](http://arxiv.org/abs/2610.24075)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -453,7 +453,7 @@
 |**2026-10-23**|**Melody Guidance for Audio Diffusion Models Without Retraining**|Cristobal Andrade et.al.|[@2610.32211](http://arxiv.org/abs/2610.32211)|null|
 |**2026-10-16**|**Semantic-Critical Regions for Video-to-Audio Generation**|Yun Fang et.al.|[@2610.23021](http://arxiv.org/abs/2610.23021)|null|
 
-<p align=right>(<a href=#updated-on-20261030>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261031>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors
