@@ -337,7 +337,3 @@
 | 2026-10-18 | **Vision as Proprioception: Estimating Humanoid Robot Pose from Video** | Character Motion Synthesis & Animation | 0.83 | human motion | [@2610.25288](http://arxiv.org/abs/2610.25288) | null |
 | 2026-10-18 | **DragonMoCap: Monocular Video-based Motion Capture for Diverse Dragon Topologies** | Character Motion Synthesis & Animation | 0.67 | motion capture | [@2610.25437](http://arxiv.org/abs/2610.25437) | null |
 | 2026-10-18 | **Dynamics-Aligned Representation Learning under Induced Partial Observability** | Embodied AI & Robot Learning | 0.33 | model-based reinforcement learning | [@2610.25511](http://arxiv.org/abs/2610.25511) | null |
-| 2026-10-17 | **MOMO: Human Motion from Moving Sounds** | Character Motion Synthesis & Animation | 1.00 | human motion, character animation, motion generation, motion diffusion | [@2610.24522](http://arxiv.org/abs/2610.24522) | null |
-| 2026-10-17 | **Gen2Dex: Learning Dexterous Manipulation from Simulation-Initialized Generated Video Demonstrations** | Embodied AI & Robot Learning | 1.00 | dexterous manipulation | [@2610.24392](http://arxiv.org/abs/2610.24392) | null |
-| 2026-10-17 | **Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation** | Embodied AI & Robot Learning | 0.50 | sim-to-real | [@2610.24675](http://arxiv.org/abs/2610.24675) | null |
-| 2026-10-17 | **Directionally Factorized Illumination with Spherical Harmonic Rotation** | Neural Rendering & Physics Simulation | 0.33 | neural rendering | [@2610.24811](http://arxiv.org/abs/2610.24811) | null |
