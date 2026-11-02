@@ -1,0 +1,569 @@
+{
+ "date": "2026-11-02",
+ "sections": [
+  {
+   "name": "Character Motion Synthesis & Animation",
+   "papers": [
+    {
+     "paper_key": "2610.41877",
+     "title": "Movens-Zero: Scaling Humanoid Motion Foundation Models with Large-Scale Human Videos",
+     "authors_str": "Wendong Bu",
+     "abstract": "Scaling humanoid motion foundation models is constrained by the scarcity of diverse, robot-executable data and by the difficulty of jointly learning from heterogeneous multimodal inputs while supporting real-time closed-loop control. We present Movens-5M, constructed from raw Internet videos through clip generation, quality filtering, semantic annotation, motion recovery, and physical refinement with humanoid retargeting and execution verification. It contains 15 million human-motion sequences and 5 million physically executable humanoid-motion sequences spanning over 10,000 hours, aligned with text, RGB video, speech, and music. Building on this data, we introduce Movens-Zero, a scalable understanding-generation-execution architecture that supports joint learning across modalities and real-time closed-loop execution. Task-mixed flow-matching training jointly optimizes a single action expert across seven generation tasks, enabling direct motion generation from text, speech, music, and video. Multimodal Real-Time Chunking connects overlapping chunks under continuously updated instructions and robot states for continuous closed-loop execution. We further introduce Movens-Intent, a four-track benchmark with 8,192 expert-verified condition-motion pairs across text, speech, music, and video. Experiments show consistent gains across all four modalities when scaling execution-verified data from 1% to 100% and action-expert capacity from 64M to 911M parameters, while demonstrating that data quality and cross-modal supervision improve generation and execution.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41877v1",
+     "abs_url": "http://arxiv.org/abs/2610.41877",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "motion generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.40972",
+     "title": "TalkFlow: Structured Latent Flow Matching for Speech Driven Holistic Motion Generation",
+     "authors_str": "Xinmu Wang",
+     "abstract": "Holistic co-speech motion generation aims to synthesize coordinated facial expressions, hand gestures, and body movements from speech, which is challenging due to heterogeneous part-specific dynamics, long-range temporal coherence, and cross-part coordination. Directly modeling high-dimensional motion can be unstable, while overly compact or unstructured latent spaces may lose fine-grained motion details. We present \\textbf{TalkFlow}, a structured latent flow framework for speech-driven holistic motion generation. TalkFlow learns a continuous three-stream latent representation for upper-body motion, lower-body motion, and facial expressions, preserving part-specific dynamics without forcing heterogeneous motion components into a single latent space. To maintain holistic coordination, lightweight cross-stream interactions are incorporated in both latent representation learning and flow-based generation. Conditioned on multi-level speech features, TalkFlow performs speech-conditioned latent flow matching, learning a continuous transport process from source latents to realistic motion latents. Experiments on the BEAT2 dataset demonstrate strong performance across facial expression accuracy, body gesture quality, and speech-motion synchronization. Qualitative comparisons and user studies further show that TalkFlow generates more natural, expressive, and speech-aligned holistic motion than state-of-the-art methods. The project page is available at https://xinmuwang.github.io/TalkFlow/.",
+     "published": "2026-10-29",
+     "updated": "2026-10-29",
+     "primary_category": "cs.GR",
+     "all_categories": [
+      "cs.GR",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.40972v1",
+     "abs_url": "http://arxiv.org/abs/2610.40972",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 1.0,
+     "matched_keywords": [
+      "motion generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2610.42021",
+     "title": "Nexus-VLA: Bridging Human and Robot Experiences via a Shared Hierarchical Semantic Latent Space",
+     "authors_str": "Biaoliang Guan",
+     "abstract": "Large-scale egocentric human videos provide rich and scalable manipulation experience for robot policy learning, yet substantial embodiment gaps in visual appearance, kinematic structure, and action spaces hinder effective knowledge transfer. Existing methods often decouple cross-embodiment knowledge alignment from robot policy learning, making it difficult for human manipulation knowledge to directly and fully contribute to robot action learning. To address this issue, we propose Nexus-VLA, a hybrid policy learning framework that enables cross-embodiment knowledge transfer through end-to-end human-robot joint training, allowing human manipulation experience to directly contribute to robot policy learning. We first introduce a hierarchical cross-embodiment semantic alignment paradigm that progressively establishes shared manipulation semantics from task intent to fine-grained interactions, enabling more complete use of the manipulation knowledge contained in human videos. Building on this hierarchy, we design a shared manipulation latent representation that jointly encodes multi-level shared knowledge into an internal representation directly used for continuous action generation, improving policy learning efficiency while effectively leveraging human knowledge. Across RoboCasa-GR1, OOD settings, and real-world robot experiments, Nexus-VLA achieves an 80.5% task success rate on RoboCasa-GR1 and demonstrates strong advantages in human-data utilization, learning efficiency, and cross-scenario generalization.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.42021v1",
+     "abs_url": "http://arxiv.org/abs/2610.42021",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "cross-embodiment"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41609",
+     "title": "VLA Policies Do Not Know When Not to Act: Unintended Task Execution and Start Suppression",
+     "authors_str": "Minsu Jang",
+     "abstract": "A robot should act only on an instruction from a person or on an intent that the robot explicitly represents and generates. Unintended actions taken without such an instruction can cause risk or inconvenience to people and the environment. We examine how recent vision-language-action (VLA) policies respond when the instruction is missing or meaningless. We apply a paired protocol with empty, neutral, nonsense, infeasible, and wrong-task instructions to six model checkpoints in LIBERO-Goal simulation. Holding the initial state fixed and varying only the instruction, we ask three questions: whether the robot starts to move, which task it completes, and what the instruction determines. Even when the instruction was empty, the robot started moving in every episode with all six checkpoints, and with five of them it often completed a task that the instruction had not specified. On two GR00T checkpoints, the instruction determined which task was executed but not whether the robot started moving; the robot moved even on infeasible instructions. We then tested three methods for suppressing the start: prepending \"if no task is given do not move\" to the instruction; a gate that holds the robot when the first action chunk for the given instruction nearly equals that for an empty instruction; and fine-tuning the policy to hold still on non-task inputs. The prefix stopped the robot in none of the six checkpoints, and the gate held it on non-task inputs in five of the six checkpoints. The fine-tuned policy never completed a task on non-task inputs, but it did not reliably keep the robot still, and it failed to suppress the start on infeasible instructions.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41609v1",
+     "abs_url": "http://arxiv.org/abs/2610.41609",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41408",
+     "title": "SACQ: Structure-Aware Codebook Quantization for Ultra-Low-Bit Vision-Language-Action Models",
+     "authors_str": "Haesung Lee",
+     "abstract": "Vision-Language-Action (VLA) models enable capable robot behavior, but their large memory footprint limits deployment on resource-constrained robotic platforms. Weight quantization is a natural remedy, yet post-training quantization (PTQ) recipes inherited from large language models degrade when applied to VLAs at ultra-low precision. Existing low-bit PTQ methods often fail to explicitly account for the structure of downstream operations and allocate precision without considering its effect on the policy actions. We introduce SACQ, an ultra- low-bit weight-only vector-codebook quantization framework for VLAs. SACQ combines (1) structure-aware codebook fitting with role-specific quadratic metrics that reflect input statistics and downstream sensitivity; (2) action-aware mixed-bit allocation based on the increase in final-action error as individual layers are compressed; and (3) two-stage post-quantization refinement that reassigns codeword indices with second-order error compensation and calibrates codebooks and row-group scales against the decoded action. Using GR00T N1.7, SACQ achieves 93.85% average success across four LIBERO suites at 1.5 bits per language/action weight while reducing model memory by 4.83x. With INT8 activation quantization and low-precision attention, it retains 93.55% success while running 1.51x faster than BF16. On SimplER, SACQ further achieves 63.76% and 52.27% success under Visual Matching and Variant Aggregation at 2 bits per language/action weight, compared to 58.90% and 53.45% for BF16, respectively.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.LG",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41408v1",
+     "abs_url": "http://arxiv.org/abs/2610.41408",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41330",
+     "title": "Cross-Embodiment Motion Planning by Coupling Body-Agnostic World Model with Differentiable Ego-Dynamics",
+     "authors_str": "Zhidong Wang",
+     "abstract": "Motion planning in clutter is embodiment-specific: the feasible free space and reachable commands depend on each robot's geometry and dynamics. Existing cross-embodiment policies output normalized commands that disregard these differences, or compensate through per-robot training and distillation. World models can in principle pool cross-embodiment data, yet command-conditioned models bind their latent dynamics to a single action space, while pose-conditioned models omit the mapping from commands to body-specific motion. On flat ground, however, embodiment affects the planner's observations only through the camera ego-motion. This letter proposes Hourglass, an hourglass-shaped architecture that factorizes cross-embodiment motion planning at this interface: a body-agnostic world model and each robot's differentiable ego-dynamics, which map commands to that ego-motion, are coupled only through it. The world model is trained on data pooled across embodiments and camera mounts; each robot's ego-dynamics is a reduced-order template with identified physical parameters. A generalist parameter-conditioned policy is learned once at this junction: each imagined step rolls out the template and then the world model, and imagination training through each robot's template makes the policy body-aware. On seven simulated robots of five locomotion types, the generalist policy outperforms imitation-learning and diffusion-policy baselines on the same world model by 3.8--10.6 percentage points in success rate and matches per-robot specialists without dedicated training, while approaching its parameter-conditioned MPPI teacher within 1.4--2.8 points without an online map. After three minutes of teleoperated driving for identification, the synthetic-data-trained model transfers zero-shot to a real skid-steer robot unseen in training, navigating unseen indoor scenes.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41330v1",
+     "abs_url": "http://arxiv.org/abs/2610.41330",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "cross-embodiment"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Embodied AI & Robot Learning",
+   "papers": [
+    {
+     "paper_key": "2610.41336",
+     "title": "HandMimicX: Learning Human-Like Dexterous Manipulation via an Object-Centric Policy from Egocentric Videos",
+     "authors_str": "Zihan Gao",
+     "abstract": "Learning dexterous manipulation from human videos remains an open challenge, particularly in the context of transferring a single demonstration into a spatially generalizable robotic skill and maintaining physically plausible human-like interactions. Unlike prior works that emphasize hand-motion imitation, we introduce an object-centric framework for acquiring dexterous skills from egocentric human RGB-D videos. Within our framework, we formulate the reinforcement learning (RL) objective in terms of object motion to decouple the underlying skill from the specific hand trajectory and impose constraints on hand-object interaction states to promote more anatomically natural hand configurations. Extensive experiments in simulation and on real robots demonstrate that our method enables efficient learning from human videos and generalizable skill transfer across novel spatial configurations.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41336v1",
+     "abs_url": "http://arxiv.org/abs/2610.41336",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "dexterous manipulation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41028",
+     "title": "Contact Imitation Interface: Transferring Dexterous Skills by Showing How Contact Unfolds",
+     "authors_str": "Zhixuan Xu",
+     "abstract": "Robot-free human demonstrations offer a promising route to scaling dexterous manipulation data. The key challenge is to preserve the demonstrator's natural dexterity while producing contact-grounded observations and actions that transfer to robot hands. We present Contact Imitation Interface (CIMI), a framework with contact-grounded demonstration and learning interfaces. The demonstration interface combines shared contact geometry and fingertip RGB views with contact-alignment-first retargeting and reprojection of wider scene views. The learning interface introduces a hierarchical policy in which a contact-surface planner predicts relative contact-surface trajectories and a controller coordinates wrist and finger commands to improve contact alignment. CIMI combines contact-grounded observations, retargeting, and action representations, improving mean final-stage success by at least 50 percentage points over baseline policies across six hand-task pairs on LEAP and Wuji. Hardware designs and software are publicly available.",
+     "published": "2026-10-29",
+     "updated": "2026-10-29",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41028v1",
+     "abs_url": "http://arxiv.org/abs/2610.41028",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 0.5,
+     "matched_keywords": [
+      "dexterous manipulation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.40857",
+     "title": "Frozen in Time: How a Physics Foundation Model Forgets Under Sim-to-Real Adaptation",
+     "authors_str": "Haaris Mian",
+     "abstract": "Scientific foundation models (SciFMs) have achieved remarkable performance on a wide range of PDEs, including the ability to efficiently adapt to unseen data distributions with additional finetuning. As with all neural architectures, finetuning such models comes with the risk of catastrophic forgetting, whereby adapting to new tasks degrades prior knowledge of the model. We study catastrophic forgetting in Walrus-1.3B, a SciFM for continuum dynamics, over the course of a two-stage sim-to-real adaptation: first finetuning on simulated flow around a cylinder and then adapting to experimental data of the same system. We find that finetuning on the simulations rapidly degrades rollout performance on the original pretraining datasets, with one-step errors increasing up to 35x after just 20 epochs. Subsequent adaptation to real data further erodes performance on the simulated task. We characterize the potential drivers of forgetting, such as dataset dependence and task representation similarity. We then show that replaying as little as 1% simulated data during real-data finetuning recovers most of the lost simulation performance while retaining effective adaptation to the experimental dynamics. Our results identify catastrophic forgetting as a practical obstacle to sim-to-real adaptation of SciFMs and show that lightweight replay strategies significantly improve retention.",
+     "published": "2026-10-29",
+     "updated": "2026-10-29",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG",
+      "physics.flu-dyn"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.40857v1",
+     "abs_url": "http://arxiv.org/abs/2610.40857",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "sim-to-real"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2610.42146",
+     "title": "Hierarchical World Models with Implicit Dynamics",
+     "authors_str": "Gaoyue Zhou",
+     "abstract": "Planning with world models enables test-time adaptation for embodied agents, offering superior generalization over direct policy learning. However, long-horizon tasks remain hindered by cumulative errors and search complexity. Existing hierarchical methods often use rigid macro-actions or latent skills, leading to brittle representations and limited fine-grained control. We introduce ID-WM (Implicit Dynamics World Models), a hierarchical world model that decouples state-space reachability from local control. Our framework utilizes a high-level model to sample feasible transitions across the state manifold and a low-level world model as an inverse dynamics solver to ground these transitions into precise actions. This allows the planner to identify reachable subgoals without being constrained by low-level execution details. By prioritizing local physical feasibility over global behavioral patterns, ID-WM synthesizes novel long-horizon plans from short segments, transcending the specific behavioral modes seen during training. We demonstrate its effectiveness across three navigation and manipulation suites, achieving a 38.5% improvement over state-of-the-art policy and diffusion-based planners. Crucially, by leveraging this hierarchical structure to mitigate compounding errors, our approach yields a 135% performance gain over single-level world model MPC, particularly in complex, unseen configurations for long-horizon tasks. Videos can be viewed at https://id-wm.github.io",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.42146v1",
+     "abs_url": "http://arxiv.org/abs/2610.42146",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41273",
+     "title": "SPT-Flow: One Integration, Many Futures in Continuous-Time World Models",
+     "authors_str": "Mingyang Lyu",
+     "abstract": "Continuous-time world models generate a latent trajectory through a single ODE integration, but adding stochastic conditioning does not ensure that the model uses it. In our teacher-forced baseline, posterior means vary by only about 1% of the prior scale, and matched and swapped latents yield indistinguishable reconstruction PSNR at the reported precision. We study a supervision-shortcut hypothesis: ground-truth intermediate states can reduce the need for trajectory-associated latent information. We introduce SPT-Flow, which samples one latent per trajectory and matches a free-running ODE rollout to demonstration states at multiple readout times. Re-anchoring experiments support the proposed mechanism. On LIBERO, with both models trained for 30k optimizer steps, SPT-Flow improves best-of-10 PSNR over our retrained ODEWorld baseline by 2.0 and 2.4 dB at the mid-trajectory and final frames and reduces mean LPIPS by 23%, with comparable per-sample inference cost. The rollout control recovers most of the accuracy gain; learned latent conditioning adds diversity and best-of-K gains while reducing mean sample accuracy relative to this control. The diagnostics support trajectory-associated latent utilization; semantic mode coverage under matched conditions in the robotic setting remains unverified.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41273v1",
+     "abs_url": "http://arxiv.org/abs/2610.41273",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41130",
+     "title": "One Verdict Is Not Enough: Regression Testing Learned World Models and Their Test Harnesses",
+     "authors_str": "Junyu Huo",
+     "abstract": "Learned world models ship as software components whose model versions, preprocessing, and test harnesses change between releases. Work on model updates already counts per-sample regressions, or negative flips, that an accuracy check hides. Two problems remain: a test can pass under one configuration and fail under another, and a harness fault can produce erroneous scores and wrong verdicts without a crash. We present TetraState, a regression-testing protocol for paired possible/impossible video tests. Each test runs under four fixed model-native configurations; its number of correct verdicts assigns one of four outcome classes. Inconclusive tests and failed executions are reported separately alongside the verdict rate. Revisions are compared by per-test outcome transitions, and the harness is versioned as part of the system under test. On all 506 IntPhys 2 Main tests and two heterogeneous systems, Cosmos 3 Nano and V-JEPA 2, two V-JEPA 2 harness revisions move modal accuracy by only 0.2 and 2.6 points yet change 11 and 214 test labels; in the second, accuracy rises although fewer tests are judged correctly, and 43 regressions keep the modal verdict, so a modal-verdict flip check misses them. These results outline a research agenda on configuration-level regression oracles for learned components.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.SE",
+     "all_categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41130v1",
+     "abs_url": "http://arxiv.org/abs/2610.41130",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41041",
+     "title": "Before We Adapt: The Zero-Shot Generalization Bottleneck in Continual World Models",
+     "authors_str": "Amir Mesbah",
+     "abstract": "Continual reinforcement learning (CRL) requires agents to operate under environmental changes while reusing prior knowledge whenever possible. We argue that model-based reinforcement learning provides a promising framework for this setting because learned world models (WMs) can, in principle, support change detection, knowledge reuse, adaptation, and acquisition of new knowledge. However, such benefits depend heavily on whether the learned model can generalize beyond the contexts in which it was trained. In this work, we propose to formulate this problem with a contextual Markov decision process in which context is decomposed into behavioral and physical components. This view organizes continual WM learning into reuse, adaptation, and acquisition of new knowledge. As a first step, we study direct reuse when behavioral rules remain unchanged. Using Dyna-Q and TD-MPC in controlled FourRooms tasks, we find that zero-shot reuse can degrade substantially under physical-context changes and that this behavior depends strongly on the observation representation used by the WM. Additional ablation studies and latent-space diagnostics suggest that learned representations do not automatically provide the invariances needed for reuse. These results identify representation generalization as an important bottleneck for reliable world-model reuse in CRL.",
+     "published": "2026-10-29",
+     "updated": "2026-10-29",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41041v1",
+     "abs_url": "http://arxiv.org/abs/2610.41041",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Narrative & Long-form Audio",
+   "papers": [
+    {
+     "paper_key": "2610.41852",
+     "title": "MFlowAudio: Efficient Text-to-Audio Synthesis via Mamba-based Stateful Flow Matching",
+     "authors_str": "Hao Dai",
+     "abstract": "Recent advancements in audio generation have been largely driven by Transformer-based diffusion models. However, these models suffer from quadratic complexity of self-attention, severely bottlenecking the long-form audio synthesis. To overcome this limitation, we propose MFlowAudio, a novel latent audio generation framework that synergizes the continuous-time dynamics of Flow Matching with a custom-designed TCMamba backbone. TCMamba uses an innovative dual-scan mechanism: a TimeMamba module to capture long-range causal dependencies with linear complexity, and a ChannelMamba module to model cross-channel correlations such as harmonic structures. Exploiting this structural foundation, we formulate the Stateful Flow Matching (SFM) paradigm. This framework inherently enables chunk-wise training and streaming generation, maintaining an $\\mathcal{O}(1)$ caching complexity without incurring extra computational overhead. To enable fine-grained controllable synthesis, we devise a novel guidance mechanism that neutralizes vector field collisions precipitated by on-the-fly semantic transitions of prompts. Comprehensive empirical evaluations confirm that MFlowAudio yields generative fidelity on par with state-of-the-art baselines while establishing significant computational efficiency, achieving above $14.5$% acceleration in generation and facilitating perceptually seamless streaming synthesis with a constant latency of $1.8$ seconds. Demo: https://huggingface.co/spaces/mflowaudio/MFlowAudio",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.SD",
+     "all_categories": [
+      "cs.SD"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41852v1",
+     "abs_url": "http://arxiv.org/abs/2610.41852",
+     "code_url": null,
+     "project_url": null,
+     "category": "Narrative & Long-form Audio",
+     "score": 0.75,
+     "matched_keywords": [
+      "long-form audio",
+      "audio generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2610.41390",
+     "title": "Hierarchical Dual-Graph Retrieval for Long-form Audio Reasoning",
+     "authors_str": "Eunsang Lee",
+     "abstract": "Large audio language models (LALMs) struggle with long-form audio reasoning, as processing entire recordings often limits to capture query-relevant content distributed across distant segments while incurring substantial computational cost. We introduce AudioHelix, a hierarchical DualGraph framework tailored for LALMs' retrieval-augmented generation (RAG) systems. Unlike existing text-only or non-graph RAG approaches, AudioHelix connects related textual and acoustic evidence across temporally distant segments for multi-hop reasoning. Extensive experiments on TraceAV-Bench, MMAU-Pro, and AudioMarathon demonstrate that AudioHelix consistently outperforms full-audio processing and existing RAG methods. The project site is https://github.com/ewha-mmai/audiohelix.",
+     "published": "2026-10-30",
+     "updated": "2026-10-30",
+     "primary_category": "cs.SD",
+     "all_categories": [
+      "cs.SD",
+      "cs.IR",
+      "eess.AS"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.41390v1",
+     "abs_url": "http://arxiv.org/abs/2610.41390",
+     "code_url": null,
+     "project_url": null,
+     "category": "Narrative & Long-form Audio",
+     "score": 1.0,
+     "matched_keywords": [
+      "long-form audio"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2610.36545",
+     "title": "FrameForge: Harnessing Priors of Video Foundation Models for Unified Image Generation",
+     "authors_str": "Yijing Lin",
+     "abstract": "Unified conditional image generation requires a single model to preserve different aspects of a visual input while producing a target image that follows textual guidance. Pretrained video models provide a promising foundation by encoding visual transformations across time, yet existing approaches typically assign the condition and target to fixed temporal positions. We observe that condition-target relationships vary substantially across generation tasks, while video models naturally encode visual transformations at different temporal scales. This motivates us to model conditional generation through input-adaptive virtual temporal relations. We propose FrameForge, which captures two complementary aspects of such relations. Mixture of Temporal Experts (MoTE) models how far the target lies from the condition by dynamically selecting temporal RoPE experts with different virtual intervals. Chain of Temporal Reasoning (CoTR) models how the condition is transformed into the target through a latent intermediate state, with a reasoning-bottleneck attention mask encouraging information propagation through this pathway. Experiments on DreamBench, COCO2017, and GEdit-Bench show that FrameForge achieves superior performance in subject-driven generation, canny-to-image generation, and image editing among the compared methods.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.36545",
+     "abs_url": "http://arxiv.org/abs/2610.36545",
+     "code_url": "https://github.com/Lyne1/FrameForge",
+     "project_url": "https://lyne1.github.io/FrameForge-page/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 112,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.22740",
+     "title": "R^2Orch: Recursive Self-Improvement for Agent Orchestration via Self-Play within a Skill-Internalization Loop",
+     "authors_str": "Mingda Zhang",
+     "abstract": "In recent years, agentic orchestration has been widely applied to solve complex human tasks. However, existing orchestration learning still faces key challenges, including hand-designed curricula, advantage collapse when a task's rollouts all reach the same outcome, and unreliable evaluation signals that judge each skill by one noisy score. To address these challenges, we propose R^2Orch, a new paradigm of Recursive Self-Play Orchestration: an inner loop of self-play that improves the orchestrator on self-chosen tasks, and an outer loop that improves how the inner loop improves. To support this paradigm, we introduce Recursive Learnability, a training objective that rewards a Proposer for choosing tasks whose rollouts keep reaching different outcomes as skills are withdrawn. Built on this objective, we further propose Skill Withdrawal, in which the outer loop withdraws each skill once a controlled evaluation within self-play shows that the orchestrator performs as well without it. Moreover, the two loops form one cycle: failures are distilled into skills, skills into parameters, and withdrawals lead the Proposer to new failures, so the orchestrator moves toward zero-skill deployment. Experimental results on twelve datasets show that R^2Orch consistently outperforms baselines across question answering, math, code, and interactive tasks. Our code is available at https://github.com/beita6969/R2Orch.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.22740",
+     "abs_url": "http://arxiv.org/abs/2610.22740",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 87,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.39497",
+     "title": "Does Scaling Toward AGI Depend on What System-1 Lets System-2 Execute?",
+     "authors_str": "Qi Wang",
+     "abstract": "Progress toward artificial general intelligence (AGI) has largely relied on scaling a resource-intensive executive, System-2, through larger models, more data and compute, longer reasoning, and more agents. We ask whether the next stage may come instead from co-designing it with System-1, a lightweight, semantically aware predictor that evaluates candidate interactions before execution, so that System-2 acts only on those worth their cost. Our answer is a qualified yes. We study conditional interaction, a predict--gate--execute--update loop: System-1 estimates each candidate's utility, System-2 executes those admitted by an adaptive threshold, and the outcomes update System-1. The loop spans training, test-time reasoning, adaptive decision-making, and agentic tool use, with utility and cost defined by the application. Under ideal screening and equal execution costs, execution compute falls by a factor approaching 1/ρ_u, where ρ_u is the density of utility-relevant interactions (cost-weighted when costs differ); prediction errors, exploration, and distribution shift reduce the saving. We bound selection regret by predictor error and the utility margin. These results motivate our central hypothesis: ρ_u is a measurable coordinate of scaling efficiency and makes informative compute a better description of scaling than total compute.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.39497",
+     "abs_url": "http://arxiv.org/abs/2610.39497",
+     "code_url": null,
+     "project_url": "https://cheemswang.github.io/blogs/sys1-sys2-codesign.html",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 53,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.42053",
+     "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+     "authors_str": "Pengfei Zhou",
+     "abstract": "Foundation models are becoming remarkably reliable at high-level reasoning, yet they remain too slow and costly to serve as fine-grained controllers. Conversely, fast policies like VLAs and whole-body controllers offer more efficient reflexes, but struggle to generalize. While pairing a deliberative brain (foundation models) with a reactive cerebellum (fast policies) seems natural for embodied systems, two obstacles remain: methods are built and scored on incompatible stacks, and their asynchronous coordination is difficult. For example, an agent that calls the VLA in the agentic loop can stall the fast execution, while a VLA that calls the agent on errors tends to re-trigger fallbacks repeatedly or completely miss silent failures. To address this, we propose REA (Routed Embodied Agent), a unified runtime where a deliberative System 2, an embodied router System 1 and reactive System 0 policies cooperate under a single golden rule - no running policy waits on the brain. Instead of querying the brain at each failure, REA employs a route memory that stores each policy's measured success ahead of time, a boundary-triggered judge gate that consults the brain on policy execution, and a shared-budget escalation ladder for bounded recovery. Evaluated on 3,000 test episodes across 60 LIBERO-Pro tasks, REA reaches 95.9% success and beats the best single-agent baseline in its own policy pool (94.7%) while reducing control steps by 25% and control time by 17%. In a separate 100-episode RoboTwin 2.0 study, REA achieves 84% success with VLA policies and 86% with VLA+code, compared with 80% for the strongest single VLA baseline MEDex. These results demonstrate learned and programmatic policies operating within the same runtime. REA also transfers to BEHAVIOR-1K and a real Unitree G1 humanoid, achieving the highest observed success among the compared methods.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.42053",
+     "abs_url": "http://arxiv.org/abs/2610.42053",
+     "code_url": null,
+     "project_url": "https://mikeeeeeeeeeeeeee.github.io/REA/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 44,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.40738",
+     "title": "Apriel Voice 27B Preview: An Open Model for Speech, Reasoning, and Tool Use",
+     "authors_str": "Aman Tiwari",
+     "abstract": "A capable voice assistant must do more than recognize words; it must understand requests, reason over context, sustain conversations, and act through tools. We present Apriel Voice 27B Preview, an open speech-language model that unifies these capabilities within a shared reasoning backbone while retaining text and image input modalities. Built on the post-trained Gemma 4 26B-A4B checkpoint, Apriel Voice directly processes speech and generates both responses and tool calls without requiring a separate dialogue model. We introduce a two-stage training procedure to adapt the model to speech. The first stage establishes the speech interface, while the second jointly adapts the projector and backbone through supervised fine-tuning, text replay, and source-dependent cross-entropy and forward Kullback--Leibler divergence supervision. Automatically constructed speech-conditioned dialogues provide conversational training data, while local teacher serving, overlapping teacher and student computation, and fused full-vocabulary losses enable efficient online distillation. In thinking mode, Apriel Voice achieves a score of 98.90 on Big Bench Audio, 81.13 on Speech-BFCL, and a task success rate of 65.51% on τ-Voice, with a mean latency of 1.91 seconds. It also achieves 51.27% English EVA accuracy and 74.13% experience pass@1. Finally, we deploy Apriel Voice 27B Preview on a custom serving platform to support interactive voice interactions.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.40738",
+     "abs_url": "http://arxiv.org/abs/2610.40738",
+     "code_url": null,
+     "project_url": "https://servicenow-ai-apriel.hf.space/home",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 33,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.16927",
+     "title": "WeFair: Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in Short-Video Search",
+     "authors_str": "Yingtao Ren",
+     "abstract": "Short-video search needs compact query rewriters that recover users' personalized intent from ambiguous queries under strict latency constraints. Existing LLM-based methods have improved rewriting by using synthetic reasoning and subsequent consumption-behavioral feedback. However, overemphasizing subsequent consumption can favor engaging content over the user's immediate need, causing intent drift even when rewritten queries are grounded in behavioral history. We propose WeFair, Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in WeChat short-video search. WeFair uses human feedback according to how directly it reflects personalized intent, assigning feedback fidelity to a progression from demonstration to preference to verification. We first mine actual queries and user reformulations from search sessions, and then screen them for contextual support. In the demonstration stage, a supervised fine-tuning curriculum progresses from large-scale context-to-query learning to reasoning and direct prediction on human reformulation and preservation. In the preference stage, direct preference optimization learns relative preferences from subsequent consumption feedback. In the verification stage, group relative policy optimization rewards exact agreement with reformulation or preservation targets to constrain intent drift. Further analysis shows that broad supervision benefits the full curriculum supervised training, while strict verification achieves better performance than auxiliary rewards. In offline experiments, WeFair-2B outperforms strong rewriting baselines in overall accuracy and intent preservation. An online A/B test shows relative increases of 2.593% in effective video-view rate and a 2.350% relative reduction in query reformulation rate. WeFair-2B has been deployed in the WeChat short-video search system, which serves over 100 million queries per day.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.16927",
+     "abs_url": "http://arxiv.org/abs/2610.16927",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 26,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.37481",
+     "title": "Follow the Gradient: Tracing Safety Degradation Back to Training Data",
+     "authors_str": "Saket Reddy",
+     "abstract": "Fine-tuning Large Language Models (LLMs) on instruction data can quietly erode their safety, even when no training example looks harmful. Because this safety-degrading data looks benign, standard content filters struggle to catch it. We tackle this problem by developing SimpleLoRIF, a scalable gradient embedding method that identifies fine-tuning examples whose gradients align with unsafe behavior. By simplifying a low-rank attribution method and restricting backpropagation to the final four transformer blocks, SimpleLoRIF can embed datasets on the order of a million examples, boosting gradient attribution from a small-scale analysis tool into a practical filter for full post-training datasets. We first validate it on emergent misalignment, where we find that gradients can connect insecure-code training data to the broadly harmful behaviors that appear after fine-tuning, with AUC as high as 0.865 in the gradient space of misaligned models. We then use SimpleLoRIF to build SafeTulu, a version of Tulu 3 with the 20% of examples most gradient-aligned with unsafe responses removed. Training on SafeTulu reduces GCG attack success rate by up to 22% across Qwen, Llama, and Olmo, outperforming both LLM-as-a-judge and prior gradient-based filtering, while largely preserving or even improving capability. Finally, we analyzed the removed data and identify possibly under-studied sources of safety degradation, such as tool-execution failures and narrative arithmetic. We release SafeTulu along with a Hugging Face Space that lets researchers build their own customized versions of SafeTulu to fine-tune on, such as by changing the removal fraction or filtering only certain subsets.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.37481",
+     "abs_url": "http://arxiv.org/abs/2610.37481",
+     "code_url": null,
+     "project_url": "https://www.datologyai.com/blog/follow-the-gradient",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 24,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.42149",
+     "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+     "authors_str": "Byungwoo Jeon",
+     "abstract": "Unified Multimodal Models (UMMs) achieve remarkable success on diverse multimodal understanding and generation tasks, yet they still struggle to effectively leverage language-based chain-of-thought reasoning for image generation. As a result, existing reasoning-augmented UMMs often fail to inherit the test-time scaling and fine-grained controllability observed in large language models. We attribute this failure to a fundamental modality mismatch: reasoning is performed in a discrete token space, whereas image generation operates in a continuous space. To bridge this gap, we introduce a Latent Reasoning framework in Continuous space (LARC), which alleviates the token-level bottleneck by reasoning over continuous hidden states. Specifically, the training framework consists of two stages: (i) curriculum supervised fine-tuning (SFT), and (ii) information-gain reinforcement learning (RL). First, the curriculum SFT stage gradually converts token-level reasoning into latent reasoning. Subsequently, the information-gain RL stage self-evolves latent reasoning without ground truth supervision. Experiments across diverse text-to-image generation benchmarks show that LARC consistently improves generation quality, prompt following, and compositional fidelity. Notably, LARC achieves state-of-the-art performance on GenEval with a 7%p gain over BAGEL and demonstrates clear test-time scaling behavior, outperforming token-based generation under both parallel and sequential test-time scaling strategies.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.42149",
+     "abs_url": "http://arxiv.org/abs/2610.42149",
+     "code_url": "https://github.com/rootyJeon/LARC",
+     "project_url": "https://rootyjeon.github.io/larc-umm/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 24,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}
