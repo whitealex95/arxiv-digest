@@ -1,0 +1,585 @@
+{
+ "date": "2026-11-03",
+ "sections": [
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.03557",
+     "title": "PlantVLM-Edge: Quantized Vision-Language Models for On-Device Crop Health Diagnosis",
+     "authors_str": "Gaurab Wagle",
+     "abstract": "Timely and accurate crop health diagnosis is essential for sustainable agricultural production, yet accurate diagnosis often requires expert knowledge that is not readily available. Recent vision-language models (VLMs) have demonstrated remarkable capabilities in visual understanding, reasoning, and natural-language interaction, creating new opportunities for intelligent crop health assessment. However, deploying VLMs on resource-constrained devices remains challenging due to their substantial computational and memory requirements. This paper presents PlantVLM-Edge, a quantized vision-language framework for conversational crop health diagnosis that can run entirely on resource-constrained edge devices. PlantVLM-Edge combines agricultural domain adaptation, post-training quantization, and on-device serving with an offline chat interface, allowing growers to ask open-ended questions and receive diagnoses, symptom explanations, and management guidance without cloud connectivity. The framework is backbone-agnostic: we validate it with two different VLM types with varying scale and architecture (Qwen3-VL-2B and LLaVA-1.5-7B), four quantization schemes, and two diagnostic domains (plant diseases and insect pests), and we deploy all variants on an NVIDIA Jetson AGX Orin. Eight-bit quantization affects answer quality minimally relative to the full-precision model, and 4-bit activation-aware weight quantization (AWQ) retains 98.6% of full-precision answer quality on both domains while reducing the weight memory of the 2B backbone by 49%. In its most compact form, PlantVLM-Edge requires 2.01 GiB of weight memory, returns its first token in about 0.12 s, and completes a 64-token diagnostic response in 0.78 s. These results demonstrate that timely and accurate crop health diagnosis is practical on edge devices, providing a foundation for next-generation crop monitoring and decision support systems.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03557v1",
+     "abs_url": "http://arxiv.org/abs/2611.03557",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language",
+      "VLM"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.03103",
+     "title": "VLALagBench: Understanding When and Why VLA Inference Latency Matters",
+     "authors_str": "Qi Wen",
+     "abstract": "Vision-language-action (VLA) models offer a promising path toward general-purpose robot manipulation. While inference latency can affect task success in a constantly evolving physical world, the relationship between latency and task success rate remains poorly understood. In this paper, we introduce VLALagBench, a comprehensive benchmark for studying VLA inference latency sensitivity across task types, object speeds, execution modes (synchronous and asynchronous), and VLA policies. Using VLALagBench, we find that even a modest inference latency of 100 ms can nearly halve task success on moving targets, with sensitivity varying substantially across tasks and policies. These differences reflect task-specific requirements for precision and continuous motion. By overlapping inference with action execution, asynchronous execution can recover some of the lost success at the cost of more frequent inference requests. Building on these findings, we develop an empirical model that predicts task success from limited calibration data, achieving root-mean-square prediction errors of only 5.7-7.8% across various VLA policies. Given an inference system's latency and per-robot throughput, these predictions guide the selection of system-specific VLA algorithm configurations to maximize task success. We believe VLALagBench and these findings provide a solid foundation for future robotics algorithm-system co-design.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03103v1",
+     "abs_url": "http://arxiv.org/abs/2611.03103",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02777",
+     "title": "Beyond Policy Patches: Distilling RL Specialists into Vision-Language-Action Policies",
+     "authors_str": "Zhennan Jiang",
+     "abstract": "Vision-language-action (VLA) policies can handle noncritical stages of long-horizon manipulation yet fail during short precision-critical phases. Lightweight reinforcement learning (RL) specialists can address these failures without directly applying RL to the full VLA, but retain auxiliary controllers and switching mechanisms at deployment. We study how to transfer their capabilities into a single flow-matching VLA. Direct imitation of specialist rollouts can reproduce action jitter and leave the VLA unprepared for states encountered during its own execution. We introduce REPAIR, a value-guided distillation framework that combines offline initialization with on-policy refinement. At each critical-phase observation, REPAIR queries the corresponding specialist for multiple action candidates and weights them using its critic to construct a supervision distribution. A shared weighted flow-matching objective trains the VLA first on observations from specialist-assisted rollouts, then on observations collected through its own execution. Specialists provide supervision without taking control during on-policy collection and are removed at deployment. Across six real-robot tasks with 30 evaluation trials per task, REPAIR achieves 100% success on all six tasks, with lower mean end-effector jerk than specialist-assisted execution on every task.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02777v1",
+     "abs_url": "http://arxiv.org/abs/2611.02777",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02660",
+     "title": "HeLM: Hierarchical Explicit Language Memory for Non-Markovian Manipulation",
+     "authors_str": "Gyeonghun Kim",
+     "abstract": "Recent advances in Vision-Language-Action (VLA) models have enabled fine manipulation capabilities, yet performing tasks that require working memory remains a key challenge. Most existing VLA architectures operate under a Markovian assumption, mapping only the current observation to an action, which leads to failure in non-Markovian environments. Inspired by the human 'inner monologue', we propose Hierarchical Explicit Language Memory (HeLM), a hierarchical VLA framework that maintains task-relevant history in explicit language through factorized event detection and event-triggered memory updates. We evaluate HeLM across 10 non-Markovian real-world tasks with 56 variants, including five newly formulated inter-episode tasks that require persistent context across task boundaries. HeLM improves intra-episode success by 12.8 percentage points over the strongest baseline and achieves 78% subtask success on compositional generalization tasks, while using up to 4.5x less memory and running 2.5x faster than the keyframe baseline at long horizons.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02660v1",
+     "abs_url": "http://arxiv.org/abs/2611.02660",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.01939",
+     "title": "VLSplat: Vision-Language Guided Object-Centric 3D Gaussian Splatting via Scene Graph",
+     "authors_str": "Yuntae Jeon",
+     "abstract": "Learning semantic representations for 3D Gaussian Splatting has recently emerged as a promising direction for 3D scene understanding. However, existing 2D-to-3D semantic lifting approaches rely primarily on 2D segmentation supervision and lack object-level priors, causing the learned representation to be driven by local mask evidence rather than holistic object structure. In this paper, we present VLSplat, a vision-language guided approach for object-centric semantic lifting in 3D Gaussian Splatting. Our method augments mask-based lifting with object-level semantic priors derived from vision-language models and refines Gaussian representations using an object-group scene graph. The refinement is performed through two language-guided modules: intra-group refinement suppresses semantic noise within object groups, while inter-group acquisition expands object support regions by incorporating structurally relevant candidates from neighboring groups. Extensive experiments on indoor scene datasets demonstrate that VLSplat improves the semantic consistency and structural completeness of object-level categories. Our code and models are available at https://vlsplat.github.io/.",
+     "published": "2026-11-01",
+     "updated": "2026-11-01",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.01939v1",
+     "abs_url": "http://arxiv.org/abs/2611.01939",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.03114",
+     "title": "3D Gaussian Splatting within Self-Learned Neural View-Dependent Color Fields",
+     "authors_str": "Yixiao Yang",
+     "abstract": "3D Gaussian Splatting (3DGS) has become a vital tool in novel view synthesis. 3D Gaussian functions with attributes like color, opacity, and scale are stacked together to explicitly model a radiance field. However, discrete 3D Gaussians usually produce poor depth with few geometry details but lots of floaters, which hinders the effective modeling of smooth radiance fields. To address this issue, we propose to learn a radiance field within a continuous view-dependent color field parameterized by neural networks. With continuous constraints in color, the bias on low-frequency signals of neural networks can highly encourage the geometry modeling to contribute to high-frequency color variations on images, getting rid of solely relying on the color attribute itself. Moreover, we impose a constraint to improve the Lipschitz continuity of the neural color field, making large changes of each Gaussian's color also match with large changes of its position in terms of a ratio. To this end, we additionally introduce novel self-learning strategies to improve the learning of the neural view-dependent color field without any external knowledge or priors, aiming for better generalization on unseen scenes. Our numerical and visual comparisons on widely used benchmarks justify our idea and show better ability of high fidelity geometry recovery in 3DGS. Project page: https://github.com/yangyixi21/Neural-Color-Fields-3DGS.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03114v1",
+     "abs_url": "http://arxiv.org/abs/2611.03114",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02767",
+     "title": "GaussFlaw: Fine-Grained Perceptual Diagnosis for 3D Gaussian Splatting",
+     "authors_str": "Shaocheng Shen",
+     "abstract": "3D Gaussian Splatting (3DGS) enables photorealistic novel- view synthesis with real-time rendering, yet fine-grained di- agnosis of its rendering artifacts remains challenging. These artifacts are typically spatially localized and exhibit diverse degradation patterns, making them difficult to character- ize using global quality metrics and image-level assessment benchmarks, which provide no explicit indication of where they occur or what types of artifacts they represent. To ad- dress this limitation, we introduce GaussFlaw-80K, the first large-scale dataset for fine-grained perceptual diagnosis in 3DGS. Constructed through a model-assisted human-in-the- loop pipeline, GaussFlaw-80K contains 80,049 artifact re- gions across 14,289 rendered images, each annotated with a pixel-level mask and one of eight flaw labels spanning ge- ometric, blending, and photometric degradations. These an- notations turn 3DGS artifact diagnosis into an explicit and measurable task. Building on this dataset, we propose Ge- oCritic, a geometry-guided multi-task model that integrates RGB appearance with depth-derived cues to jointly localize artifacts and classify their flaw types. Beyond evaluation, we further demonstrate the downstream benefits of fine-grained diagnosis through three complementary targeted operations: Gaussian densification, attribute correction, and outlier prun- ing. Experiments show that GeoCritic achieves an AUC-J of 0.9507 and an Acc@1 of 80.08%, while diagnosis-guided re- finement improves all reported global and crop-level metrics across diverse datasets and 3DGS backbones.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02767v1",
+     "abs_url": "http://arxiv.org/abs/2611.02767",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02658",
+     "title": "OctreeSplat: Hierarchical Octree-Guided Feed-Forward Gaussian Splatting",
+     "authors_str": "Yibin Zhao",
+     "abstract": "3D Gaussian Splatting (3DGS) has shown considerable potential for novel view synthesis (NVS) and 3D reconstruction. Feed-forward methods avoid costly per-scene optimization, but fixed image or spatial resolutions limit their ability to allocate primitives according to local complexity. We present OctreeSplat, a hierarchical octree-guided feed-forward Gaussian splatting. OctreeSplat extracts multi-view features and geometric priors from a frozen visual foundation model (VFM), constructs a hierarchical octree, and predicts densification scores. The resulting representation allocates Gaussian primitives at spatially varying densities according to local complexity. Stochastic solids volume rendering improves depth rendering, strengthens geometric supervision, and supports surface reconstruction. When camera parameters are available, an optional test-time optimization (TTO) module improves agreement between predicted and ground-truth parameters. Training updates only 76 million additional parameters and requires 35 GPU-hours. Experiments on Replica, TUM, Tanks and Temples, and DTU demonstrate competitive RGB view synthesis, depth synthesis, and surface reconstruction. OctreeSplat reduces the number of Gaussian primitives while maintaining high reconstruction quality.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02658v1",
+     "abs_url": "http://arxiv.org/abs/2611.02658",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting",
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.00513",
+     "title": "WorldSketch: Sketching World Models for Zero-Shot Mobile Manipulation",
+     "authors_str": "Jiaming Wang",
+     "abstract": "Most agentic robotic systems use vision-language models (VLMs) either to orchestrate predefined skills or to directly generate actions, constraints, and control programs. The former is limited by the available skill library, while the latter requires VLMs to reason about precise geometry and contact. In this paper, we propose WorldSketch, a new paradigm for agentic robotics in which a VLM constructs a world model rather than generating robot actions. The VLM acts as an agent that actively queries perception tools to build and visually validate a minimal kinematic world model, capturing only task-relevant objects, their interaction geometry, and possible motions. A geometric planner then jointly optimizes contact and whole-body motion on the resulting model. Moreover, the world model is self-improving: execution feedback verifies outcomes, updates uncertain hypotheses, and enables the agent to revise the model when its predictions are contradicted. We demonstrate the generality of this paradigm across RoboCasa, LIBERO-PRO, and R2R-CE navigation, achieving zero-shot success rates of 91%, 97%, and 76%, respectively. On RoboCasa, WorldSketch outperforms the next-best zero-shot agent baseline by 58 percentage points while using 10 times fewer VLM input tokens; on LIBERO-PRO, it exceeds CaP-X by 82 percentage points. In navigation, it matches the success rate of step-by-step VLM agents while using 6 times fewer input tokens.",
+     "published": "2026-10-31",
+     "updated": "2026-10-31",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.00513v1",
+     "abs_url": "http://arxiv.org/abs/2611.00513",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.03626",
+     "title": "Isekai3D SDG: A Platform for Diverse Synthetic Gameplay Visual Data",
+     "authors_str": "Rafal Karp",
+     "abstract": "We present Isekai3D Synthetic Data Generation (SDG), a platform for simulating and capturing synthetic 3D gameplay for research in vision and world models, neural graphics, gameplay agents, and other applications. The platform combines reusable environment and character assets with Unreal Engine plugins in a two-stage workflow. First, world simulation generates gameplay while recording the world state, character movements, actions, and camera tracks needed for replay. Second, the recorded simulation is replayed to capture selected outputs, such as rendered video, images, and depth maps, at a specified resolution and frame rate under selected rendering and camera configurations. Separating simulation from capture allows the same recorded gameplay to produce multiple output variants without repeating the original simulation. Visual outputs are accompanied by frame-aligned camera, character, and action metadata. The platform uploads generated data directly in a training-friendly format, reducing intermediate storage, preparation time, and manual processing. This report describes the design of our overall system, including the platform's assets, plugins, and their functionality, explaining how they work together to generate diverse synthetic gameplay data.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03626v1",
+     "abs_url": "http://arxiv.org/abs/2611.03626",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.03428",
+     "title": "Toward Uncertainty-Aware, Physics-Grounded Human World Models",
+     "authors_str": "Yufei Zhang",
+     "abstract": "A robot that acts around people needs a world model of the human: a belief over the person's body state and a dynamics model that predicts where that state goes next. This abstract argues that two published components form exactly these two halves, and specifies how to couple them. KNOWN [1] reconstructs the 3D human body while estimating both aleatoric and epistemic uncertainty in real time (11.6 ms per frame); its aleatoric term identifies unreliable observations, its epistemic term identifies inputs from low-density regions of the training data, and refinement driven by the epistemic term reduces the error on such inputs from 81.3 to 70.3 mm. PhysMoP [2] predicts future body configuration by solving the Euler-Lagrange equations of the body with learned dynamics terms, reducing the 80 ms prediction error from 9.6 to 2.1 mm on Human3.6M and from 12.1 to 0.7 mm on 3DPW. We define the interface between the two, propose three mechanisms by which KNOWN's uncertainty enters PhysMoP, and specify an evaluation protocol on in-the-wild video. No new experimental results are reported here.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03428v1",
+     "abs_url": "http://arxiv.org/abs/2611.03428",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02782",
+     "title": "History Forcing: Distilling History-Dependent Continuations for Long-Horizon Video World Models",
+     "authors_str": "Hangyi Kuang",
+     "abstract": "Few-step autoregressive video diffusion enables efficient generation, yet maintaining consistency over long rollouts remains challenging, especially when subjects or scenes reappear after going out of sight. Despite progress in fidelity and rollout robustness, existing distillation methods do not fully exploit richer historical information to constrain the student's current prediction. To address this gap, we introduce \\textbf{History Forcing}, a unified on-policy distillation framework that strengthens historical supervision for few-step autoregressive video generators. The framework uses the residual between teacher predictions with and without informative historical context to decouple this supervision. Such a historical context can be obtained using earlier generated chunks with less accumulated drift or a fixed-view teacher rollout that keeps the scene visible while the student looks away. The residual is then weighted and added to the score or velocity prediction used for distillation, forming a corrected target. By aligning the student with this corrected target through distillation, History Forcing incorporates long-range historical constraints into autoregressive generation. Our method achieves state-of-the-art performance among 1.3B models, with a VBench quality score of 85.07 for 15s video generation and a VBench-Long aggregate score of 79.82 for 60s generation. For out-of-sight world modeling, evaluations further demonstrate more plausible scene evolution and more consistent states when the camera returns, with Evolution Quality improving from 2.35 to 2.70 on PlayWorld and Object Consistency from 58.43 to 62.18 on MemoBench.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02782v1",
+     "abs_url": "http://arxiv.org/abs/2611.02782",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models",
+      "video diffusion",
+      "video generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Computational Design, Mechanism & Fabrication",
+   "papers": [
+    {
+     "paper_key": "2611.02462",
+     "title": "Learning Purposeful Co-designs of Bio-inspired Quadrupedal Robots",
+     "authors_str": "Fabio Boekel",
+     "abstract": "Treating morphology and control as separate design problems has constrained the efficiency and adaptability of quadrupedal robots, while current co-design approaches are often constrained by restricted design spaces. We overcome this limit by introducing Dogger, a bio-inspired quadruped with modular three-segment legs, four-bar linkages and adjustable passive knee compliance. A two-stage framework combining reinforcement learning and Bayesian optimization is developed: the morphology-conditioned control policy is trained across designs and then held fixed during task-specific design selection. The resulting designs and policies deployed zero-shot reduce the cost of transport by 18.6% and 35.7% for inspection and payload-carrying tasks. Comparisons demonstrate that full geometry-compliance co-design outperforms fixed and restricted design scopes. Cross-task tests further reveal distinct task-specific morphologies with shared mechanical trade-offs. These results provide hardware-level evidence that expanding the physical design space alongside learned control is essential to realize the full potential of task-driven morphology-control co-design in legged robotics.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02462v1",
+     "abs_url": "http://arxiv.org/abs/2611.02462",
+     "code_url": null,
+     "project_url": null,
+     "category": "Computational Design, Mechanism & Fabrication",
+     "score": 1.0,
+     "matched_keywords": [
+      "four-bar linkage"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Embodied AI & Robot Learning",
+   "papers": [
+    {
+     "paper_key": "2611.03091",
+     "title": "KlaskTron-IL: A Contact-Rich Adversarial Imitation Learning Benchmark with a Validated Sim-to-Real Bridge",
+     "authors_str": "Nicklas Sohm",
+     "abstract": "KlaskTron is an open-hardware physical platform for two-player adversarial reinforcement learning, with a learned actuator model that supports zero-shot sim-to-real transfer of trained policies. Building on this platform, we contribute KlaskTron-IL: a multi-tier imitation learning dataset (80k human demonstration timesteps collected directly on the physical robot, 320k symmetry-augmented timesteps, and synthetic expert trajectories up to 5M steps generated by the zero-shot-validated PPO policy), and diagnostic baselines that expose three characteristic failure modes of standard IL methods under contact-rich adversarial dynamics: BC's data scaling plateau, GAIL's interpretable but weak-gradient discriminator (Spearman $ρ= -1.0$ peg-ball proximity recovery, but a logit span under 0.1), and an asymmetric BC-prior x reward-density interaction. Because the policy interface used throughout this paper is the same one the actuator model bridges to hardware, a policy trained on this benchmark can run unchanged on the physical robot, as we demonstrate zero-shot for the strongest BC baseline, so long as its commands respect the actuator model's $\\pm 0.2$ m/s identification range.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03091v1",
+     "abs_url": "http://arxiv.org/abs/2611.03091",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "sim-to-real"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.02629",
+     "title": "DexArena: A Unified Benchmark for Long-Horizon Dexterous Manipulation",
+     "authors_str": "Haonan Ping",
+     "abstract": "Long-horizon dexterous manipulation remains a fundamental challenge for robot learning, requiring the composition of multiple skills, precise bimanual coordination, generalizable visual understanding, and robust skill transitions. Yet existing manipulation benchmarks largely emphasize isolated skills or support only a limited range of end-effectors, making these capabilities difficult to evaluate systematically. We introduce DexArena, a benchmark designed to evaluate learning and generalization in long-horizon bimanual dexterous manipulation. DexArena features 10 long-horizon tasks and 30 stage-level tasks spanning diverse household and industrial scenarios. Each long-horizon task is composed of explicitly defined stages with physically grounded success conditions, enabling reliable evaluation of both intermediate progress and end-to-end task completion. A unified benchmark interface and verified human-teleoperated demonstrations enable testing different policy learning algorithms, with standardized simulation configurations, scene randomization, trajectory replay, and task-level evaluation. Through extensive baseline experiments, we identify substantial challenges in precise manipulation, generalization to scene variation, and skill composition. DexArena establishes a challenging and reproducible benchmark for developing robot learning methods that move toward generalizable long-horizon dexterous behavior.",
+     "published": "2026-11-02",
+     "updated": "2026-11-02",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02629v1",
+     "abs_url": "http://arxiv.org/abs/2611.02629",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "dexterous manipulation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2611.00859",
+     "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
+     "authors_str": "Yijie Jin",
+     "abstract": "Real-time long-video generation requires continuous output with consistent appearance and natural motion. Existing chunk-wise autoregressive methods face challenges in both generation efficiency and long-video quality: serialized denoising and history-cache refresh require two forward passes even with one-step denoising, and longer rollouts can degrade quality and cause camera drift. We propose Wave Forcing (WF), which co-designs generation, training, and execution for continuous video output with multi-step denoising. WF uses chunk-wise causal attention to access earlier, cleaner chunks before their denoising is complete, and distributes staggered denoising and cache-refresh stages across full-model replicas to achieve 1F1C: one output chunk per concurrent forward round after pipeline fill. To adapt the model to this continuous generation process, we develop a three-stage training procedure that successively introduces mixed-noise denoising, motion supervision, and causal adaptation using self-generated history. To execute this process efficiently, Wave Runtime (WaveRT) uses Wave Parallelism (WP) for early K/V delivery and communication-computation overlap, together with optimized kernels and pipelined VAE decoding. Experiments on Wan2.1-T2V-1.3B show that 5-step WF maintains overall quality comparable to Rolling Forcing while achieving higher Dynamic Degree on both short and long videos. Our system efficiency experiments show that 4-step WF achieves 147.6 DiT FPS and 134.8 end-to-end FPS on eight H200 GPUs, yielding 7.07x the single-GPU end-to-end throughput. In DiT-only tests with matched SageAttention+W8A8 backends, denoising steps, and GPU counts, WP delivers up to 2.53x the throughput of the faster of the Ulysses and Ring context-parallel baselines across six model scales (1.3B-14B).",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.00859",
+     "abs_url": "http://arxiv.org/abs/2611.00859",
+     "code_url": "https://github.com/SJTU-DENG-Lab/WaveForcing",
+     "project_url": "https://sjtu-deng-lab.github.io/WaveForcing/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 101,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.03126",
+     "title": "CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+     "authors_str": "Xinlei Yu",
+     "abstract": "Despite recent advances in CUAs, their development remains constrained by the limited diversity, controllability, and reliability of interaction data. Moreover, conventional optimization pipelines lack iterative feedback, while existing recursive improvement approaches often rely on self-generated experiences, limiting ability expansion and yielding diminishing returns. To address these challenges, we introduce CUA-Master, a nested double-loop recursive improvement framework. At the system level, an outer world-data-model flywheel continuously incorporates open-world corpus and leverages evolving model weaknesses to guide subsequent data construction and optimization iterations. At the data level, an inner flywheel couples open-world seeding and autocatalytic propagation. The former mines authentic workflows as seed tasks from instructional videos, and employs visual-semantic dual-path trajectory reconstruction; The latter transforms these seeds into reusable primitives for controllable synthesis of diverse, complex, and verifiable tasks. To enable efficient and reliable trajectory collection, we further introduce a feedback-guided snapshot-rollback retry mechanism in various real environments. Extensive experiments demonstrate that CUA-Master-27B achieves competitive performance across GUI-only and GUI-CLI hybrid benchmarks, scoring 80.2 on OSWorld Verified, 36.9 on OSWorld 2.0, 43.9 on WeaveBench, and 25.0 on Agents' Last Exam. Our framework also substantially improves the quality and efficiency of data synthesis, and exhibits continuous gains across recursive iterations.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03126",
+     "abs_url": "http://arxiv.org/abs/2611.03126",
+     "code_url": "https://github.com/xlyu0106/CUA-Master",
+     "project_url": "https://xlyu0106.github.io/CUA-Master/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 90,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.01860",
+     "title": "Advances in Agentic Computer Graphics",
+     "authors_str": "Hengyu Liu",
+     "abstract": "Computer graphics is built on code. Large language model (LLM) agents can now generate graphics code and iteratively refine it through various feedback. This capability opens the door to a potentially new paradigm of computer graphics, with graphics algorithms increasingly built around agentic systems to automate progressively complex tasks. Over the past years, research on agentic graphics has expanded rapidly across a diverse range of tasks. This rapid growth makes it increasingly difficult for manual literature reviews to keep pace with new developments. At the same time, similar ideas are often described using different terminology across these tasks, further complicating efforts to develop a systematic understanding of the field. In this report, we address these challenges through two contributions. First, we introduce a unified taxonomy for characterizing agentic systems across diverse computer graphics tasks. Second, we develop an agentic literature system that can assist human researchers in analyzing existing and newly published papers at scale. Building on these contributions, we analyze emerging research trends and discuss open challenges in coordinating agents and tools across graphics tasks, designing interfaces and representations for human-agent collaboration, sustaining long-horizon planning and refinement, and reliably evaluating interactive graphics systems.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.01860",
+     "abs_url": "http://arxiv.org/abs/2611.01860",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 89,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.03178",
+     "title": "CoworkOS:Scaling Agent Coworkers for Real-world Automation",
+     "authors_str": "Jiajie Jin",
+     "abstract": "Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex productivity tasks and continued monitoring and decision-making over long horizons, a combination that remains an open challenge. We introduce CoworkOS, a general-purpose harness for long-horizon work that separates task strategy from execution management: the model decides actions, delegation, and acceptance, while the runtime maintains state and feedback. Its three-layer architecture enables direct execution or delegation to Subagents, synchronously or asynchronously, under stable responsibilities. Through a shared application layer, humans and agents inspect and revise the same evolving documents, presentations, CAD models, and Blender scenes, so human-in-the-loop participation can enter both through conversation and through direct modification of the work itself. To sustain continuity across agents and sessions, CoworkOS further introduces hierarchical workspaces and persistent semantic memory, so working files, key decisions, and long-running Job logs remain shareable, reusable, and resumable after interruption. Across 12 benchmarks and 6 categories of real-world applications, CoworkOS proves highly competitive with frontier agent applications such as Codex and DeepSeek Harness. As a sustained-work case study, CoworkOS uses GLM-5.3 as its backbone to conduct RSI-driven automated post-training on Qwen3.6-35B-A3B. Over five rounds, the model's average score across eight benchmarks rose from 33.19 to 42.95 (+9.76). Looking ahead, we believe CoworkOS opens a meaningful path toward general cowork-agent intelligence.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.03178",
+     "abs_url": "http://arxiv.org/abs/2611.03178",
+     "code_url": "https://github.com/RUC-NLPIR/CoworkOS",
+     "project_url": "https://coworkos-ai.github.io",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 86,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.01560",
+     "title": "Democratizing Robot-Use Agents: A Unified Harness with Open Models",
+     "authors_str": "Jiarui Yuan",
+     "abstract": "Robot-use Agents (RUAs) have shown promising zero-shot manipulation capabilities, but reliance on frontier, proprietary models limits research into further training. To democratize RUA research, we introduce uni-robot-agent, a unified harness for competitive open-weight robot use that supports further training. Without privileged inputs, an out-of-the-box Qwen3.8-Flash-Next achieves a RoboDojo Score of 31.39, surpassing the published GPT-6 Astra-RoboProbe result of 28.97 and many VLA/WAM baselines, and performs competitively on 19 real-world tasks. Our analysis across model generations, families, and sizes links effective robot use to four general capabilities, suggesting that future RUA training should develop them jointly.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.01560",
+     "abs_url": "http://arxiv.org/abs/2611.01560",
+     "code_url": "https://github.com/Open-RUA/uni-robot-agent",
+     "project_url": "https://openrua.ai/uni-robot-agent",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 40,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.02074",
+     "title": "SWE-Trail: History-Guided Trajectory Collection for Coding Agent Training",
+     "authors_str": "Ziming Li",
+     "abstract": "Coding agents solve repository issues through long sequences of exploration, editing, and validation. These trajectories are increasingly used as post-training data, so how they are collected shapes what the trained model learns. A common approach is to sample multiple trajectories independently for each issue and then select or curate them. However, as more trajectories are sampled independently, later trajectories become increasingly redundant, even though earlier trajectories could guide where subsequent collection effort should be spent. A natural way to use this history is to expose it to the coding agent as advice. But training on such trajectories can make the model rely on advice that is unavailable at test time, creating a train-test mismatch. Instead, we argue that history should guide where collection effort is spent, while the coding agent decides what to generate. We introduce SWE-Trail, a trajectory collector that uses earlier trajectories to guide subsequent collection while keeping that history outside the coding agent's context. During a new rollout, SWE-Trail uses history to identify a state where additional collection effort may be useful. There, the coding agent proposes candidate next actions from its ordinary context, and SWE-Trail briefly executes them from the same checkpoint to decide which route continues. We evaluate collection approaches by training student models on the trajectories they produce. For a 124B student initialized from Ling-3.0-flash-base, SWE-Trail improves mean resolution over independent sampling by 2.33 and 1.60 percentage points on SWE-bench Multilingual and SWE-bench Pro, respectively. Without history, the same pipeline produces more resolved trajectories than independent sampling, but improves by only 0.11 points on Multilingual. These results show the value of using history to guide collection without exposing it to the coding agent.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02074",
+     "abs_url": "http://arxiv.org/abs/2611.02074",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 33,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.02102",
+     "title": "NorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale",
+     "authors_str": "Chaoyun Zhang",
+     "abstract": "Scaling computer-use agents from individual actions to complex software work requires experience that connects decisions to complete outcomes. We present NorthCUA, an integrated system for turbocharging computer-use agents through experience at scale. Its Experience Flywheel supplies diverse executable tasks to the NorthCUA Harness, which sustains long interactions, records decisions, and checks task outcomes. The Flywheel uses these records to curate verified trajectories. For unsolved tasks, recursive self-improvement evolves reusable skills and preserves verified milestones so later attempts build on earlier progress. Staged Learning combines this experience with grounding data from the Flywheel to develop GUI competence through mid-training and long-horizon supervised fine-tuning. The policy then learns from fresh attempts in the same Harness through joint desktop-web reinforcement learning, closing the loop between experience production and policy improvement. The resulting Nano, Mini, and Pro family achieves state-of-the-art results among open-source models across GUI grounding, desktop execution, and Web interaction under the reported evaluation settings. For more responsive Web workflows, NorthCUA-Ultrafast pairs direct action selection with open-ended generation on pre-RL Nano, offering a measured quality-latency tradeoff. Together, these advances establish NorthCUA as a high-performing model family and a reusable foundation for agents that carry complex software work from intent to completion.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02102",
+     "abs_url": "http://arxiv.org/abs/2611.02102",
+     "code_url": "https://github.com/beipo-ai/NorthCUA",
+     "project_url": "https://beipo.top/blog/northcua/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 30,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.27954",
+     "title": "Lost in Recovery: Demystifying Recovery Behavior of Computer-Use Agents via Goal-Oriented Action Replay",
+     "authors_str": "Byeonghun Bang",
+     "abstract": "Recent advances in large (vision) language models have enabled computer-use agents that automate digital workflows via fine-grained keyboard and mouse operations. However, such agents remain fragile in long-horizon settings, where errors accumulate and executed actions leave unintended side effects, making the ability to recover from failures critical. Yet, existing remedies remain inadequate: environment resets are infeasible in proprietary settings, action replay is prohibitively expensive over long horizons, and API-based rollback is limited to web environments, leaving model-based recovery largely unexplored. To address this gap, we present ReTrace, a scalable evaluation framework for systematically studying recovery behavior in computer-use agents. We formalize Transition-Consistent Recovery: identical downstream actions from the recovered and target states must yield identical outcomes. We operationalize this criterion through goal-oriented action replay following controlled error injection. Using ReTrace, we present the first systematic study of autonomous, model-based recovery, revealing that (i) ideal recovery can unlock model's latent task completion capabilities, (ii) current computer-use agents fail to exploit their latent recovery capabilities, and (iii) accurate model-based recovery yields measurable end-to-end gains. Together, these findings establish recovery as a fundamental capability for building reliable computer-use agents. Our code and dataset is available at https://github.com/BangProx/ReTRACE.",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.27954",
+     "abs_url": "http://arxiv.org/abs/2610.27954",
+     "code_url": "https://github.com/BangProx/ReTRACE",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 28,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.02897",
+     "title": "PhotoGuider: Composition-Aware Cropping and 360^{circ} View Framing with Explainable Photographic Assessments",
+     "authors_str": "Yuan-Kang Lee",
+     "abstract": "Traditional image cropping assumes the photograph already contains the composition worth keeping, and asks only where to crop. A full 360^{circ} scene offers no such guarantee: the viewing direction in a scene has to be discovered before anything can be framed. We present PhotoGuider, a measure-then-frame method that answers both questions with compact learned scorers over one shared set of composition-aware features. The designed features are extracted using foundation and task-specific vision models and structured into four photographic tokens: Subject, Composition, Aesthetics, and Integrity. Our MLLM explainer is fine-tuned to generate composition-related explanations conditioned on images and measured token assessments. To our knowledge, PhotoGuider is the first method to combine explicit composition-based direction selection in 360^{circ} panoramas with refined framing, camera-parameter output for native re-rendering, and measurement-conditioned explanations. On two standard 2D cropping benchmarks, PhotoGuider achieves the highest average mIoU performance against ground-truth crops. In a blind ranking study, 120 participants ranked three cropping methods over 100 panoramic scenes from the public Poly Haven HDRI library, placing our framings first in 53.2% of cases, against 27.3% and 19.5% for two strong alternatives. Project page: https://ntuneillee.github.io/research/photoguider/",
+     "published": "2026-11-03",
+     "updated": "2026-11-03",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.02897",
+     "abs_url": "http://arxiv.org/abs/2611.02897",
+     "code_url": "https://github.com/NTUneillee/PhotoGuider",
+     "project_url": "https://ntuneillee.github.io/research/photoguider/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 27,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}
