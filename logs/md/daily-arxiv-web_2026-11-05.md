@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.11.06
+## 📚 Updated on 2026.11.07
 
 <details>
   <summary>Table of Contents</summary>
@@ -28,7 +28,7 @@
 - 2026-10-28, **Decompose, Don't Expand: Capability-Independent AI Systems by Construction**, Tejaswi Gowda et.al., Paper: [@2610.38144](http://arxiv.org/abs/2610.38144)
 > **Abstract:** A recurring design choice in building AI systems is whether, when a task is too hard for a model, to expand the model (make it larger, better-prompted, fine-tuned), or to decompose the task (extract the parts that admit a deterministic solution to a host, leaving the model only the irreducibly fuzzy residue). We make three claims. First, that many tasks commonly delegated whole to a model are in fact deterministic tasks with a small generative core. Second, and our central empirical result, that decomposing such a task yields a measurable and desirable property we call parity by construction: on the extracted sub-tasks the model-size performance curve becomes flat, because no model performs them at all. We measure this across nine models spanning a 494M-parameter local checkpoint to a frontier Opus-class model, a thirty-fold parameter range on the local family alone: once the host resolves the context, operation selection scores identically for all nine models and selector resolution for eight of nine, while the one task that does not decompose, labelling, remains sloped across the same range. Because the task leaves the model, a stock checkpoint suffices: no task-specific training and no fine-tuning. Third, that this is a general design discipline, not a domain trick: we show the same move recurring across physics setup, motion retargeting, and object-model editing, and in a Web-CLI tool family (same author, so not an independent replication). We give a method for locating the cut, the construction that makes a cut exist (a deterministic surface and a closed grammar over it), and a way to make the residue safe (resolve the deterministic context; verify the generative output), position the work against neuro-symbolic AI, tool-augmented language models, and generate-and-verify approaches, and are explicit about what is measured (one domain) versus illustrative (the rest).
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -59,7 +59,7 @@
 - 2026-10-23, **Past as State, Present as Attention: Persistent-State Blockwise Flow Matching for Long-Horizon Co-Speech Motion Generation**, Yi Liu et.al., Paper: [@2610.32373](http://arxiv.org/abs/2610.32373)
 > **Abstract:** Co-speech motion generation remains challenging over long horizons due to the need for temporal coherence and consistent style. Existing methods typically generate long motions segment by segment, either conditioning on a short seed of recent frames, which gradually drifts, or retaining ever-longer explicit histories, which are costly to maintain and hard to learn from limited data. We trace these limitations to a key asymmetry between past and present: past motion carries slowly varying style that should be compactly summarized, whereas the current segment exhibits fast-changing local dynamics that require fine-grained modeling. This asymmetry motivates a simple Past-As-State, Present-as-Attention principle for long-horizon co-speech motion generation. Following this principle, we propose PASPA, which summarizes past history with an inter-block persistent state and models the current segment with intra-block bidirectional self-attention. We instantiate PASPA within a blockwise flow matching framework, with multi-block supervision for effective training over variable histories, prefill-decode state caching for efficient rollout, and hybrid classifier-free guidance for enhanced history and speech conditioning. Extensive public-benchmark experiments show that PASPA achieves state-of-the-art FGD performance and preserves motion style across long-sequence generation.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -226,7 +226,7 @@
 - 2026-11-03, **Trusting Imagined Futures: Auditing Imagined Rewards for VLA Post-Training**, Zicheng Kong et.al., Paper: [@2611.04873](http://arxiv.org/abs/2611.04873)
 > **Abstract:** Video world models enable candidate actions to be evaluated through imagined outcomes, but high predicted rewards can favor trajectories with poor execution quality. We introduce Trusting Imagined Futures (TIF), an offline supervision selection method for vision-language-action (VLA) post-training that audits predicted rewards using execution feedback. A multidimensional reward model predicts a utility score for candidate ranking and five dimensions of execution quality. An auditor uses reward predictions and uncertainty to identify overestimation patterns learned from paired imagined videos and real executions. TIF accepts the candidate with the highest predicted utility when its advantage over the existing trajectory exceeds a margin and its audit risk passes a threshold; otherwise, it retains the existing supervision. The retained real trajectories then supervise behavior cloning. Across four LIBERO suites and three training seeds, TIF achieves a mean success rate of 76.25%, improving over training on the existing trajectories by 3.00 percentage points with the same trajectory count and training budget. Adding audit gating yields 1.47 percentage points with the reward model and advantage margin held fixed. The gains persist against advantage ranking and logistic regression risk selection at matched replacement counts. On recorded videos from three real robot tasks, TIF increases clean completion among selected trajectories from 58.33% to 70.00% across 60 candidate pools.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -417,7 +417,7 @@
 - 2026-10-29, **Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement**, Liaoyuan Fan et.al., Paper: [@2610.40191](http://arxiv.org/abs/2610.40191)
 > **Abstract:** Video generation is shifting from end-to-end synthesis toward agentic generation, where planning, tool use, and feedback enable coherent, controllable multi-shot videos. In parallel, video world models provide action-conditioned observations and predicted futures, serving as interactive environments for agents. We study their intersection through the agent harness: an executable runtime that constructs context, exposes tools, maintains state, routes feedback, and manages budgets around video models. This report examines three directions. First, agentic video generation, where harnesses coordinate scripting, shot planning, asset management, production, and editing, alongside the evaluation challenges of these systems. Second, agentic world modeling, where harnesses mediate observation, control, execution, and state. We discuss hybrid designs in which game engines or agent-written programs maintain world state while video models render observations, and how agents and world models can mutually evaluate and improve one another. Third, recursive self-improvement (RSI) in video model development, distinguishing output revisions, updates to harness state, generator parameters, and evaluators, and changes to the improvement procedure itself. We identify how these improvements feed back into subsequent development. Across these directions, we analyze essential agent capabilities, including audiovisual perception, long-horizon planning, memory, code-based interaction, feedback-guided control, skill reuse, and multi-agent coordination. We conclude with challenges in autonomous video production, lifelong memory, programmable hybrid control, autonomous model development, provenance, cost accounting, and evaluation linking video quality and task performance to sustained improvements in models and harnesses.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -428,7 +428,7 @@
 - 2026-10-29, **SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry**, Kurt Enkera et.al., Paper: [@2610.39560](http://arxiv.org/abs/2610.39560)
 > **Abstract:** Robotic grippers operating in unstructured environments must robustly grasp objects of different shapes and sizes despite perception and positioning errors. Soft grippers that can achieve this robustness through intelligent mechanical design rather than sophisticated control software offer a promising solution. However, no existing computational design framework explicitly optimises soft gripper morphology for robustness across object geometries and grasp poses. We introduce SimTO-Robust, a generalisation of simulation-driven topology optimisation (SimTO) that simulates grasps across multiple objects and poses and aggregates their contact forces to guide gripper morphology optimisation. We generate 6,646 designs and physically evaluate 24 of them alongside 10 specialised SimTO designs, two rigid baseline grippers, and a baseline generalist soft gripper produced using conventional topology optimisation. All 37 grippers are tested in a pick-and-place task involving five feature-rich objects and six grasp poses, with external disturbances of increasing magnitude applied during the task. On average, SimTO-Robust designs complete pick-and-place more reliably than specialised SimTO designs and the rigid baselines. The best SimTO-Robust designs also withstood more of the applied disturbances than any other tested gripper. These results show that incorporating diverse grasp conditions into simulation-driven topology optimisation is a simple and effective approach to improving real-world soft gripper robustness. More broadly, they show that robust robotic grasping can be achieved through intelligent mechanical design rather than sophisticated sensing and control.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -443,7 +443,7 @@
 - 2026-10-26, **The CAPED Framework: Characterizing User Skills in Chart Authoring through the Lens of Tasks and Tools**, Bongshin Lee et.al., Paper: [@2610.34652](http://arxiv.org/abs/2610.34652)
 > **Abstract:** In this paper, we introduce a new framework for characterizing the user skills required for chart authoring. Despite growing attention to authoring systems, we lack a conceptual framework that characterizes the diverse and multifaceted skills involved and helps identify opportunities for system design and development. Our initial investigation revealed that skill is a complex and elusive concept, and that existing theories on skills from other disciplines are too high-level to capture the importance of tasks and tools in data visualizations. To address this gap, we formulate the CAPED framework that characterizes skill as the ability to create a chart involving five dimensions pertinent to tasks and tools: input data, output chart, paradigm, abstraction, and expression. We demonstrate the framework's descriptive power by highlighting different skills involved in similar authoring situations and identifying the types of knowledge associated with chart authoring. We further present examples illustrating how the framework can be used to identify new research opportunities in supporting users with varying skills.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -606,7 +606,7 @@
 - 2026-10-24, **FreeView: Robust 3D Reconstruction from Uncurated Views**, Junho Kim et.al., Paper: [@2610.33656](http://arxiv.org/abs/2610.33656)
 > **Abstract:** Reconstructing a coherent 3D scene from uncurated image collections remains challenging due to the presence of irrelevant or non-overlapping views. Recent work has shown that feed-forward reconstruction models contain internal view-consistency signals that support distractor rejection. However, reference-conditioned filtering relies on a curated clean reference, which is not guaranteed in practical image collections. To address this limitation, we introduce FreeView, a training-free framework that jointly selects a filtering reference and rejects distractor views from an uncurated collection. FreeView leverages collection-level consensus to identify a representative view that serves as a reliable reference for filtering. It then adapts view rejection to each input collection by combining complementary visual and geometric evidence. This approach preserves useful views under substantial appearance and viewpoint variations while rejecting distractors. FreeView integrates with both VGGT and pi^3, removing the need for a manually curated reference or manual calibration of view rejection. Extensive experiments across multiple datasets demonstrate high clean-view retention and distractor rejection rates, leading to reliable 3D reconstruction from uncurated views.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -739,7 +739,7 @@
 - 2026-10-23, **MAST-VLA: Skill-Conditioned Adaptation with Trajectory-Affordance Priors for Multi-Skill Robot Manipulation**, Jiachi Yang et.al., Paper: [@2610.32312](http://arxiv.org/abs/2610.32312)
 > **Abstract:** Generalist robot manipulation requires a single vision-language-action (VLA) policy to execute diverse skills across scenes and instructions. However, current multi-skill VLA policies often leave two aspects of an instruction insufficiently modeled: which primitive skill to execute and where/how to contact and move objects. We propose MAST-VLA (Multi-skill Adaptation with Skill-conditioned experts and Trajectory-affordance priors), a dual-conditioning framework for robot manipulation. MAST-VLA introduces skill-conditioned LoRA Mixture-of-Experts (LoRA-MoE) adapters in the LLM backbone, where skill-query tokens and routing biases guide low-rank expert specialization, and converts a predicted affordance heatmap into a patch-level trajectory-affordance spatial prior for the action head. On the CALVIN ABC$\rightarrow$D long-horizon multi-skill cross-scene generalization setting, MAST-VLA achieves state-of-the-art performance, reaching an Avg. Len of 4.65 over five-subtask evaluation sequences. Real-robot multi-skill sequence experiments further validate its deployability under real perception and control noise.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -762,7 +762,7 @@
 - 2026-10-23, **Towards Effective and Transferable Physical Camouflage against Multi-View BEV-based 3D Perception in Autonomous Driving**, Linye Lyu et.al., Paper: [@2610.32230](http://arxiv.org/abs/2610.32230)
 > **Abstract:** Modern autonomous driving systems widely adopt multi-view Bird's-Eye-View (BEV) based 3D perception models due to their superior performance. Despite their success, the robustness of these models against adversarial camouflage attacks remains largely unexplored. Existing camouflage attacks primarily target single-view 2D detectors, limiting their effectiveness in multi-view 3D perception settings. To address this gap, we propose BEVCA, a novel adversarial camouflage generation framework tailored for multi-view BEV-based 3D perception. Our framework integrates a BEV-feature-based adversarial loss with a multi-view neural rendering module, enabling effective and transferable camouflage attacks across different models and tasks. Extensive experiments in both digital and physical settings demonstrate that BEVCA outperforms state-of-the-art baselines and exhibits strong robustness under real-world conditions. Our code is available at https://github.com/WAVE-AT-IDEA/BEVCA.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -779,7 +779,7 @@
 - 2026-10-23, **Melody Guidance for Audio Diffusion Models Without Retraining**, Cristobal Andrade et.al., Paper: [@2610.32211](http://arxiv.org/abs/2610.32211)
 > **Abstract:** Controlling melody in audio generation normally requires training a conditional generative model on audio paired with pitch curves or MIDI notes. We instead guide an existing unconditional diffusion model, originally trained without melody inputs, to follow a target melody without retraining or modifying it. During inference, a differentiable pitch detector steers the sampled audio toward the desired pitches, while the diffusion model keeps it close to the distribution of realistic audio learned during training. Our main contribution is a sampling method that balances these two directions, providing melody control while preserving audio quality. To improve stability, we initialize sampling with a simple synthesized version of the target melody rather than pure noise. Experiments on piano, guitar, and singing voice show melody accuracy comparable to conditional models trained specifically for melody control. Our method therefore adds melody control to existing audio diffusion models without requiring paired melody data or task-specific retraining.
 
-<p align=right>(<a href=#updated-on-20261106>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors
