@@ -3,10 +3,10 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.11.07
+## 📚 Updated on 2026.11.08
 
 <details open>
-<summary>📑 Table of Contents — 2026-11-07</summary>
+<summary>📑 Table of Contents — 2026-11-08</summary>
 
 **By category**
 - [Motion Authoring, Editing & Retargeting](#motion-authoring-editing--retargeting) (2)
@@ -15,8 +15,8 @@
 - [World Models & Generative Video](#world-models--generative-video) (93)
 - [Computational Design, Mechanism & Fabrication](#computational-design-mechanism--fabrication) (3)
 - [Sketch-based & Creative HCI Tools](#sketch-based--creative-hci-tools) (5)
-- [3D Understanding: Reconstruction & Generation](#3d-understanding-reconstruction--generation) (79)
-- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (59)
+- [3D Understanding: Reconstruction & Generation](#3d-understanding-reconstruction--generation) (77)
+- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (56)
 - [Neural Rendering & Physics Simulation](#neural-rendering--physics-simulation) (8)
 - [Narrative & Long-form Audio](#narrative--long-form-audio) (5)
 
@@ -31,7 +31,7 @@
 |**2026-11-05**|**REACT: Towards Real-Time Completion of Skeletal Motion Signals**|P. de Clermont Gallerande et.al.|[@2611.08301](http://arxiv.org/abs/2611.08301)|null|
 |**2026-10-28**|**Decompose, Don't Expand: Capability-Independent AI Systems by Construction**|Tejaswi Gowda et.al.|[@2610.38144](http://arxiv.org/abs/2610.38144)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -51,7 +51,7 @@
 |**2026-10-23**|**ViT-H: Generative Video-To-Humanoid Control with Motion Tracking Feedback**|Zimo He et.al.|[@2610.32966](http://arxiv.org/abs/2610.32966)|null|
 |**2026-10-23**|**Past as State, Present as Attention: Persistent-State Blockwise Flow Matching for Long-Horizon Co-Speech Motion Generation**|Yi Liu et.al.|[@2610.32373](http://arxiv.org/abs/2610.32373)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -139,7 +139,7 @@
 |**2026-11-03**|**OCR in the Foundation Model Era: From Specialist Models to Unified Models**|Zhiheng Li et.al.|[@2611.04874](http://arxiv.org/abs/2611.04874)|null|
 |**2026-11-03**|**Trusting Imagined Futures: Auditing Imagined Rewards for VLA Post-Training**|Zicheng Kong et.al.|[@2611.04873](http://arxiv.org/abs/2611.04873)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -239,7 +239,7 @@
 |**2026-10-29**|**Wizard: Manipulate Any World in Real Time via Agentic Control**|Yuzhe Wu et.al.|[@2610.40339](http://arxiv.org/abs/2610.40339)|null|
 |**2026-10-29**|**Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement**|Liaoyuan Fan et.al.|[@2610.40191](http://arxiv.org/abs/2610.40191)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -249,7 +249,7 @@
 |**2026-10-30**|**Toolpath Overhang Optimization for the Large-Format 3D Printing of Bespoke Shapes**|Yefan Zhi et.al.|[@2611.00371](http://arxiv.org/abs/2611.00371)|null|
 |**2026-10-29**|**SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry**|Kurt Enkera et.al.|[@2610.39560](http://arxiv.org/abs/2610.39560)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -261,7 +261,7 @@
 |**2026-10-28**|**LogicTree: Object-Oriented Writing for Structured Human-AI Academic Authoring**|Jiajun Zhu et.al.|[@2610.38136](http://arxiv.org/abs/2610.38136)|null|
 |**2026-10-26**|**The CAPED Framework: Characterizing User Skills in Chart Authoring through the Lens of Tasks and Tools**|Bongshin Lee et.al.|[@2610.34652](http://arxiv.org/abs/2610.34652)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -347,7 +347,7 @@
 |**2026-10-24**|**RelateGS: Reliable Semantic and Relational Evidence for 3D Scene Understanding with Gaussian Splatting**|Seongjun Choi et.al.|[@2610.33868](http://arxiv.org/abs/2610.33868)|null|
 |**2026-10-24**|**FreeView: Robust 3D Reconstruction from Uncurated Views**|Junho Kim et.al.|[@2610.33656](http://arxiv.org/abs/2610.33656)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -418,7 +418,7 @@
 |**2026-10-23**|**SKG in Practice: OOD Generalization Cases Across FourDomains**|Jian An et.al.|[@2610.32314](http://arxiv.org/abs/2610.32314)|null|
 |**2026-10-23**|**MAST-VLA: Skill-Conditioned Adaptation with Trajectory-Affordance Priors for Multi-Skill Robot Manipulation**|Jiachi Yang et.al.|[@2610.32312](http://arxiv.org/abs/2610.32312)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -434,7 +434,7 @@
 |**2026-10-26**|**SceneAgent: An Agentic Pipeline from 3D and 4D Captures to Simulation Environments**|Luke Hollis et.al.|[@2610.34745](http://arxiv.org/abs/2610.34745)|null|
 |**2026-10-23**|**Towards Effective and Transferable Physical Camouflage against Multi-View BEV-based 3D Perception in Autonomous Driving**|Linye Lyu et.al.|[@2610.32230](http://arxiv.org/abs/2610.32230)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -447,7 +447,7 @@
 |**2026-10-27**|**TAC2: Timestamped Audio Captioning as composable functions**|Swapnil Bhosale et.al.|[@2610.36568](http://arxiv.org/abs/2610.36568)|null|
 |**2026-10-23**|**Melody Guidance for Audio Diffusion Models Without Retraining**|Cristobal Andrade et.al.|[@2610.32211](http://arxiv.org/abs/2610.32211)|null|
 
-<p align=right>(<a href=#updated-on-20261107>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261108>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors
