@@ -1,0 +1,537 @@
+{
+ "date": "2026-11-10",
+ "sections": [
+  {
+   "name": "Character Motion Synthesis & Animation",
+   "papers": [
+    {
+     "paper_key": "2611.11554",
+     "title": "Kimodo-Policy: Learning Kinematic Action Models for Humanoid Loco-Manipulation",
+     "authors_str": "Yunheng Wang",
+     "abstract": "Humanoid loco-manipulation requires continuous coordination of high-dimensional whole-body motion to realize task objectives. While vision-language-action models and world action models transfer semantic and visual-dynamics priors to robot control, these priors do not necessarily capture the structure of robot motion. We introduce Kinematic Action Models (KAMs), a paradigm that treats whole-body motion as a direct pretraining target and uses a pretrained motion generator as the primary action-generation backbone. KAMs ground learned temporal and cross-body coordination priors through task conditioning, visual observations, and execution feedback. We present Kimodo-Policy as an initial instantiation, combining a frozen Kimodo text-to-motion backbone with lightweight ControlNet-based visual conditioning. A root-body-hand hierarchy coordinates locomotion and manipulation, while motion-history conditioning and repeated action-chunk prediction bridge motion synthesis and closed-loop control. Following large-scale loco-manipulation pretraining, the policy achieves the highest overall success among compared policies on multi-task HumanoidArena (72.14%), competitive performance on SIMPLE, and 60% mean success across eight real-world tasks, with 678M parameters (92M trainable). Ablations support the contribution of the pretrained motion backbone. Together, these results provide initial evidence for motion generation as a complementary foundation for humanoid action learning.",
+     "published": "2026-11-08",
+     "updated": "2026-11-08",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11554v1",
+     "abs_url": "http://arxiv.org/abs/2611.11554",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 1.0,
+     "matched_keywords": [
+      "motion synthesis",
+      "motion generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.10160",
+     "title": "Improving the Diffusability of Motion Tokenizer",
+     "authors_str": "Guanhe Huang",
+     "abstract": "Latent diffusion models paired with a variational auto-encoder (VAE) tokenizer have shown promising performance for efficient text-driven human motion generation. However, motion latent diffusion suffers from a generation-reconstruction trade-off: simply increasing tokenizer capacity enhances reconstruction but fails to proportionally improve text-conditioned generation quality. We assume this trade-off stems from a spectral mismatch inside the VAE tokenizer: the encoder yields a latent space biased toward high frequencies, and the decoder introduces temporal artifacts. In this paper, we propose the Diffusable Motion Tokenizer (DiMoT) to improve the diffusability of the tokenizer, rather than scaling up the diffusion backbone. To improve text-conditioned optimization, Critic Spectral Adaptation (CSA) leverages a pretrained diffusion model as the critic to suppress high-frequency latent energy. To preserve motion dynamics, the Alpha-Flow Motion Decoder (AMD) performs generative decoding via average-velocity prediction, enabling efficient one-step decoding. Extensive experiments demonstrate that DiMoT achieves state-of-the-art performance across various challenging text-to-motion benchmarks, yielding superior motion fidelity and text-motion alignment. Project page: https://githubhgh.github.io/dimot/.",
+     "published": "2026-11-06",
+     "updated": "2026-11-06",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10160v1",
+     "abs_url": "http://arxiv.org/abs/2611.10160",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 1.0,
+     "matched_keywords": [
+      "motion generation",
+      "human motion"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.12806",
+     "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+     "authors_str": "Bing Han",
+     "abstract": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a relatively early stage of development, with each type of sensor offering irreplaceable strengths alongside its own drawbacks. A key challenge is thus to free tactile understanding from sensor-specific physics, so that embodied models can effectively leverage heterogeneous tactile data. To this end, we develop LingBot-Touch, a tactile foundation model characterized by the following properties. (i) Our model yields a unified representation across different tactile sensors (i.e., piezoresistive, magnetic, and visuotactile sensors), and is easily extensible to new sensor types. (ii) The resulting tactile tokens are plug-and-play: they can be seamlessly integrated into policy models across paradigms, from diffusion policy to vision-language-action (VLA) models such as $π_{0.5}$ and LingBot-VLA, consistently enhancing manipulation dexterity. (iii) Extensive experiments, spanning simulation and real-robot deployments across multiple hardware platforms, demonstrate that our tactile representation substantially benefits complex manipulation tasks while maintaining strong computational efficiency. We believe the findings in this work demonstrate the potential of leveraging cross-sensor data to scale tactile learning, and offer encouraging insights for the design of future hardware and embodied models.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12806v1",
+     "abs_url": "http://arxiv.org/abs/2611.12806",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language",
+      "diffusion policy"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12676",
+     "title": "VLA Adaptation with Real and Simulated Data: A Case Study on Robotic Chess",
+     "authors_str": "Matěj Kripner",
+     "abstract": "Vision-language-action (VLA) models are trained as general-purpose foundation models for robot learning, and require fine-tuning for each downstream task and robot. This raises practical questions such as how much data and training updates are needed, how checkpoints should be selected, and whether simulation can be leveraged to alleviate the cost of real data collection. We study these questions on a task that requires both precise manipulation and spatial understanding of the scene. In this task, an SO-101 arm moves a chess king between two squares that are given only by their names, such as e4 and a5. We fine-tune $π_{0.5}$ with various dataset sizes and update budgets, using teleoperated demonstrations as well as simulated demonstrations from a randomized scripted expert that imitates the variability of human demonstrations. In simulation, the success rate scales with both data and updates. Importantly, we find that a short learning-rate cool-down adds up to 31 points and is necessary for comparing checkpoints, and that validation loss and action error are unreliable for model selection. On the real arm, we fine-tune on up to 256 teleoperated demonstrations and evaluate ten policies in 25 trials each. Partial results indicate that pretraining on the simulated demonstrations helps substantially, most clearly when real data is scarce. We also present a negative result, in which training on the policy's own rollouts with filtered behavior cloning, RECAP-style advantage conditioning, corrections from an automatic coach, or residual reinforcement learning did not yield a measurable improvement over plain behavior cloning in our setting. We release the simulator, the expert and the real demonstrations.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12676v1",
+     "abs_url": "http://arxiv.org/abs/2611.12676",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12295",
+     "title": "Be My Eye: Learning to See Beyond a Robot's Own Perspective",
+     "authors_str": "Baifu Huang",
+     "abstract": "Robots operating in the real world are inherently subject to partial observability, particularly in multi-robot collaboration, where individual observations may be insufficient for effective task execution. A key challenge is leveraging complementary observations from partner robots to support collaborative decision-making. We argue that information sharing should go beyond passively transmitting raw observations or generic visual features. Instead, robots should selectively encode task-relevant information according to task objectives and execution progress. To this end, we propose a task-oriented active context sharing framework that transforms robot observations into compact representations, preserving critical information under constrained communication budgets. The framework adopts a two-stage training paradigm. In the first stage, onboard observations and task instructions are jointly encoded into compact context representations. Task-oriented future prediction and soft task-progress correspondence learning guide this collaboration-agnostic compression, preserving information about task objectives and execution progress. In the second stage, the learned representations are integrated into a pretrained Vision-Language-Action (VLA) policy, enabling bidirectional context exchange. Each robot combines complementary partner information with local observations to guide action generation. Action supervision jointly refines the context representations and policy, aligning information sharing with collaborative decision-making. Controlled experiments demonstrate substantial performance gains under constrained communication budgets, while three real-world experiments validate the framework in complex dual-robot tasks. These results highlight a shift from passive visual transmission toward active, task-oriented context sharing that directly supports collaborative decision-making.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12295v1",
+     "abs_url": "http://arxiv.org/abs/2611.12295",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12286",
+     "title": "VLA-MOPD: On-Policy Distillation for Multi-Task VLA Policy Consolidation",
+     "authors_str": "Yongxuan Lv",
+     "abstract": "Physical intelligence requires embodied agents to ground language in observations and execute actions while retaining useful skills. Vision-language-action (VLA) policies offer a shared interface, but task-specific post-training often produces separate specialists. Consolidation is difficult: mixed-task reinforcement learning provides sparse trajectory-level credit, while offline distillation may miss student-visited observations and endpoint distillation does not supervise intermediate action-generation states. We introduce VLA Multi-teacher On-Policy Distillation (VLA-MOPD), a protocol for consolidating flow-matching VLA specialists. After acquiring task or suite experts, a shared student collects robot rollouts and queries the instruction-routed frozen teacher at each visited observation and intermediate ordinary differential equation (ODE) state. Detached per-flow-step transition targets supervise valid action chunks through a masked local matching loss; an optional reference-policy term supports retention on other tasks. Starting from one trajectory per LIBERO task, VLA-MOPD raises mean success-once from 75.4% to 98.9%, compared with 98.15% for endpoint action distillation. It improves mean RoboTwin 2.0 success from 73.0% to 89.3%; on a Piper robot, two consolidation rounds improve average success from 70.0% to 90.0%. In a near-matched Spatial-adaptation study, reference matching limits the Object suite decrease to 3.0 points, versus 13.2 without the reference term.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12286v1",
+     "abs_url": "http://arxiv.org/abs/2611.12286",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.11087",
+     "title": "SoftPAT3D: Physics-Augmented Text-to-3D Scene Generation with Deformables",
+     "authors_str": "Lei Shu",
+     "abstract": "We present SoftPAT3D, a physics-augmented framework for text-to-3D scene generation in which deformable objects, such as cloth, stuffed toys and ropes, are generated as physically valid, simulation-ready bodies and placed in intersection-free contact with the furniture that supports them, with one another and with themselves. Existing physics-augmented pipelines simulate rigid bodies only and cannot accommodate a generated deformable object, which text-to-3D generation returns as a geometrically invalid mesh, sometimes self-intersecting, that has no rest shape, no material model and no admissible initial state. These are the inputs a deformable simulation requires, and we construct each from information already in the pipeline. The rest shape comes from how the object is manufactured rather than from the generated physically inconsistent deformed configuration, and a material library assigns each deformable object its initial elastic parameters, which can then be optimized. The occluded support is regenerated and converted into a watertight collision mesh, each object is released from an optimizable placement above the supporting part that the prompt specifies, and the complete scene is driven to static equilibrium under one unified contact model, with completion verified by geometric checks and a vision-language model. When a scene fails the prompt, a grid search over placements corrects it, and the adjoint of a differentiable simulation of the same contact energy reaches the targets the grid does not, places several bodies jointly and recovers and optimizes material parameters. Multi-body scenes equilibrate in a single simulation, and the pipeline also runs from the text prompt alone. On all sixty-five prompts, SoftPAT3D produces no undesired interpenetration of any kind, whereas every other system does, and its scenes directly support scene editing and robotic manipulation.",
+     "published": "2026-11-08",
+     "updated": "2026-11-08",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.GR",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11087v1",
+     "abs_url": "http://arxiv.org/abs/2611.11087",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "text-to-3D",
+      "3D generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12739",
+     "title": "Plant Orbiter: 3D Plant Reconstruction and Generation with Video Diffusion Orbit Cameras and 3D Gaussian Splatting",
+     "authors_str": "Zane K. J. Hartley",
+     "abstract": "Modern digital phenotyping pipelines require the precise measurement of a range of 3D morphological plant traits. The accurate, high throughput acquisition of these traits helps breeders and researchers accelerate the development of new varieties, techniques and products. Recent advances in 3D technologies have enabled a rapid transition from 2D to 3D pipelines, but high throughput acquisition of digital 3D twins of plants remains a significant challenge due to complex morphology, thin structures and occlusions. In this paper we present Plant Orbiter, a new approach to generating 3D plants that leverages recent advances in video diffusion to produce high quality 3D Gaussian Splats of plants from a single image. We show that our method more accurately recreates plant morphology than other state-of-the-art methods, achieving the highest 3D F-score against all baselines, while being more practical for high throughput pipelines due to easier alignment and reduced cost of camera placement. Combined with a 2D diffusion model, we show that our method also achieves state-of-the-art results in the generation of 3D plant models from a text prompt.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12739v1",
+     "abs_url": "http://arxiv.org/abs/2611.12739",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12319",
+     "title": "Mitigating SM-Level Load Imbalance in 3D Gaussian Splatting on GPUs",
+     "authors_str": "Junha Ryu",
+     "abstract": "3D Gaussian Splatting (3DGS) enables photorealistic, real-time rendering on commodity GPUs and is increasingly adopted in generative world models and autonomous driving simulators. However, existing optimizations rely on algorithmic changes that often require retraining, or on specialized accelerators that lack flexibility across evolving 3DGS variants. In this paper, we identify a fundamental inefficiency in GPU-based 3DGS rendering: severe SM-level load imbalance caused by uneven workloads across screen tiles. This imbalance creates a long execution tail, leaving most SMs idle while a few process computationally intensive tiles, particularly in large-scale urban scenes. To address this, we present a software-defined GPU scheduling approach that mitigates the execution tail. Our approach uses a persistent kernel to schedule heavy tiles first and selectively chunks outlier tiles across multiple CTAs. A lightweight per-frame policy determines when and how much to chunk using tile statistics already available in the rendering pipeline. Our approach requires neither retraining nor specialized hardware and can be applied orthogonally to existing optimizations across diverse 3DGS variants. Averaged per scene, it accelerates alpha blending by up to 2.93x on a large-scale urban scene, and by up to 5.6x on its most imbalanced frames, while retaining the original alpha blending formulation.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.DC",
+     "all_categories": [
+      "cs.DC",
+      "cs.CV",
+      "cs.GR",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12319v1",
+     "abs_url": "http://arxiv.org/abs/2611.12319",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12038",
+     "title": "DPGS-SLAM: Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM for Dynamic Visual Sensing",
+     "authors_str": "Yifan Luo",
+     "abstract": "This paper presents DPGS-SLAM (Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM) for dense mapping in environments containing dynamic objects. Dynamic observations can contaminate camera tracking and scene reconstruction in visual SLAM (simultaneous localization and mapping). Although 3DGS (3D Gaussian splatting) enables efficient dense mapping, existing 3DGS-SLAM systems may exhibit instability when dynamic objects violate their underlying static-scene assumption. Excluding dynamic observations can reduce their influence on tracking and mapping, but may leave occluded static backgrounds missing or weakly constrained. Our proposed DPGS-SLAM is a monocular RGB SLAM framework that supports provisional representations of insufficiently observed static backgrounds through asynchronous diffusion-based background completion and provenance-aware Gaussian mapping. Dynamic regions are identified through optical-flow-based motion discovery and temporally consistent mask propagation by SAM2 (segment anything model 2). For selected keyframes, a fine-tuned diffusion inpainting model generates plausible background appearance in occluded regions, while Metric3D v2 predicts metric depth from the completed images to initialize provisional Gaussian primitives. Provenance labels distinguish generated primitives from observation-supported primitives, excluding generated content from camera-pose estimation and observed-map optimization. When previously occluded backgrounds become visible, eligible generated primitives are removed, and observation-supported primitives are independently initialized from real RGB observations and predicted depth. Experimental results demonstrated competitive camera tracking, with average ATE RMSE values of 1.2 cm on TUM RGB-D and 2.7 cm on BONN RGB-D. On StaDy4D, DPGS-SLAM improved average PSNR by 4.60 dB over WildGS-SLAM using only monocular RGB input.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12038v1",
+     "abs_url": "http://arxiv.org/abs/2611.12038",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.10392",
+     "title": "Tiresias: Towards Language-Conditioned World Models",
+     "authors_str": "Fengyi Wu",
+     "abstract": "World models enable planning through internal simulation, while natural language provides intuitive task specification. Yet, language-conditioned world modeling remains fragmented across domains with disparate action spaces, datasets, and evaluation protocols. We introduce LCWM, a shared task that maps an initial agent-view observation and a language instruction to an action sequence that fulfills the instruction. Its accompanying benchmark, LCWM-Bench, integrates 15 datasets across navigation, robotics, 3D gaming, and driving under a shared action interface and evaluation protocol, pairing 142,987 episodes with 428,961 instructions in three styles. We further propose Tiresias, an agent that plans via selective imagination: a language-conditioned diffusion policy generates candidate trajectories, a trajectory ranker shortlists them, and a video-pretrained world model imagines their visual consequences. A visual ranker evaluates these rollouts, complementing trajectory scores to select the final plan. Tiresias achieves competitive planning and imagination performance on LCWM-Bench. Ablations demonstrate the complementary benefits of trajectory ranking and visual verification, while experiments with alternative proposal methods show that the trained rankers remain effective beyond our diffusion policy. Together, LCWM-Bench and Tiresias provide a unified evaluation setting and an effective starting point for studying language-guided planning through world models.",
+     "published": "2026-11-07",
+     "updated": "2026-11-07",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10392v1",
+     "abs_url": "http://arxiv.org/abs/2611.10392",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12824",
+     "title": "DreamLander: A 6-DOF World Model based Reinforcement Learning Planetary Lander",
+     "authors_str": "George Nehma",
+     "abstract": "Soft powered descent landings are becoming evermore important in the field of space exploration and scientific advancement, because of their ability to deliver mission critical payloads, both highly accurately and safely. The high efficiency restriction on planetary landings due to the severely limited fuel supply results in the need for optimal guidance trajectories and control. Model based reinforcement learning is proving to be an important tool in simplifying the highly complex process of generating optimal guidance trajectories and control. In this work, we present DreamLander, a state of the art model based reinforcement learning algorithm based on DreamerV3, to generate optimal guidance and control for a realistic 6 degree of freedom entry descent landing problem. The model based approach creates a sample efficient and highly generalizable model that can be applied to a variety of scenarios whilst maintaining a high degree of accuracy, landing within 2 meters of the designated landing zone, and with velocity norm less than 0.3 meters per second. DreamLander makes use of state sensor observations, making progress toward End-to-End solutions of the Entry Descent Landing problem.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "math.OC"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12824v1",
+     "abs_url": "http://arxiv.org/abs/2611.12824",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12732",
+     "title": "$Σ$-LeWM: Learning World Models via S-Information for Robot Control",
+     "authors_str": "Xinrui Zu",
+     "abstract": "World models have increasingly been applied as a model-based control method for robotics tasks such as manipulation and locomotion. While early world model architectures relied on decoders to prevent mode collapse and learn a predictable latent space, recent works on world models, such as Joint Embedding Predictive Architecture or LeWorldModel, increasingly aim to learn embeddings without a grounding decoder, utilising only a latent forward dynamics predictor and a stabilising entropy term. In this paper, we set out to demonstrate that the further introduction of two additional latent losses to LeWorldModel, a backward dynamics predictor and an inverse dynamics action predictor, enforces further structure on the latent embedding, leading to further gains in both performance and planning efficiency. These are critical properties for improving the applicability of such methods to real-time model-based control of real-world robots. We demonstrate these gains on standard world model benchmarks and two simulated robot manipulation tasks.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12732v1",
+     "abs_url": "http://arxiv.org/abs/2611.12732",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12678",
+     "title": "Library of Hands: Fix the Hands, Not the World Model",
+     "authors_str": "Hasaan Ahmad",
+     "abstract": "A world model predicts how a scene changes after an action, and a planner uses it to search for actions that reach a goal. If the camera moves or the controller changes, the same command moves the robot differently: when its commands are turned by 90 degrees, a frozen planner with the LeWM world model that succeeds in 77.5% of episodes succeeds in only 7.8%. Current fixes retrain the model, need training data, or forget a set-up when it returns. We propose Library of Hands (LoH), a training-free method that keeps the world model frozen and corrects only the map from commands to applied actions, which we call the hand. LoH reads the hand through the frozen model, with no extra sensor: it finds the action that best explains the change between two camera images (a reading). It stores every hand it identifies, so a returning set-up is recognised rather than re-learnt. In closed-loop tests, LoH more than doubles success on three simulated tasks, from 28.6% to 62.3%, and loses only 0.6 percentage points when nothing changes. It also works, unchanged, with two other world models and on two of three models pretrained on real robot data, and its gain grows with the quality of its readings.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12678v1",
+     "abs_url": "http://arxiv.org/abs/2611.12678",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Computational Design, Mechanism & Fabrication",
+   "papers": [
+    {
+     "paper_key": "2611.11885",
+     "title": "Design of a hybrid tendon-linkage finger with coupled and adaptive motion",
+     "authors_str": "Hyojae Kang",
+     "abstract": "Dexterous robotic fingers require coordinated joint motion and adaptability to object contact, while independently actuating multiple joints increases the complexity of the transmission mechanism. This paper presents a hybrid tendon--linkage robotic finger with four mechanical degrees of freedom driven by three actuators. The MCP abduction/adduction joint is driven through a bevel gear, while MCP and PIP flexion/extension are driven by separate bidirectional tendon transmissions. The DIP joint is not independently actuated but is coupled to the PIP joint through a four-bar linkage with a torsional spring and mechanical stopper. The tendon routing also introduces mechanical coupling between the MCP and PIP joints. Kinematic analysis was conducted to describe the coupled and adaptive motions, and experiments were performed to evaluate the joint motion characteristics. ArUco-based measurements showed that the coupled motion closely matched the theoretical prediction, whereas the adaptive motion was partially limited by interference between linkage components. The fabricated finger demonstrated different contact postures with cylindrical, cuboid, and irregularly shaped objects, and the mean peak fingertip force was 4.56 N. The proposed mechanism provides both coupled motion and contact-dependent adaptation without requiring an additional actuator for the DIP joint.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11885v1",
+     "abs_url": "http://arxiv.org/abs/2611.11885",
+     "code_url": null,
+     "project_url": null,
+     "category": "Computational Design, Mechanism & Fabrication",
+     "score": 1.0,
+     "matched_keywords": [
+      "four-bar linkage"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2611.10771",
+     "title": "WorldFoundry: Towards Unified Infrastructure for World Intelligence",
+     "authors_str": "Juanxi Tian",
+     "abstract": "Visual generative models increasingly blur the line between synthesizing observations and simulating environments. Yet visual plausibility alone does not constitute successful world modeling: compelling outputs may lack persistent state, physical dynamics, or causally consistent responses to interactions. We define a generative world model as a predictive dynamical system that maintains a persistent, history-conditioned representation of an environment, updates that representation in response to actions or interventions, and generates temporally coherent trajectories that reflect outcomes under observed and counterfactual interventions. From this definition, we derive an intelligence-oriented framework spanning perceptual grounding, persistent state modeling, controllable transformation, dynamics-aware prediction, and closed-loop interaction. We present WorldFoundry, open-source infrastructure for reproducible inference and evaluation across video, 3D and 4D, embodied action, and interactive world systems. WorldFoundry unifies model and benchmark discovery, runtime and asset preparation, execution orchestration, artifact management, and interactive visualization, while modality-specific adapters preserve native inputs, execution semantics, output representations, and evaluation protocols. Explicit manifests, durable artifact contracts, and evidence-aware scorecards separate execution readiness from evaluative claims, making each claim traceable to its supporting artifacts. The catalog contains 270 model entries, 74 benchmarks, and 62 registered metric entries, with readiness and execution evidence recorded separately. WorldFoundry enables reproducible comparison of persistent, controllable dynamics across heterogeneous systems, advancing the field from perceptual synthesis toward measurable world intelligence.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10771",
+     "abs_url": "http://arxiv.org/abs/2611.10771",
+     "code_url": "https://github.com/OpenEnvision/WorldFoundry",
+     "project_url": "https://openenvision.org/WorldFoundry/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 52,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.12762",
+     "title": "Sage-Taiyi: A Metacognitive Architecture for Scientific Discovery",
+     "authors_str": "Weida Wang",
+     "abstract": "We introduce Sage-Taiyi, a metacognition-inspired architecture that uses accumulated scientific understanding to guide what to investigate next and how to investigate it. Through explicit monitoring and control, the system revises its understanding of evidence, assumptions, and unresolved questions, then uses these assessments to adapt research targets and select reusable reasoning methods. On Taiyi-Bench, an AI co-scientist ideation benchmark comprising 265 tasks from 50 papers across ten disciplines, Sage-Taiyi ranks first on all eight metrics of historical rediscovery and open-ended ideation, achieving an Overall score of 54.0 compared with 47.9 for the strongest baseline, AI Scientist-v2. It also performs well on two external scientific ideation benchmarks. Five expert-guided collaborations further connect its proposals to experimental and computational validation across chemistry, materials science, and engineering. In chemistry, reaction-condition optimization raises the yield of cobalt-catalyzed carbonylation from trace amounts to 84% and photocatalytic allylic amination from 13% to 69%. These results support metacognitive regulation as an approach to scientific ideation and its progression toward practical validation.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12762",
+     "abs_url": "http://arxiv.org/abs/2611.12762",
+     "code_url": "https://github.com/Alpha-Innovator/Sage-Taiyi",
+     "project_url": "https://alpha-innovator.github.io/Sage-Taiyi/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 51,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.12886",
+     "title": "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning",
+     "authors_str": "Haozhi Yuan",
+     "abstract": "Agentic reinforcement learning (RL) and multi-teacher on-policy distillation (MOPD) offer complementary routes to post-training. For visual agents, however, tool use presents two related challenges. Models may overlook useful tool-returned observations, while poorly grounded actions can limit the evidence available for subsequent distillation. We introduce Reframe, a post-training framework that treats the observation state, rather than only the output distribution, as an object of alignment. First, Ground-Drop-GRPO (GD-GRPO) trains spatial and temporal specialists with evidence-aware rewards and stochastic removal of the original visual input, encouraging them to acquire grounded evidence and use the returned observations. Second, Observation-Gated-MOPD (OG-MOPD) replaces deficient tool actions with canonical ones mid-rollout and resumes distillation from the repaired observation. The two stages complement each other, as learning to rely on tool-returned observations can help the policy benefit from observation repair. Neither stage requires a task-specific SFT cold start. Extensive experiments over 14 image and video benchmarks demonstrate that Reframe outperforms both Mix-RL and vanilla MOPD. Ablation results show that GD-GRPO increases observation dependence and tool gain compared with outcome-based GRPO.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12886",
+     "abs_url": "http://arxiv.org/abs/2611.12886",
+     "code_url": "https://github.com/EliYuan30/Reframe",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 37,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.42148",
+     "title": "Flide: Accelerating Decision Inference with Exact State Forking",
+     "authors_str": "Bobo Li",
+     "abstract": "Decision models such as Jev have emerged as a highly promising paradigm for LLM agent systems, providing lightweight and reliable categorical reasoning for rapid System One execution. However, existing generation-oriented inference engines fail to support these workloads effectively, suffering from severe prefix recomputation overheads or distorted output probabilities. To address this challenge, we propose Flide, an efficient and exact inference engine that decouples the logical tree structure of a decision request from its physical execution within a single flattened token stream. Through ForkAttention, Flide navigates request dependencies using GPU-resident indices across both standard attention and recurrent Gated DeltaNet layers, guaranteeing in exact arithmetic that every query branch evaluates identically to an isolated forward pass. By expressing branch topologies directly in GPU-resident metadata, Flide accommodates diverse request mixtures with a compact set of pre-recorded execution graphs while enabling expanding agent histories to resume from checkpoints saved in earlier passes. Extensive evaluations on public hybrid and decision models demonstrate that Flide answers queries up to 9.5 times faster than vLLM and SGLang while staying closest to a float32 reference in total variation distance. By unifying physical execution throughput with mathematical exactness, Flide establishes a principled foundation for scalable, latency-critical decision intelligence in agent systems.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.42148",
+     "abs_url": "http://arxiv.org/abs/2610.42148",
+     "code_url": "https://github.com/OmniJev/Flide",
+     "project_url": "https://flide.org/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 31,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.08452",
+     "title": "ReproBridge: Building Reproducibility into ML Research Artifacts",
+     "authors_str": "Yubo Wang",
+     "abstract": "Reproducing machine learning experiments requires reconstructing procedures from information scattered across papers, released code, and supporting artifacts. For coding agents, reproduction success can therefore depend on their ability to fill in missing details, rather than on the released artifacts alone. We ask whether preserving recovered procedures and decisions improves subsequent independent reproduction. We define a standardized artifact design comprising a refined codebase, environment setup, experiment launchers, and a reproduction guide, and introduce ReproBridge, an agent workflow for constructing these refined reproducible artifacts. ReproBridge-Bench provides 1,029 tasks from 387 experiments across 36 papers, anchored by five human-verified reference scores per task. Agents attempt tasks in fresh sessions with raw code or refined artifacts; a separate Auditor checks execution evidence. Across four evaluated models, refined artifacts raise mean reproduction success from 76.4% to 92.6% and reduce downstream API spending by 19.7% on average. The cross-model success-rate spread narrows from 21.6 to 3.9 percentage points, with all four models achieving mean success rates above 90%. Removing any component reduces success in the ablation study, with the largest losses from code and environment removal. These results suggest that preserving execution knowledge helps even models with lower raw-code success reproduce experiments more reliably and at lower API cost.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.08452",
+     "abs_url": "http://arxiv.org/abs/2611.08452",
+     "code_url": null,
+     "project_url": "https://wyyyb.github.io/reprobridge_website/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 29,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.10304",
+     "title": "Longtail-SWE: High-Quality SWE Tasks for Underrepresented Languages",
+     "authors_str": "Vladimir Dobrovolskii",
+     "abstract": "Challenging repository-level benchmarks remain limited for many programming language ecosystems, where filtering scarce candidates with ambiguous descriptions or defective tests can discard valuable engineering problems. We introduce Longtail-SWE, a benchmark of 202 issue-resolution tasks across 13 languages with limited coverage in existing repository-level benchmarks: Clojure, Dart, Elixir, Erlang, F#, Haskell, Julia, Kotlin, Lua, OCaml, R, Scala, and Swift. Its construction uses a solver--judge--repairer pipeline: a solver attempts each candidate task, and a judge reviews the task together with the solver's trajectory and test results to guide revisions to tests and task descriptions. These revisions aim to correct tests that reject valid alternative implementations or accept incorrect solutions while retaining challenging tasks and preserving their intended requirements. We evaluate nine model configurations, including frontier models, and analyze task-solving performance, consistency across repeated attempts, and resource usage. We release all benchmark instances, executable environments, complete construction and evaluation tooling, and agent trajectories, together with an additional set of easier tasks to support evaluation of smaller models.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10304",
+     "abs_url": "http://arxiv.org/abs/2611.10304",
+     "code_url": "https://github.com/SWE-rebench/LongTail-SWE",
+     "project_url": "https://longtail-swe.com",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 19,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}
