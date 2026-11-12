@@ -1,0 +1,492 @@
+{
+ "date": "2026-11-12",
+ "sections": [
+  {
+   "name": "Character Motion Synthesis & Animation",
+   "papers": [
+    {
+     "paper_key": "2611.12136",
+     "title": "LHNav: Long-Horizon Humanoid Navigation via Multirate Coordination and Physics-Grounded Action Data",
+     "authors_str": "Xueyang Wang",
+     "abstract": "We study humanoid navigation across multiple destinations under long-horizon language instructions. This task is challenging because robots must maintain progress across successive goals while continuously producing natural, stable whole-body motion through confined spaces. However, task decomposition in existing methods does not by itself ensure progress throughout execution, while waypoint-based navigation does not guarantee natural, route-faithful whole-body motion. Our key idea is to organize navigation into three complementary roles operating at different time scales: a Brain for task reasoning, a Cerebellum for local motion generation, and a Brainstem for whole-body execution. We realize this idea in LHNav, an asynchronous system that uses progress and arrival feedback to coordinate navigation goals, VLA motion-token prediction, and whole-body control. To train the Cerebellum for natural, route-faithful motion, we develop a physics-grounded data engine that improves physical tracking of motion references along collision-aware routes and pairs the resulting demonstrations with rendered visual observations. Together, these designs allow task planning to proceed alongside continuous movement and extend single-goal navigation to successive destinations with natural, route-faithful whole-body motion. In simulation, our navigation VLA outperforms OmniNav and DualVLN in single-goal success and motion smoothness, with fewer collisions and falls. Using a VLA trained only on single-goal demonstrations, LHNav achieves a 75.56% success rate on long-horizon navigation tasks. Deployment on the Unitree G1 further demonstrates single-goal navigation and zero-shot long-horizon task execution in real-world environments, including layouts with repositioned objects. Project website: https://robbyant-research.github.io/LHNav/.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12136v1",
+     "abs_url": "http://arxiv.org/abs/2611.12136",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "motion generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.11093",
+     "title": "Does Pose Encoding Matter? Analyzing Geometric Representations for Discrete Motion Vocabulary Learning",
+     "authors_str": "Amir Kimiyaie",
+     "abstract": "Compressing continuous human motion into a finite vocabulary of discrete tokens is now the first stage of many motion understanding and generation pipelines. Vector quantization partitions a latent space into Voronoi cells around a finite codebook, but the geometry of that latent space is inherited from the input pose encoding, and it is unclear which encoding admits an efficient discretization. We study four encodings that place skeletal motion in different geometric spaces: Gaussian joint heatmaps on the pixel lattice, which we show to be a morphological dilation of the joint point set by a quadratic structuring function; root-relative joint positions in Euclidean space; local joint rotations on $\\SO$ through a continuous 6D embedding; and a redundant full kinematic encoding. For each, we train VQ-VAE tokenizers whose codebooks lie on the unit hypersphere, varying codebook size, temporal stride, and code dimension. Beyond reconstruction, we measure codebook utilization and the effective vocabulary size, i.e., the number of equiprobable spherical Voronoi cells with the same entropy as the observed token distribution. Rotation and position encodings keep converting additional codewords into effective vocabulary, whereas the full kinematic encoding saturates at a few hundred effective cells and heatmaps at fewer than sixty. The smallest code dimension gives the highest utilization for three of the four encodings, and the effect of temporal stride depends on the encoding. Encodings of the same pose family can thus yield effective vocabularies differing by an order of magnitude, a difference that reconstruction loss alone does not reveal, which points to input geometry as a first-order design choice in motion tokenization.",
+     "published": "2026-11-08",
+     "updated": "2026-11-08",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.DM"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11093v1",
+     "abs_url": "http://arxiv.org/abs/2611.11093",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "human motion"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.10592",
+     "title": "MotionGraphicsBench: Evaluating Motion Graphics Generation with Programmatic Verification",
+     "authors_str": "Jiaju Ma",
+     "abstract": "Large language models can generate motion graphics from static images and natural language requests, but it remains difficult to evaluate how well models can follow requests that combine spatial, appearance, and temporal requirements. We introduce MotionGraphicsBench, an expert-curated benchmark of 100 instances for animating an input static SVG with a motion edit prompt. By supplying all required visual elements, our editing task reflects a designer-like workflow and isolates motion generation from graphic generation. Derived from real-world Lottie motion designs, our benchmark contains diverse combinations of spatio-temporal animation behaviors. Each benchmark instance pairs its model input with a deterministic, human-readable verification program that accepts different valid implementations and reports which prompt requirements pass or fail, rather than comparing against a reference animation or using a VLM judge. We construct these programs with a multi-agent pipeline using human-labeled animations and synthesized test cases. On a balanced test set of 180 animations, our programs achieve 93.3% raw agreement with human judgments, compared with 83.3% for a GPT-6 Astra VLM baseline, and outperform the baseline in both approval and rejection recall. Across 47 configurations from 32 LLMs and 12 providers, pass@1 ranges from 6.0% to 67.7%. Across 15 models evaluated at their highest available reasoning effort with 32 attempts per instance, additional attempts improve every model, but pass@32 still ranges from 38.0% to 95.0%. Our analysis of verification programs reveals that generated animations often fail to match reference poses, follow requested motion trajectories, or coordinate related events. We release our benchmark at https://huggingface.co/datasets/figma-ai/motion-graphics-bench.",
+     "published": "2026-11-07",
+     "updated": "2026-11-07",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10592v1",
+     "abs_url": "http://arxiv.org/abs/2611.10592",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "motion generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.13030",
+     "title": "APS-VLA: Action-Guided and Future-Aware Token Pruning for Efficient Vision-Language-Action Models",
+     "authors_str": "Xiaoyang Xing",
+     "abstract": "Vision-language-action (VLA) policies have demonstrated strong generalization in robotic manipulation, yet processing dense visual tokens often incurs high inference latency. Visual token pruning offers a practical way to reduce this cost, but identifying a compact set of tokens that preserves reliable action generation remains challenging. Existing methods largely rely on static or immediate heuristic cues to estimate token importance. We introduce APS-VLA, a framework that learns visual token selection from robot demonstrations while keeping the pretrained VLA backbone frozen. A lightweight Decision Influence Estimator scores tokens conditioned on current visual observations, language instructions, and robot proprioception. Its training combines two complementary signals: action supervision matches both the full-input policy predictions and demonstrated actions, while an auxiliary visual transition objective uses demonstrated actions to predict subsequent visual features from the selected representation. At deployment, the estimator performs a single hard selection and packing step before the policy's native action-generation procedure; the auxiliary predictor is removed. Experiments with OpenVLA-OFT on LIBERO and with $π_{0.5}$ and XR-1 on RoboCasa365 demonstrate inference acceleration with modest changes in task success. Across five real-world tasks on two dual-arm platforms, APS-VLA reduces mean policy inference latency from 137.25 to 93.25 ms, achieving a $1.47\\times$ speedup with an average success rate of 61%, compared with 60% for the unpruned baseline. Together, these results support APS-VLA as a modular, plug-in framework for efficient robotic control across VLA architectures, preserving the underlying policy parameters and native action-generation procedure.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13030v1",
+     "abs_url": "http://arxiv.org/abs/2611.13030",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12113",
+     "title": "Motion Belief Action: From a Visual Scene Map to Physical Decisions",
+     "authors_str": "Dibyendu Ghosh",
+     "abstract": "A robot that works among people must judge what it cannot see: whether an object is still where it was last seen, and whether a pull on a door or drawer is worth its risk. Maps that track object change hold nothing about force, maps of physical properties answer a risk question at a fixed risk level, and vision-language-action models keep no explicit estimate of hidden physics. We propose Motion Belief Action (MBA), a decision layer on the scene map. From how often people move an object and how much force it needs, how much load it holds and whether it is blocked, MBA chooses under a force limit to look again, nudge, open, brace or decline, with its risk set by the task's costs. On real activity in 9 kitchens, it predicts whether an object is still in place better than FreMEn and Perpetua, and decides when to look again at lower cost than these and the persistence filter, because about a quarter of placements end in a pick-up within 30 s. On real pulls of doors and drawers in 17 locations, made by a person with a force-sensing gripper, the map's force estimates decide better than a part-type average. Setting the risk from the costs also beats a published risk rule at its fixed level. In simulation, with the force limit at the training parts' median force, MBA raises SmolVLA's and Octo's scores by declining pulls; most declined door pulls would fail, but on drawers more would have opened, and a part-type average gets about half of this gain. In both, a published risk rule set to the risk these costs imply is MBA's rule for a single pull and decides as well in the main settings. A link between opening and holding force, a probing nudge and an action prior for camera tracking do not help in the main settings, and over the real-pull sweep the nudge costs a little.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12113v1",
+     "abs_url": "http://arxiv.org/abs/2611.12113",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.11981",
+     "title": "Thermo-VLA: A Thermal-Aware Vision-Language-Action Model with Gated Residual Modulation for Robotic Manipulation",
+     "authors_str": "Jingxuan Chen",
+     "abstract": "Recent Vision-Language-Action (VLA) models have begun incorporating thermal sensing, but existing approaches typically treat thermal images as ordinary visual inputs, providing limited support for temperature-aware relational reasoning in manipulation. To address this limitation, we propose Thermo-VLA with a ThermoRes Encoder, which decomposes thermal images into cold and hot attribute representations and injects them into the RGB token through language-conditioned residual modulation, enabling temperature-driven target selection and continuous manipulation. We further construct six real-world robotic tasks on a dual-arm Unitree G1 platform, spanning basic grounding to relational reasoning. Experiments show that Thermo-VLA achieves an average success rate of 0.86 across four thermal-dependent tasks, outperforming a pi_0.5 baseline that directly incorporates RGB-thermal observations by 18 percentage points. Under unseen-object and scene variations, Thermo-VLA maintains an average success rate of 0.78, achieving the best generalisation performance among the compared methods. Beyond thermal sensing, we transfer the same residual modulation mechanism to colour attributes and observe consistent improvements in both simulation and real-robot experiments, indicating its potential to generalise beyond thermal attributes. Project website: https://j-x-chen.github.io/Thermo-VLA-web/",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11981v1",
+     "abs_url": "http://arxiv.org/abs/2611.11981",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.11856",
+     "title": "DeltaForge: A Post-hoc Mixture-of-Experts VLA for Multi-Domain Autonomous Driving",
+     "authors_str": "Bingzhang Wang",
+     "abstract": "Fleets of driving vision-language-action (VLA) models are developed one domain at a time: each operator finetunes a shared base model on private data, producing specialized experts that are costly to consolidate into a single model. Weight merging loses accuracy as heterogeneous domains accumulate, and dense mixture-of-experts routing is prohibitively expensive to combine them. We present DeltaForge, to our knowledge the first post-hoc mixture-of-experts VLA for driving, which consolidates N independently finetuned per-domain models into a single multi-domain model from their weights and a small proxy set alone. When different operators finetune the same base model, their weight updates end up sharing a lot of structure. We exploit this by decomposing all the updates together using singular value decomposition (SVD), splitting each one into a shared part (the same across all domains) and a tiny domain-specific part. The router then only needs to work with those tiny domain-specific pieces, not the full expert weights, which is what keeps the approach efficient. Then two cooperating clip-level blind routers, one over the VLM reasoning experts and one over the flow-matching dynamics experts, are trained from soft labels on the proxy dataset. Across six diverse domains spanning urban, off-road, and highway driving on cars, trucks, and all-terrain vehicles (ATVs), DeltaForge approaches the accuracy of the per-domain experts and surpasses every merging, routing, centralized, and federated baseline at close to single-model parameter and compute cost. Adding a new domain requires only projecting its weight update onto the shared basis with no end-to-end retraining needed. The resulting model also generalizes to domain combinations it was never explicitly trained on.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11856v1",
+     "abs_url": "http://arxiv.org/abs/2611.11856",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language",
+      "VLM"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.10699",
+     "title": "PLS-GS: Probabilistic Lidar Scaffolds for Compact, Surface-Aligned Gaussian Splatting",
+     "authors_str": "Krishnan Harikumar",
+     "abstract": "While 3D Gaussian Splatting (3DGS) is typically optimized from images only, many robotics and mapping applications provide both camera and high-definition LiDAR data, combining rich visual appearance with accurate geometric structure. We introduce PLS-GS, a probabilistic LiDAR scaffold for Gaussian Splatting that exploits this complementary sensing setting to construct a compact 3DGS representation aligned to the measured surface. PLS-GS fits a Hierarchical Gaussian Mixture Model jointly over position and color, yielding a continuous and adaptive scaffold that eliminates the need for discrete scene partitioning such as voxel grids or octrees. The fitted mixture then guides the renderable 3DGS Gaussians: each rendering Gaussian is associated with a GMM component and constrained in the local surface frame induced by that component's covariance. A Mahalanobis support loss bounds the deviation of the rendering Gaussians from the corresponding LiDAR-derived surface. Across five large outdoor scenes, PLS-GS places primitives markedly closer to the LiDAR measurements than both image- and LiDAR-initialized baselines, while employing substantially fewer primitives, yielding a considerably more compact model and faster rendering. At matched capacity, PLS-GS places primitives closer to the LiDAR measurements, with comparable rendering quality. Code is available at https://github.com/k-harikumar/PLS-GS.",
+     "published": "2026-11-07",
+     "updated": "2026-11-07",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.GR",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10699v1",
+     "abs_url": "http://arxiv.org/abs/2611.10699",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.10652",
+     "title": "SHIN: Scalable Hierarchy for INcremental 3D Gaussian Splatting",
+     "authors_str": "Reagan Koo",
+     "abstract": "3D Gaussian Splatting (3DGS) provides high-quality real-time novel-view synthesis, but deployment budgets vary across devices and network conditions. Most compact methods target one operating point, so another budget requires a separate representation. SHIN is a scalable 3DGS hierarchy with a reusable Base and additive enhancement layers, so each higher-quality operating point extends rather than replaces the decoded representation. Constructing this hierarchy requires deciding which Gaussians each stage adds and how much spherical-harmonic (SH) appearance each retains, because these choices remain fixed in later prefixes. SHIN derives one shared Gaussian order from multi-scale position-scale sensitivity and divides each stage budget between adding Gaussians and retaining SH bands using calibrated gradient-based scores per byte. Lightweight opacity updates adjust compositing while transmitted geometry and SH coefficients remain unchanged. Across three benchmarks, SHIN progressively improves one cumulative representation and achieves the best PSNR-size efficiency in every overlapping comparison with the multi-rate and progressive baselines.",
+     "published": "2026-11-07",
+     "updated": "2026-11-07",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10652v1",
+     "abs_url": "http://arxiv.org/abs/2611.10652",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.10379",
+     "title": "RefineSplat: Reconstruction-Guided Object-Centric Gaussian Splatting for Open-Vocabulary Querying",
+     "authors_str": "Yiren Lu",
+     "abstract": "Open-vocabulary 3D scene understanding aims to segment and retrieve arbitrary objects in 3D scenes using natural language queries. Most existing methods typically follow a splat-then-segment paradigm, where 3D Gaussian Splatting is first reconstructed and then augmented with labels or language features for subsequent segmentation. However, this pipeline often suffers from view inconsistency, ambiguous object boundaries, and weak object-level correspondence, especially in complex static and dynamic scenes. Building on our prior Segment-then-Splat framework, we present RefineSplat, a reconstruction-guided extension that retains its object-centric paradigm: it first tracks objects in 2D and then reconstructs each object with a dedicated set of 3D Gaussians, preserving explicit object-Gaussian correspondence for unified open-vocabulary segmentation and retrieval. To improve robustness, we further close the loop between 2D tracking and 3D reconstruction. Since off-the-shelf video trackers can produce unreliable masks that propagate errors into object reconstruction, we introduce a reconstruction-guided feedback mechanism that refines object tracking using rendered masks and multi-view consistency. Moreover, instead of assigning each object a single language embedding, we propose a viewpoint-aware embedding assignment strategy, where each object maintains multiple view-clustered embeddings to capture view-dependent semantic cues. We also introduce Blender-OVS, a synthetic benchmark of static and dynamic sequences with exact object meshes and point clouds, enabling direct evaluation of extracted geometry. Experiments on static and dynamic benchmarks show improved rendered-view segmentation and lower object-level Chamfer distances, with competitive scene reconstruction quality.",
+     "published": "2026-11-07",
+     "updated": "2026-11-07",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.10379v1",
+     "abs_url": "http://arxiv.org/abs/2611.10379",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting",
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.13113",
+     "title": "Building World Models from Intrinsic Motivation",
+     "authors_str": "Reece Keller",
+     "abstract": "In the absence of extrinsic rewards or task supervision, human behavior is guided by intrinsic motivation---neural signals that drive curiosity, creativity, play, and other essential facets of intelligence. Intrinsic motivation plays an important developmental role in building robust world models that enable generalization and adaptation. Yet existing studies leave open how a broad range of intrinsic motivations interacts with world-model representation learning to support downstream control. This limits our understanding of which intrinsically collected experiences build reusable models. To address these gaps, we integrate 24 intrinsic objectives, including established methods and explicit variants spanning curiosity, entropy, and competency, into a common model-based reinforcement learning framework. We evaluate the world models they build through zero-shot, few-shot, and multi-task control in locomotion, manipulation, and open-ended gaming environments, using three representation-learning strategies: observation reconstruction, latent prediction, and redundancy reduction. Curiosity-driven exploration with observation reconstruction yields the strongest aggregate family profile, although the best individual pairing depends on the experiment. In compositional vision-based tasks, intrinsic motivation derived from both episodic and lifelong novelty---providing a complementary memory to the world model's generic recurrent state---achieves the best zero-shot transfer and few-shot adaptation. These findings motivate designing intrinsic motivation and representation learning jointly. Our results demonstrate world models as a powerful tool for measuring the quality of intrinsically motivated experience, and positions intrinsic motivation as a key ingredient for building world models autonomously.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13113v1",
+     "abs_url": "http://arxiv.org/abs/2611.13113",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12557",
+     "title": "WanderBench: Can World Models Explore Dynamic Worlds from Video?",
+     "authors_str": "Yuhang Chen",
+     "abstract": "Video world models conditioned on an input video make it possible to explore real, recorded dynamic scenes, enabling re-shooting of footage, free-viewpoint replay, and real-to-sim environments for embodied agents. Such uses require the generated rollout to stay faithful to the recorded world, yet existing benchmarks start from a single image or a text prompt, and video-conditioned generation is evaluated mainly on perceptual quality and camera following. These evaluations do not directly assess whether exploration preserves subject identity, event progression, and scene consistency upon revisiting a location. We introduce WanderBench, a benchmark for exploring dynamic worlds from video. It comprises 745 single-shot source videos of real and AI-generated content in three difficulty tiers (3-25 s), paired with camera routes given as keyboard actions, and evaluates six dimensions with 24 human-validated sub-metrics. Benchmarking eight models, we find that as clips grow longer, models keep the static scene and visual quality but lose camera control and the source dynamics, and that none keeps revisited places consistent. We further propose WanderLand, a training-free framework that conditions each frame of a frozen model on the same-instant source and, on revisits, on its own earlier static content. WanderLand improves five models on every dimension, by up to 8.3 points in source-dynamics fidelity.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12557v1",
+     "abs_url": "http://arxiv.org/abs/2611.12557",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12324",
+     "title": "How Many Exposures Does a World Model Need? Learning Unseen Game Mechanics at Test Time",
+     "authors_str": "Ku Onoda",
+     "abstract": "World models enable agents to plan and learn from imagined experience, but in an unfamiliar environment they must learn its mechanics from limited interaction. A mechanic is a rule for how an action or an interaction changes part of the environment. Each occurrence of a mechanic that the model observes is one exposure. We ask how many exposures a world model needs to predict the effects of a new environment's mechanics. We address this question on ARC-AGI-3, a benchmark of interactive games defined by their programs. We introduce MechEval, which labels 69 recurring mechanics across 20 games from these programs. It scores each prediction on the cells the mechanic changes at each exposure. As a test bed, we build WARC (World model for ARC-AGI-3), a 35M-parameter vision transformer that is pretrained on other games and updates all of its parameters after each transition. On held-out games, WARC learns to predict four in five mechanics with at least 80% accuracy on the cells they change and keeps that accuracy to the end of the recordings. Half of them reach that accuracy within about 80 exposures, in a single play of the game, and without updates only one in seven does at all. In closed-loop play on the public games, WARC-Agent, which pairs WARC with a fixed graph explorer, triples the explorer's official efficiency score from 0.15 to 0.46, mostly through test-time training. On the hidden games of the Kaggle leaderboard, our entry scores 0.20.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12324v1",
+     "abs_url": "http://arxiv.org/abs/2611.12324",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.11921",
+     "title": "An Evaluation of Tabular Foundation Models as Training-Free World Models",
+     "authors_str": "Xian Yeow Lee",
+     "abstract": "World models are widely considered to be a potential key component of model-based reinforcement learning and robot planning, but typically require task-specific training on substantial interaction data. We investigate whether a pretrained tabular foundation model (TabFM) can serve as a training-free dynamics model for world modeling by framing next-state prediction as in-context regression over transition pairs, and where such a model helps and where it breaks. Across synthetic dynamical systems and robot locomotion benchmarks, TabFM is more accurate than LSTM and MLP models trained from scratch on the same limited transitions in almost all settings, and among regressors fitted to the same data it is the most accurate on locomotion, while a Gaussian process is more accurate on smooth low-dimensional systems. However, models trained on the full dataset remain substantially better on most systems. When rolled out autoregressively over multiple steps, TabFM's accuracy depends strongly on how much context it is given. With a short context, its rollouts quickly degrade to the level of a trivial baseline, whereas with a long context they improve substantially and, on one locomotion task, exceed a trained LSTM. Inference is also about three orders of magnitude slower than an LSTM. Overall, in their current state, we find that training-free priors are useful as predictors when data are scarce and enough context is available, but they are not yet a substitute for trained world models in planning.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.LG",
+     "all_categories": [
+      "cs.LG",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.11921v1",
+     "abs_url": "http://arxiv.org/abs/2611.11921",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Narrative & Long-form Audio",
+   "papers": [
+    {
+     "paper_key": "2611.12124",
+     "title": "SCLAP: Temporal structural alignment improves localization in long-form audio",
+     "authors_str": "Yacouba Kaloga",
+     "abstract": "Audio-text models such as Contrastive Language-Audio Pretraining (CLAP) typically pool frame and token sequences uniformly into global embeddings. This discards temporal structure and impairs both retrieval and localization, especially for short events in long recordings. We introduce SCLAP, a sequence-level contrastive framework that aligns audio frames and text tokens using monotone one-dimensional optimal transport. Its learned marginals and transport plan provide fine-grained temporal supervision from clip-level captions alone. On short-form audio (i.e., Clotho and TACOS datasets with 15-30s recordings), SCLAP remains competitive for retrieval while improving zero-shot localization over CLAP and Text-aware Attention Pooling. On long-form audio (i.e., CASTELLA dataset with up to 300s recordings), SCLAP improves retrieval performance and its localization advantage grows as the event-to-context ratio decreases. At inference, SCLAP requires no optimal transport computation since retrieval can use pooled embeddings and localization can use inexpensive frame-text cosine scores.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "eess.AS",
+     "all_categories": [
+      "eess.AS",
+      "cs.SD"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12124v1",
+     "abs_url": "http://arxiv.org/abs/2611.12124",
+     "code_url": null,
+     "project_url": null,
+     "category": "Narrative & Long-form Audio",
+     "score": 1.0,
+     "matched_keywords": [
+      "long-form audio"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2610.40394",
+     "title": "Scaling Mathematical Proof Supervision from Structured Textbooks",
+     "authors_str": "Youqing Fang",
+     "abstract": "Mathematical supervision for language models is typically flattened into isolated problem-solution pairs, discarding the curricular organization and evidential structure of the original sources. We introduce TOME-Math (Textbook-Oriented Mathematical Evidence), a large-scale corpus that converts 2,118 textbooks spanning the core areas of university-level mathematics subjects into approximately 380K structured proof-supervision records while preserving chapter order, proposition-proof links, dependency references, and source provenance. Leveraging these structural signals, we explore curriculum learning across multiple mathematical subjects and characterize scaling patterns with supervision volume and source breadth. At full scale, fine-tuning on TOME-Math raises the unweighted mean score across our held-out evaluations and established public benchmarks by 16.7 percentage points over the base model, while exceeding all three public instruction-data baselines evaluated in aggregate. Our findings highlight structured textbooks as both a scalable source of mathematical supervision and an empirical framework for studying the impact of data organization on mathematical reasoning. We will release the corpus to facilitate further research on structured mathematical supervision.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.40394",
+     "abs_url": "http://arxiv.org/abs/2610.40394",
+     "code_url": null,
+     "project_url": "https://tome-math.github.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 38,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.13410",
+     "title": "SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering",
+     "authors_str": "Genming Cui",
+     "abstract": "Low-bit quantization reduces the inference cost of LLM agents but can compromise task success. Examining failed rollouts, we find that quantized agents overlook task requirements or environmental conditions, producing environment transitions that diverge from successful full-precision references. Correcting these behavioral divergences remains difficult: offline data may miss the student's failure contexts, while its own rollouts may provide few correct responses in those contexts. We introduce SteerDistill, a quantization-aware distillation method in which a full-precision teacher guides the student to revise failed responses and iteratively refines its guidance using feedback from student execution. This closed-loop teacher steering produces locally verified behavioral corrections. We internalize these corrections by training the student without guidance to match the steered student's predictions at corrected turns and the full-precision teacher's at other turns, enabling unassisted inference. Across five agentic benchmarks and three models, SteerDistill exceeds the strongest quantized baseline by 1.67--2.18 points in average score under W4A16 and stays within one point of BF16. On τ^2-Bench, it outperforms QeRL by 1.84 percentage points in success rate using 67% fewer training GPU hours and produces shorter successful trajectories than the quantized baselines.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13410",
+     "abs_url": "http://arxiv.org/abs/2611.13410",
+     "code_url": "https://github.com/air-embodied-brain/SteerDistill",
+     "project_url": "https://air-embodied-brain.github.io/SteerDistill",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 31,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2610.39671",
+     "title": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
+     "authors_str": "Lingkai Kong",
+     "abstract": "Large language models (LLMs) draw on parametric knowledge and retrieval-augmented generation (RAG) to solve knowledge-intensive tasks. Yet problem solving in unfamiliar domains calls for tightly coupled knowledge acquisition and reasoning, beyond factual retrieval and aggregation or learning solely from a preassembled context. We study self-learning -- autonomously retrieving, studying, and applying knowledge from long-form reference materials on the fly. To investigate this capability, we formulate a textbook-based mathematical problem-solving task. LLMs must navigate textbook exposition, learn and apply relevant principles, and construct proofs for exercises, with reference solutions withheld. We introduce a BookNavigator interface to support this human-inspired study process and incentivize self-learning through reinforcement learning (RL) with fine-grained rewards. Experiments show that our method improves performance across in-domain and out-of-domain textbooks and subjects, raising Intern-S2-Preview-35B's overall proof accuracy from 51.5% to 79.5% and outperforming RL-trained textbook-free and fixed-retrieval baselines. These gains extend to complex long-context benchmarks involving different task types, with improvements over the base model of 1.7 and 2.3 percentage points on BrowseComp-Plus and CL-bench, respectively. Together, these findings suggest that RL can foster a domain-agnostic self-learning strategy, highlighting the potential of self-learning from long-form corpora to strengthen broader problem-solving capabilities on complex, long-context tasks.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2610.39671",
+     "abs_url": "http://arxiv.org/abs/2610.39671",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 27,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2608.22237",
+     "title": "Read Less, Solve More: Token-Efficient Sparse Reading of External Content for AI Agents",
+     "authors_str": "Zedong Liu",
+     "abstract": "Web-facing AI agents repeatedly access webpages, documents, repositories, and tool responses, yet reading interfaces often expose entire objects when only sparse evidence is needed. This over-reading increases token and latency costs and can dilute relevant evidence. We present SparseRead, a reusable reading control layer that governs content admission without modifying the agent model. Its Read Intent Protocol tracks evolving needs and source coverage; Adaptive Reader Backends select how evidence is located and exposed; and the Budgeted Read Gate bounds cumulative raw exposure per episode with faithful full-view fallback. A unified Reader interface supports interchangeable evidence acquisition across heterogeneous resources. Across six models, including Claude Opus 5, and five scenarios, SparseRead reduces total tokens by up to 92.9% and wall time by up to 89.0%, preserving or improving task quality in 97% settings. On Web deep-search tasks, it reduces tokens by 31.0--43.0% and task completion time by 23.0--37.0%. Ablations validate the three designs, while integration with three agent frameworks demonstrates portability.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2608.22237",
+     "abs_url": "http://arxiv.org/abs/2608.22237",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 18,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}

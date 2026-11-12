@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.11.11
+## 📚 Updated on 2026.11.12
 
 <details>
   <summary>Table of Contents</summary>
@@ -28,7 +28,7 @@
 - 2026-10-28, **Decompose, Don't Expand: Capability-Independent AI Systems by Construction**, Tejaswi Gowda et.al., Paper: [@2610.38144](http://arxiv.org/abs/2610.38144)
 > **Abstract:** A recurring design choice in building AI systems is whether, when a task is too hard for a model, to expand the model (make it larger, better-prompted, fine-tuned), or to decompose the task (extract the parts that admit a deterministic solution to a host, leaving the model only the irreducibly fuzzy residue). We make three claims. First, that many tasks commonly delegated whole to a model are in fact deterministic tasks with a small generative core. Second, and our central empirical result, that decomposing such a task yields a measurable and desirable property we call parity by construction: on the extracted sub-tasks the model-size performance curve becomes flat, because no model performs them at all. We measure this across nine models spanning a 494M-parameter local checkpoint to a frontier Opus-class model, a thirty-fold parameter range on the local family alone: once the host resolves the context, operation selection scores identically for all nine models and selector resolution for eight of nine, while the one task that does not decompose, labelling, remains sloped across the same range. Because the task leaves the model, a stock checkpoint suffices: no task-specific training and no fine-tuning. Third, that this is a general design discipline, not a domain trick: we show the same move recurring across physics setup, motion retargeting, and object-model editing, and in a Web-CLI tool family (same author, so not an independent replication). We give a method for locating the cut, the construction that makes a cut exist (a deterministic surface and a closed grammar over it), and a way to make the residue safe (resolve the deterministic context; verify the generative output), position the work against neuro-symbolic AI, tool-augmented language models, and generate-and-verify approaches, and are explicit about what is measured (one domain) versus illustrative (the rest).
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -71,7 +71,7 @@
 - 2026-10-28, **StepControl: Long-Horizon Human Motion Generation from Foot-Contact Schedules**, Hojun Jang et.al., Paper: [@2610.38153](http://arxiv.org/abs/2610.38153)
 > **Abstract:** Controllable human motion generation has largely focused on specifying what action should occur or where the body should move. We study a complementary question: can full-body motion be controlled by specifying only when each foot contacts the ground? We introduce StepControl, an autoregressive diffusion model conditioned on a future binary left/right foot-contact schedule, without requiring target root and body poses, or semantic prompts. StepControl represents contact as explicit temporal events and injects them through dedicated cross-attention with classifier-free guidance. We further introduce a stochastic mixture noise schedule and warmup strategy for stable long-horizon autoregressive generation. Experiments show that StepControl follows prescribed contact timing more accurately than adapting existing spatially guided motion generators to contact constraints. It maintains effective contact control over long continuous rollouts and responds to edited schedules such as cadence changes, stop-and-go pauses, limping gaits, and bilateral jumping. Our results show that minimal foot-contact schedules provide an effective and intuitive temporal interface for controllable motion generation.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -254,7 +254,7 @@
 - 2026-11-08, **SoftPAT3D: Physics-Augmented Text-to-3D Scene Generation with Deformables**, Lei Shu et.al., Paper: [@2611.11087](http://arxiv.org/abs/2611.11087)
 > **Abstract:** We present SoftPAT3D, a physics-augmented framework for text-to-3D scene generation in which deformable objects, such as cloth, stuffed toys and ropes, are generated as physically valid, simulation-ready bodies and placed in intersection-free contact with the furniture that supports them, with one another and with themselves. Existing physics-augmented pipelines simulate rigid bodies only and cannot accommodate a generated deformable object, which text-to-3D generation returns as a geometrically invalid mesh, sometimes self-intersecting, that has no rest shape, no material model and no admissible initial state. These are the inputs a deformable simulation requires, and we construct each from information already in the pipeline. The rest shape comes from how the object is manufactured rather than from the generated physically inconsistent deformed configuration, and a material library assigns each deformable object its initial elastic parameters, which can then be optimized. The occluded support is regenerated and converted into a watertight collision mesh, each object is released from an optimizable placement above the supporting part that the prompt specifies, and the complete scene is driven to static equilibrium under one unified contact model, with completion verified by geometric checks and a vision-language model. When a scene fails the prompt, a grid search over placements corrects it, and the adjoint of a differentiable simulation of the same contact energy reaches the targets the grid does not, places several bodies jointly and recovers and optimizes material parameters. Multi-body scenes equilibrate in a single simulation, and the pipeline also runs from the text prompt alone. On all sixty-five prompts, SoftPAT3D produces no undesired interpenetration of any kind, whereas every other system does, and its scenes directly support scene editing and robotic manipulation.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -447,7 +447,7 @@
 - 2026-11-02, **History Forcing: Distilling History-Dependent Continuations for Long-Horizon Video World Models**, Hangyi Kuang et.al., Paper: [@2611.02782](http://arxiv.org/abs/2611.02782)
 > **Abstract:** Few-step autoregressive video diffusion enables efficient generation, yet maintaining consistency over long rollouts remains challenging, especially when subjects or scenes reappear after going out of sight. Despite progress in fidelity and rollout robustness, existing distillation methods do not fully exploit richer historical information to constrain the student's current prediction. To address this gap, we introduce \textbf{History Forcing}, a unified on-policy distillation framework that strengthens historical supervision for few-step autoregressive video generators. The framework uses the residual between teacher predictions with and without informative historical context to decouple this supervision. Such a historical context can be obtained using earlier generated chunks with less accumulated drift or a fixed-view teacher rollout that keeps the scene visible while the student looks away. The residual is then weighted and added to the score or velocity prediction used for distillation, forming a corrected target. By aligning the student with this corrected target through distillation, History Forcing incorporates long-range historical constraints into autoregressive generation. Our method achieves state-of-the-art performance among 1.3B models, with a VBench quality score of 85.07 for 15s video generation and a VBench-Long aggregate score of 79.82 for 60s generation. For out-of-sight world modeling, evaluations further demonstrate more plausible scene evolution and more consistent states when the camera returns, with Evolution Quality improving from 2.35 to 2.70 on PlayWorld and Object Consistency from 58.43 to 62.18 on MemoBench.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -468,7 +468,7 @@
 - 2026-10-29, **SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry**, Kurt Enkera et.al., Paper: [@2610.39560](http://arxiv.org/abs/2610.39560)
 > **Abstract:** Robotic grippers operating in unstructured environments must robustly grasp objects of different shapes and sizes despite perception and positioning errors. Soft grippers that can achieve this robustness through intelligent mechanical design rather than sophisticated control software offer a promising solution. However, no existing computational design framework explicitly optimises soft gripper morphology for robustness across object geometries and grasp poses. We introduce SimTO-Robust, a generalisation of simulation-driven topology optimisation (SimTO) that simulates grasps across multiple objects and poses and aggregates their contact forces to guide gripper morphology optimisation. We generate 6,646 designs and physically evaluate 24 of them alongside 10 specialised SimTO designs, two rigid baseline grippers, and a baseline generalist soft gripper produced using conventional topology optimisation. All 37 grippers are tested in a pick-and-place task involving five feature-rich objects and six grasp poses, with external disturbances of increasing magnitude applied during the task. On average, SimTO-Robust designs complete pick-and-place more reliably than specialised SimTO designs and the rigid baselines. The best SimTO-Robust designs also withstood more of the applied disturbances than any other tested gripper. These results show that incorporating diverse grasp conditions into simulation-driven topology optimisation is a simple and effective approach to improving real-world soft gripper robustness. More broadly, they show that robust robotic grasping can be achieved through intelligent mechanical design rather than sophisticated sensing and control.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -487,7 +487,7 @@
 - 2026-10-28, **LogicTree: Object-Oriented Writing for Structured Human-AI Academic Authoring**, Jiajun Zhu et.al., Paper: [@2610.38136](http://arxiv.org/abs/2610.38136)
 > **Abstract:** Academic writing is non-linear, iterative, and structure-driven, requiring authors to develop fragmented ideas into arguments with local coherence and global consistency. However, current AI-assisted tools primarily exchange linear prompts and free-form text, forcing authors to reconstruct generated logic and repeatedly verify its alignment with their structural intentions. We propose object-oriented writing (OOW), an OOD-inspired representation and interaction paradigm in which persistent writing objects serve as shared, manipulable referents for authors and AI. We instantiate OOW in LogicTree, an Overleaf-integrated prototype that combines a hierarchical object representation with a structure-grounded writing assistance module for author-initiated generation and issue-grounded revision and a structural logical review module for inspecting local coherence and global consistency. A within-subjects study (N=12) provides initial evidence that, in controlled academic writing tasks, LogicTree helps users structure ideas, reduces workload, and improves measured logical quality compared with a conversational baseline.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -644,7 +644,7 @@
 - 2026-10-28, **Volley3D: Unified 3D Full-Sequence Reconstruction from Monocular Broadcasts**, Noâm Boussouf et.al., Paper: [@2610.38358](http://arxiv.org/abs/2610.38358)
 > **Abstract:** 3D reconstruction from single-view sports broadcast is a pivotal capability for automated analytics and immersive AR/VR replays, yet notoriously ill-posed due to difficult-to-calibrate moving cameras and depth ambiguity. Unlike widely studied racket sports, team sports such as volleyball feature unpredictable multi-contact sequences and high altitude jumps. These dynamics categorically invalidate the standard planar projection assumptions relied upon by existing methods. To resolve these limitations without 3D training supervision, we propose a complete, physics-grounded pipeline tailored to monocular broadcast volleyball. First, we include a correction module to the perspective drift induced by ground-plane projection by coupling temporal jump spotting with Newtonian interpolation for 3D player placement. Second, for 3D ball trajectory estimation, we design a dedicated sub-trajectory segmentation architecture alongside a collision-matching algorithm. By anchoring physical equations to reconstructed 3D hand vertices, we lift noisy ball 2D detections into a spatiotemporally coherent 3D scene. Evaluations on multi-camera benchmarks demonstrate our approach significantly reduces 3D spatial drift compared to 2D-reprojection baselines.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -775,7 +775,7 @@
 - 2026-10-28, **Floor It, Then Fill It: Simulating Creator Ecosystems for Fair Video-Content Recommendation Systems at Billion User Scale**, Sohini Roychowdhury et.al., Paper: [@2610.38155](http://arxiv.org/abs/2610.38155)
 > **Abstract:** Engagement-optimized content recommendation systems exhibit a well-documented rich-get-richer dynamic that structurally disadvantages emerging creators on large-scale platforms. Evaluating debiasing interventions at scale demands faithful simulation of creator-viewer ecosystems, yet the fidelity, diversity, and validity of such simulators remain underexplored. We present a grounded user-simulation framework that models a heterogeneous population of ${\sim}42$K creators and their coupled viewer interactions over 12~weeks, and use it to evaluate equitable view-allocation policies formulated as a budgeted multi-armed bandit (MAB). The simulator captures three behavioral dimensions: (i)~\textbf{creator diversity}, modeled via a clustering approach grounded in real platform creator-level distributions; (ii)~\textbf{behavioral fidelity}, captured through coupled creator-content state machines that represent growth trajectories, engagement accumulation, and graduation dynamics; and (iii)~\textbf{population-level validity}, measured by calibration against observed platform metrics. We evaluate simulative-configurations that vary content-viewership target definitions, reward functions, and a small-creator reserve lever to maximize creator-content recommendation equity. A floor-protected per content-view-target with a view-parity-gap reward guarantees 90\% of view targets being met by creators every week, grows small-creator organic reach ${\sim}{+}33\%$ per week, and achieves high distribution stability (set of creators with funded-views Jaccard $= 0.819$). We analyze the Sim2Real gap and propose validation protocols, contributing evidence for when simulation-derived fairness conclusions can be trusted.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -804,7 +804,7 @@
 - 2026-10-30, **SketchForge: Training-Free Scene-to-Vector Sketching via Decoupled Structure and Texture Optimization**, Quang-Thinh Nguyen et.al., Paper: [@2611.00253](http://arxiv.org/abs/2611.00253)
 > **Abstract:** Converting a raster image into a resolution-independent, stroke-editable vector sketch while faithfully preserving both structural contours and tonal texture remains challenging: raster-space rendering pipelines are difficult to edit at the stroke level, while generation-from-scratch vectorization methods struggle to remain faithful to an arbitrary input image. We present SketchForge, a training-free framework that converts an input raster image into a resolution-independent SVG sketch through per-instance test-time optimization of Bezier curves, requiring no additional training or fine-tuning. Strokes are seeded via a contour and attention-guided initialization, then refined by a vector-native differentiable rendering pipeline that decouples structural contour strokes from free-form texture strokes under dedicated objectives, composited via multiply-blend layering. Extensive experiments show that SketchForge consistently outperforms existing vector-based baselines in structural fidelity and generation quality. Project page: https://khangcntn123.github.io/SketchForge
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -819,7 +819,7 @@
 - 2026-10-28, **A Tutorial on Generative Models for Music Audio**, Mateusz Modrzejewski et.al., Paper: [@2610.38252](http://arxiv.org/abs/2610.38252)
 > **Abstract:** Music audio generation spans instrumental clips, full songs with vocals, edits of existing recordings, and systems that play alongside a musician in real time. This monograph explains the methods behind these systems for readers familiar with neural-network training who are new to music generation. It introduces neural audio codecs and autoencoders, autoregressive and masked token models, diffusion and flow matching, sampling acceleration, and preference optimization in a shared notation. Worked examples connect training objectives and sampling procedures to published systems. The application sections relate the musical requirements of instrumental generation, songs, editing, and live performance to model design. Comparison tables record representations, methods, inputs, tasks, and release information documented in papers and official sources. Symbolic composition, speech, and sound effects are included where they connect to music audio. We explain how to interpret automatic metrics and learned judges, design and report listening tests, and assess evidence about data provenance, memorization, attribution, and output detection. Selected legal decisions and disputes illustrate the implications for training and release. The reviewed systems combine established generative paradigms with new representations, planning stages, and post-training procedures. Differences in data, scale, and evaluation limit what cross-system comparisons can establish about the sources of reported gains.
 
-<p align=right>(<a href=#updated-on-20261111>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261112>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors
