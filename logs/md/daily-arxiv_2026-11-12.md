@@ -3,22 +3,22 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.11.13
+## 📚 Updated on 2026.11.14
 
 <details open>
-<summary>📑 Table of Contents — 2026-11-13</summary>
+<summary>📑 Table of Contents — 2026-11-14</summary>
 
 **By category**
 - [Motion Authoring, Editing & Retargeting](#motion-authoring-editing--retargeting) (1)
-- [Character Motion Synthesis & Animation](#character-motion-synthesis--animation) (17)
+- [Character Motion Synthesis & Animation](#character-motion-synthesis--animation) (16)
 - [Vision-Language & Action Models (VLA/VLM)](#vision-language--action-models-vlavlm) (84)
 - [World Models & Generative Video](#world-models--generative-video) (94)
-- [Computational Design, Mechanism & Fabrication](#computational-design-mechanism--fabrication) (7)
+- [Computational Design, Mechanism & Fabrication](#computational-design-mechanism--fabrication) (6)
 - [Sketch-based & Creative HCI Tools](#sketch-based--creative-hci-tools) (5)
-- [3D Understanding: Reconstruction & Generation](#3d-understanding-reconstruction--generation) (76)
-- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (51)
-- [Neural Rendering & Physics Simulation](#neural-rendering--physics-simulation) (13)
-- [Narrative & Long-form Audio](#narrative--long-form-audio) (4)
+- [3D Understanding: Reconstruction & Generation](#3d-understanding-reconstruction--generation) (73)
+- [Embodied AI & Robot Learning](#embodied-ai--robot-learning) (49)
+- [Neural Rendering & Physics Simulation](#neural-rendering--physics-simulation) (12)
+- [Narrative & Long-form Audio](#narrative--long-form-audio) (2)
 
 </details>
 
@@ -30,7 +30,7 @@
 |---|---|---|---|---|
 |**2026-11-05**|**REACT: Towards Real-Time Completion of Skeletal Motion Signals**|P. de Clermont Gallerande et.al.|[@2611.08301](http://arxiv.org/abs/2611.08301)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -54,7 +54,7 @@
 |**2026-11-01**|**MoPort: A View-Aware 2D Interface for Motion Language Models**|Lixing Tan et.al.|[@2611.01541](http://arxiv.org/abs/2611.01541)|null|
 |**2026-10-30**|**Movens-Zero: Scaling Humanoid Motion Foundation Models with Large-Scale Human Videos**|Wendong Bu et.al.|[@2610.41877](http://arxiv.org/abs/2610.41877)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -145,7 +145,7 @@
 |**2026-11-10**|**Ego Guidance: Enhancing Robot Policy Learning with Action-Free Human Egocentric Videos**|Lin Long et.al.|[@2611.13685](http://arxiv.org/abs/2611.13685)|null|
 |**2026-11-10**|**A computational framework for understanding embodied plans**|Aalap D. Shah et.al.|[@2611.13669](http://arxiv.org/abs/2611.13669)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -246,7 +246,7 @@
 |**2026-11-04**|**DecoupAttn: Decoupled Sparse Attention for Training-Free Acceleration of Video Diffusion**|Yanjin Li et.al.|[@2611.05917](http://arxiv.org/abs/2611.05917)|null|
 |**2026-11-04**|**Chronos: Sequential Identity-Preserving Video Generation by Temporal Anchoring**|Mengqi Huang et.al.|[@2611.05893](http://arxiv.org/abs/2611.05893)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -260,7 +260,7 @@
 |**2026-11-02**|**Learning Purposeful Co-designs of Bio-inspired Quadrupedal Robots**|Fabio Boekel et.al.|[@2611.02462](http://arxiv.org/abs/2611.02462)|null|
 |**2026-10-30**|**Toolpath Overhang Optimization for the Large-Format 3D Printing of Bespoke Shapes**|Yefan Zhi et.al.|[@2611.00371](http://arxiv.org/abs/2611.00371)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -272,7 +272,7 @@
 |**2026-11-03**|**OmniScribble: Mixed-Initiative Authoring of Animated Sketches through Inspectable and Repairable AI Decisions**|Hien Trinh et.al.|[@2611.04284](http://arxiv.org/abs/2611.04284)|null|
 |**2026-11-01**|**Capable but Not Scalable: Requirements and Interaction Costs of Building Multi-View CAD Datasets for Design Research**|Danyal Sarfraz et.al.|[@2611.02108](http://arxiv.org/abs/2611.02108)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -355,7 +355,7 @@
 |**2026-10-30**|**MoRE-GS: Motion-Regime Experts for Future Gaussian Splatting**|Shima Salehi et.al.|[@2611.00375](http://arxiv.org/abs/2611.00375)|null|
 |**2026-10-30**|**Coarse3D: Controllable and Faithful Sparse Structure Generation for Image-to-3D**|Gaige Wang et.al.|[@2610.41231](http://arxiv.org/abs/2610.41231)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -413,7 +413,7 @@
 |**2026-10-30**|**MolmoSpaces-CommonSense: Evaluating Commonsense in Robotic Manipulation Policies**|Arjun Guru et.al.|[@2610.41377](http://arxiv.org/abs/2610.41377)|null|
 |**2026-10-30**|**HandMimicX: Learning Human-Like Dexterous Manipulation via an Object-Centric Policy from Egocentric Videos**|Zihan Gao et.al.|[@2610.41336](http://arxiv.org/abs/2610.41336)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -433,7 +433,7 @@
 |**2026-10-31**|**3D Neural Rendering for Automated Ultrasonic Laser Scans**|Thomas Pierson et.al.|[@2611.00527](http://arxiv.org/abs/2611.00527)|null|
 |**2026-10-30**|**SketchForge: Training-Free Scene-to-Vector Sketching via Decoupled Structure and Texture Optimization**|Quang-Thinh Nguyen et.al.|[@2611.00253](http://arxiv.org/abs/2611.00253)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -444,7 +444,7 @@
 |**2026-10-30**|**MFlowAudio: Efficient Text-to-Audio Synthesis via Mamba-based Stateful Flow Matching**|Hao Dai et.al.|[@2610.41852](http://arxiv.org/abs/2610.41852)|null|
 |**2026-10-30**|**Hierarchical Dual-Graph Retrieval for Long-form Audio Reasoning**|Eunsang Lee et.al.|[@2610.41390](http://arxiv.org/abs/2610.41390)|null|
 
-<p align=right>(<a href=#updated-on-20261113>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors

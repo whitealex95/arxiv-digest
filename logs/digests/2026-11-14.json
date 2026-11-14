@@ -1,0 +1,406 @@
+{
+ "date": "2026-11-14",
+ "sections": [
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.16246",
+     "title": "What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation",
+     "authors_str": "Jinze Tao",
+     "abstract": "Navigation agents use a large language model (LLM) planner to call a vision-language-action (VLA) model. Each episode needs the LLM, adding cost and delay. We distill successful agent experience into the VLA instead of distilling the planner. The VLA then navigates alone at test time. Agent sessions are not VLA demonstrations. They include motions driven by planner tools and sub-instructions, along with detours. We present H2E, a task-level experience distillation method that converts these sessions into VLA training data. Every motion becomes a VLA action under the original task instruction, with the resulting poses as targets. H2E masks the loss on steps that move away from the goal. It labels every visited state within 1 m of the goal as a stop. We then update the VLA with low-rank adaptation. The VLA learns to stop at the goal and find goals the base model never reaches. On all 3,189 REVERIE-CE val-unseen episodes, H2E raises the success rate of an 8B VLA from 35.0% to 44.9%.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.16246v1",
+     "abs_url": "http://arxiv.org/abs/2611.16246",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15937",
+     "title": "MOSAIC: Modular Obstacle and Spatial-Aware Framework for Manipulation In Cluttered Scenes",
+     "authors_str": "Richard Shi",
+     "abstract": "Vision-Language-Action (VLA) models have demonstrated strong performance in robotic manipulation, yet most rely primarily on 2D visual observations and language instructions, leaving scene geometry and obstacle relationships to be inferred implicitly. This limitation is particularly problematic in cluttered environments, where small spatial errors can lead to unintended contacts or collisions. We propose MOSAIC, a modular spatial- and obstacle-aware framework that can be integrated with pretrained VLA policies to improve object-level scene understanding and action generation. Our method augments the VLA backbone with an auxiliary semantic grounding task that predicts role-specific masks for the target object, destination region, and surrounding obstacles. We further combine the target and destination masks with depth estimated from 3D scene reconstruction to construct role-specific geometric tokens that are injected directly into the action expert. In addition, we propose obstacle-aware attention supervision that emphasizes obstacles near the robot body during task execution. The resulting attention features are subsequently injected into later action-expert layers to further guide action generation. Together, these components provide explicit semantic, geometric, and obstacle-aware cues while preserving the underlying pretrained VLA architecture. We evaluate our framework on pretrained VLA model using the RoboPRO benchmark, including visual perturbation tests, and further validate it on real-world manipulation tasks. MOSAIC improves the success rate by 5.1% in cluttered scenes, and by 9.7% under visual perturbations, with gains of up to 25.0% in the most challenging environment. We will release our code and dataset upon acceptance at the following Github page: https://mmahdavian.github.io/MOSAIC/",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15937v1",
+     "abs_url": "http://arxiv.org/abs/2611.15937",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15491",
+     "title": "What Makes a VLA Reactive? A Study of Execution Strategies for Dynamic Manipulation",
+     "authors_str": "Zhuoyue Li",
+     "abstract": "Vision-language-action (VLA) models predict chunks of future actions, and when objects move, those chunks go stale before they are executed. We study what makes a pretrained VLA reactive, using \\pihalf{} on two dynamic simulation benchmarks and three real-robot tasks. We vary the prediction and execution horizons, compare synchronous and asynchronous inference, test methods that deliver actions sooner or keep successive chunks continuous, and adapt the policy with motion cues and latent-space reinforcement learning. The best prediction horizon is about one second, and the best execution horizon depends on the checkpoint. Short horizons help more with asynchronous execution, and methods that keep the trajectory continuous outperform those that only reduce latency. Adapting the policy repairs targeted failures, but on the conveyor task changing the execution horizon gained as much. Reactivity depends on the execution pipeline as much as on the policy, so both should be evaluated together.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15491v1",
+     "abs_url": "http://arxiv.org/abs/2611.15491",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15490",
+     "title": "ActionCodec2: A Streaming Action Tokenizer",
+     "authors_str": "Zibin Dong",
+     "abstract": "Most action tokenizers for autoregressive vision language action (VLA) models compress motion into chunks that must be decoded in full before their actions become executable. We introduce ActionCodec2, a non-neural streaming tokenizer that releases actions incrementally while keeping trajectory reconstruction error within a prescribed tolerance. Its encoder quantizes each step relative to the decoder's reconstructed state, so the selected motion primitive corrects residual error rather than allowing errors from independently quantized increments to accumulate. Finding the smallest such primitive set is a geometric covering problem; we derive the exact minimum for translation and constant-factor-tight bounds for rotation. Set-BPE then losslessly merges co-occurring primitive symbols across coordinates and neighboring steps, without a fixed coordinate ordering. A universal version fitted on 20k hours of data from 24 embodiments averages 8.8 tokens per second for 15 Hz end-effector motion on this corpus. With the same VLA backbone, ActionCodec2 outperforms the compared tokenizers on three simulation benchmarks and in zero-shot real-robot evaluation. Its streaming representation allows policies to incorporate state feedback within an action chunk, substantially improving performance over open-loop execution under randomized dynamics, external disturbances, and moving objects. The same tokens also can serve as a direct control interface for VLM agents, which compose successful action sequences into reusable macros. These agent-built macros reduce control decisions and thinking-token usage across attempts and transfer to a held-out task. More results are available at https://zibindong.github.io/actioncodec2-page/",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15490v1",
+     "abs_url": "http://arxiv.org/abs/2611.15490",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision language action",
+      "VLA",
+      "VLM"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.15260",
+     "title": "Driving World Models Move the Camera, Not the Scene",
+     "authors_str": "Yuqiao Feng",
+     "abstract": "Plan-conditioned driving world models are used to compare candidate plans, so their forecast should change with the plan as the real scene would, yet widely used control metrics check only whether the camera follows the command. Recorded drives already contain real outcomes of plans that were never driven: retiming a log gives pose-matched images and LiDAR for other speeds, and a stereo rig records a laterally shifted view. Against these references, released world models move their camera but barely move the scene: their scene response, the share of the real change in distance that the forecast reproduces, reaches at most about a third of real video's, and the trajectory score cannot tell an executed speed command from an ignored one. Interventions inside the generator trace the failure to the plan's channel. The forecast geometry follows the context frames; once they carry the planned geometry, plan tokens add little. ReTime-Compose therefore delivers the plan as geometry, without training. It transports the frames of one logged-speed rollout to the planned cameras, and the frozen model completes only what no frame covers. Frozen generators then follow a 0.54 m lateral shift nearly as the real scene does on KITTI, nuScenes and Argoverse 2, and respond more than re-sampling to slow-down plans in three generators and to speed-up plans in two.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15260v1",
+     "abs_url": "http://arxiv.org/abs/2611.15260",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15215",
+     "title": "AFTER: A World Model with Adaptive Fast--Slow Timescales for Error-Driven Retention",
+     "authors_str": "Haoyi Zhang",
+     "abstract": "In robotics and embodied AI, a core challenge for world models is adapting to sudden, persistent, yet initially unknown changes in robot dynamics during interaction. For instance, when a robotic arm grasps an object with an unknown payload, the robot dynamics change suddenly. If the world model fails to adapt, its prediction errors accumulate over the open-loop rollout and ultimately mislead the robot's actions. Existing world models, however, struggle to simultaneously satisfy three critical requirements for dynamics adaptation: responsiveness, reacting promptly to sudden changes to curb prediction error accumulation; stability, distinguishing persistent changes from transient disturbances to prevent incorrect updates; and persistence, retaining the adapted dynamics without new observations so that later predictions do not revert to the old dynamics. Inspired by predictive coding in the human brain with multi-timescale adaptation, we propose AFTER-WM, a world model with Adaptive Fast-slow Timescales for Error-driven Retention, whose prediction errors drive a fast correction that fades and a slow correction that persists, while dynamically adjusting the combination weights of pre-trained experts without altering them, to overcome the trade-offs among responsiveness, stability and persistence. On five simulated robot datasets and real UAV data, AFTER-WM has a lower multi-step mean error than all ten compared models and the highest mean return in a joint-failure control task. In simulation, its multistep mean error is 16%-34% below the strongest compared model's and is also the lowest 1-4 steps after a change and under transient disturbances alone, and its step-40 error is the lowest as well, reflecting responsiveness, stability and persistence. All code (method, baselines, experiments) and datasets will be released online.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15215v1",
+     "abs_url": "http://arxiv.org/abs/2611.15215",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15082",
+     "title": "Prediction or Persistence? What Future-Prediction Scores Miss About World Models",
+     "authors_str": "Animesh Maheshwari",
+     "abstract": "Pretrained video world models are compared and chosen as components for robot learning largely by future-prediction scores. On its own, such a score cannot be read as evidence of prediction, because it mixes encoder quality, the near future's resemblance to the recent past, and the predictor's own contribution. We separate the three with a matched control. On 27,000 future-retrieval trials from household egocentric video, a model must pick the true continuation of a clip among eleven candidates from the same video (chance 0.091), ranked zero-shot by its own training criterion. Each model is paired with a persistence control, an identical copy whose predictor is never invoked, so the paired difference isolates the predictor. Score and contribution dissociate within the native-video V-JEPA family alone: the predictor adds +0.291 top-1 for V-JEPA 2.1 but +0.03 to +0.04 for V-JEPA 2 on the identical trials. Across five models the contribution ranges from +0.291 to negative, and it is negative only for the two action-conditioned models, which we evaluate outside their training regime. Persistence alone recovers the encoder ordering expected from pretraining, a sign that the probe tracks real signal. We suggest reporting each future-prediction score together with its persistence baseline. The gap between them, not the score, is what makes the number interpretable: a necessary check costing one forward pass. Establishing downstream usefulness is a separate matter, for a planning or control evaluation.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.LG",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15082v1",
+     "abs_url": "http://arxiv.org/abs/2611.15082",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.15048",
+     "title": "Does Your World Model Know Actions Have Consequences?",
+     "authors_str": "Ayush Gaggar",
+     "abstract": "Embodied world models (WMs) are implicit learning systems that predict the next future latent state directly from observations and actions. Unique from other end-to-end learning systems, the dynamics predictor of WMs can simulate the environment's response to alternative actions without physical deployment nor pre-specifying states of the dynamical system. Current metrics focus on the quality of model outputs, e.g., clarity of reconstructions or task success, but fail to assess the fidelity of modeling consequences of counterfactual actions. Inspecting the forced response to action perturbations through sensitivity analysis is one way to audit how well WMs can predict the consequences of counterfactual actions. Deploying WMs on hardware will require new evaluation frameworks to analyze the tradeoffs between state error and accurate sensitivity prediction.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15048v1",
+     "abs_url": "http://arxiv.org/abs/2611.15048",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.15143",
+     "title": "Multi-View 3D Reconstruction Using V-JEPA Features",
+     "authors_str": "Anwar Shamim",
+     "abstract": "Predictive video encoders provide dense visual representations, but adapting them to 3D reconstruction requires accurate depth, camera poses, and cross-view geometry. We study supervised RGB-only multi-view reconstruction using an architecture that combines video-pretrained features, camera estimation, scene aggregation, epipolar transport, and residual pointmaps. Experiments compare global and spatial camera regression with joint relative objectives on CO3D, alongside an independently trained TUM RGB-D model. On 168 CO3D five-view windows, the spatial-camera configuration achieves 29.3% lower absolute trajectory error than the global-camera configuration, but performs worse than identity poses in trajectory error and worse than the global configuration in depth error. The joint relative-objective configuration improves normalized intrinsics error and similarity-aligned Chamfer distance from 0.6447 to 0.5573, but increases raw Chamfer distance from 3.5535 to 4.4374. On 163 indoor windows, camera error is 0.3063 m versus 0.3694 m for identity poses, while depth error is 0.4279 versus 0.2516 for constant median depth. Refinement worsens indoor camera error, and additional experiments show competing depth and pose effects. Overall, the results distinguish representation adaptation, aligned shape, and raw reconstruction, highlighting the need for isolated component and encoder comparisons before attributing reconstruction gains to predictive video pretraining.",
+     "published": "2026-11-11",
+     "updated": "2026-11-11",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15143v1",
+     "abs_url": "http://arxiv.org/abs/2611.15143",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.13581",
+     "title": "Lightweight Deep Learning Framework for Astrocyte-Centric 3D Reconstruction across Normal and Stress-associated Ultrastructural States",
+     "authors_str": "Bowen Deng",
+     "abstract": "The morphology of astrocytes is closely associated with their ability to support and modulate neural circuit functions; however, its reconstruction from volume electron microscopy (vEM) data remains labor-intensive and computationally resource-intensive, placing substantial barriers on its broader adoption and scalability despite the high spatial resolution of vEM. We present AstroSeg-vEM, a lightweight, astrocyte-centric framework for morphology-preserving astrocyte segmentation, 3D reconstruction, and quantitative morphological analysis in vEM images. AstroSeg-vEM combines transformer-based 2D segmentation with dedicated post-processing methods and operates directly on high-resolution EM sections, making it well suited to anisotropic vEM data and downstream proofreading workflows while preserving the full in-plane resolution of the original EM data. Across four mouse hippocampal datasets representing normal and morphologically defined stress-associated astrocyte ultrastructural states, AstroSeg-vEM demonstrates robust performance and generalization, achieving average Dice and weighted Dice values of 0.92 and 0.95, respectively, on a held-out test dataset. Its lightweight architecture enables efficient, high-fidelity reconstruction on consumer-grade hardware, providing a scalable and accessible platform for large-scale astrocyte ultrastructure analysis and future astrocyte-neuron interaction studies.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "q-bio.NC"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13581v1",
+     "abs_url": "http://arxiv.org/abs/2611.13581",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.13453",
+     "title": "Camera3R: Feed-Forward 3D Reconstruction from Heterogeneous Camera Models",
+     "authors_str": "Ruxiao Duan",
+     "abstract": "Feed-forward 3D reconstruction (3R) from unconstrained multi-view images has recently emerged as a prominent research direction in 3D computer vision. Various foundational reconstruction models have been proposed with different architectures and reconstruction paradigms. Despite being trained on large-scale perspective datasets with substantial computational resources, these models generally struggle to generalize to non-perspective images. This limitation hinders their deployment in applications involving arbitrary, unknown, and potentially heterogeneous camera models. To build on the capabilities of existing reconstruction models with minimal retraining, we propose Camera3R, a low-rank adaptation framework that efficiently extends perspective-pretrained 3R networks to any other camera models. Extensive experiments demonstrate that, with only 0.5% additional parameters and less than a day of training, Camera3R adapts a foundational 3D reconstruction model to non-perspective cameras while fully preserving its original performance on perspective inputs. Code is available at https://github.com/android-xr/camera3r.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13453v1",
+     "abs_url": "http://arxiv.org/abs/2611.13453",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.12875",
+     "title": "Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks",
+     "authors_str": "Hao Gu",
+     "abstract": "Despite impressive progress, existing feed-forward large 3D reconstruction models produce a single, irrevocable prediction. When these models fail, there is no mechanism to correct their mistakes. To address this limitation, we introduce Click3R, a framework for interactive geometric correction of feed-forward models using sparse human correspondence clicks. Given an image pair and a small set of cross-view point correspondences provided by a user, Click3R injects geometric constraints into the 3D reconstruction networks through a lightweight point correspondence adapter, enabling the model to resolve ambiguities in challenging scenarios such as repetitive textures, symmetric structures, large viewpoint changes, or textureless regions. To evaluate interactive reconstruction, we curate a challenging benchmark specifically designed to expose failure modes of existing feed-forward 3D reconstruction methods. Experiments show that Click3R reduces reconstruction error with as few as a single correspondence click, improving performance on both standard and our curated benchmarks. Our results highlight that sparse human interaction provides an effective and practical mechanism for correcting geometric reconstruction errors.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12875v1",
+     "abs_url": "http://arxiv.org/abs/2611.12875",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "3D reconstruction"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Sketch-based & Creative HCI Tools",
+   "papers": [
+    {
+     "paper_key": "2611.12202",
+     "title": "Co-Creating Neurorehabilitation Technology Alongside Lived Experience Experts: A Participatory Design Workshop",
+     "authors_str": "Irene L. Y. Beck",
+     "abstract": "Involving patients' lived experience (LE) early in neurorehabilitation technology design can improve the relevance and effectiveness of solutions, yet LE experts are often involved only when finished prototypes are tested. We present and evaluate a participatory design (PD) workshop for early LE involvement, examine how LE contributions influence design processes and outcomes, and provide recommendations for similar approaches. We conducted a PD workshop at the 6th International Conference on NeuroRehabilitation. Five people who have had a stroke (LE experts) and 18 workshop attendees (including the LE experts' caregivers) were organized into five groups. Following the Discover, Define, and Develop phases of the Double Diamond model, each group used Journey Maps and Data Collection Notebooks to co-create a solution for an objective specified by an LE expert. Journey Maps were thematically analyzed, and group audio transcripts underwent structured extraction using a large language model. LE input shifted discussions from discipline-based assumptions toward priorities grounded in lived experience, including fear, confidence, sensory discomfort, fatigue, aesthetics, and independence. Narrow objectives, such as opening a blister pack, produced task-specific solutions, whereas broader objectives generated device concepts, including sensory feedback for cycling and a stimulation-equipped cooking splint. Satisfaction was high among attendees and LE experts. All workshop tools and protocols are shared to support adoption. The workshop offers a practical foundation for involving LE experts early in neurorehabilitation technology development. Future iterations should better capture psychological and social dimensions, allow more reflection, and include the full range of relevant stakeholders through sustained transdisciplinary engagement between researchers and the LE community.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.HC",
+     "all_categories": [
+      "cs.HC",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12202v1",
+     "abs_url": "http://arxiv.org/abs/2611.12202",
+     "code_url": null,
+     "project_url": null,
+     "category": "Sketch-based & Creative HCI Tools",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "participatory design"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Embodied AI & Robot Learning",
+   "papers": [
+    {
+     "paper_key": "2611.14186",
+     "title": "Koopman Model-Based Reinforcement Learning",
+     "authors_str": "Wenjian Hao",
+     "abstract": "We propose a Koopman model-based reinforcement learning (K-MBRL) algorithm for controlling nonlinear robotic systems with unknown dynamics. The K-MBRL learns a control policy by minimizing an approximate policy objective that combines the analytical immediate cost with an estimate of the future cost evaluated at the one-step predicted state. To this end, we develop a stochastic Koopman operator-based learning method to approximate the unknown nonlinear dynamics in a linear representation, while a critic function estimates the remaining future cost. This formulation offers two key advantages. First, the linear Koopman dynamics simplify the model-dependent policy gradient computation to a constant matrix product, enabling computationally efficient policy improvement. Second, one-step model propagation mitigates the accumulation of prediction errors associated with long-horizon rollouts while retaining long-term cost information through the critic. The learned policy enables real-time control through feedforward evaluation without online optimization. We establish policy learning convergence guarantees under standard stochastic approximation assumptions. Simulations on HalfCheetah and quadruped four-legged locomotion tasks demonstrate strong sample efficiency and improved performance compared with classical model-free and model-based reinforcement learning baselines. A pendulum swing-up task is used to assess policy gradient approximation accuracy and conduct ablation studies on the learning mechanism and key hyperparameters. The proposed K-MBRL is further validated on a physical quadruped robot performing a challenging sequence of maneuvers: rising to an upright posture supported by two rounded rear feet, maintaining balance during bipedal walking, and safely returning to the ground, as shown in Fig.1.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "eess.SY"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.14186v1",
+     "abs_url": "http://arxiv.org/abs/2611.14186",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "model-based reinforcement learning"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Neural Rendering & Physics Simulation",
+   "papers": [
+    {
+     "paper_key": "2611.12686",
+     "title": "Differentiable Inverse Rendering Recovers Intrinsic Properties from Intravascular Optical Coherence Tomography",
+     "authors_str": "Ajay Manicka",
+     "abstract": "Medical images encode intrinsic tissue properties that indicate disease progression, yet these properties remain entangled with the system-dependent physics of image formation. Differentiable inverse rendering asks whether they are recoverable by inverting the imaging system's forward physics rather than through post-hoc correction. We address this in optical coherence tomography (OCT), focusing on the optical attenuation coefficient, a per-pixel marker of pathology and cellular composition. Conventional recovery relies on closed-form inversions limited to simplified light-tissue models, or learned methods coupled to specific imaging configurations. We instead recover per-pixel attenuation from a single OCT image by gradient descent through a differentiable physics-based forward model. We verified the method against analytical solutions, validated it on five in vitro phantoms, and applied it without modification to 29{,}269 clinical intravascular OCT images from 128 patients. The inversion needs no training data or segmentations and is portable across platforms and retrospective archives. Replacing the forward model or recovering another optical parameter leaves the optimization procedure unchanged. We demonstrate per-pixel recovery is tractable because gradient information scales to this high-dimensional problem, where gradient-free methods become intractable. Our work supports quantitative tissue characterization from OCT images and provides a framework for extension across imaging modalities and organ systems.",
+     "published": "2026-11-09",
+     "updated": "2026-11-09",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "eess.IV",
+      "physics.med-ph",
+      "physics.optics"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12686v1",
+     "abs_url": "http://arxiv.org/abs/2611.12686",
+     "code_url": null,
+     "project_url": null,
+     "category": "Neural Rendering & Physics Simulation",
+     "score": 0.6666666666666666,
+     "matched_keywords": [
+      "inverse rendering"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  }
+ ]
+}
