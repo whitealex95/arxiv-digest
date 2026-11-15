@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-## 📚 Updated on 2026.11.14
+## 📚 Updated on 2026.11.15
 
 <details>
   <summary>Table of Contents</summary>
@@ -26,7 +26,7 @@
 - 2026-11-05, **REACT: Towards Real-Time Completion of Skeletal Motion Signals**, P. de Clermont Gallerande et.al., Paper: [@2611.08301](http://arxiv.org/abs/2611.08301)
 > **Abstract:** Tracking user motion in interactive and immersive applications is increasingly common (e.g., video games, XR systems, smartphones). Yet, processing and transmitting human motion data remain critical challenges, as current approaches strongly rely on the quality of the tracked motion signals. In general, affordable motion-capture systems may produce unnatural animations in the presence of calibration errors, occlusions, sensor drift, high-frequency noise, or other artifacts. More specifically, we simulate occlusions and high-frequency noise and propose to mitigate their effects with REACT, an interactive online motion-completion framework operating causally, frame by frame, without look-ahead. REACT is an S4-based autoregressive model that coordinates complementary motion estimates under specific reliability-dependent constraints and exposes several interpretable internal signals. We present a system-level contribution consisting of a structured formulation of interactive motion completion together with a coherent instantiation of this formulation. We evaluate REACT against several causal baselines and architectural variants under varying levels of occlusion severity, and report their respective inference latencies. Our results show that REACT achieves a relevant compromise between reconstruction accuracy, update smoothness, and interactive inference. Finally, we characterize how its fusion behaviour changes under missing input observations.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Character Motion Synthesis & Animation
 
@@ -65,7 +65,7 @@
 - 2026-10-30, **Movens-Zero: Scaling Humanoid Motion Foundation Models with Large-Scale Human Videos**, Wendong Bu et.al., Paper: [@2610.41877](http://arxiv.org/abs/2610.41877)
 > **Abstract:** Scaling humanoid motion foundation models is constrained by the scarcity of diverse, robot-executable data and by the difficulty of jointly learning from heterogeneous multimodal inputs while supporting real-time closed-loop control. We present Movens-5M, constructed from raw Internet videos through clip generation, quality filtering, semantic annotation, motion recovery, and physical refinement with humanoid retargeting and execution verification. It contains 15 million human-motion sequences and 5 million physically executable humanoid-motion sequences spanning over 10,000 hours, aligned with text, RGB video, speech, and music. Building on this data, we introduce Movens-Zero, a scalable understanding-generation-execution architecture that supports joint learning across modalities and real-time closed-loop execution. Task-mixed flow-matching training jointly optimizes a single action expert across seven generation tasks, enabling direct motion generation from text, speech, music, and video. Multimodal Real-Time Chunking connects overlapping chunks under continuously updated instructions and robot states for continuous closed-loop execution. We further introduce Movens-Intent, a four-track benchmark with 8,192 expert-verified condition-motion pairs across text, speech, music, and video. Experiments show consistent gains across all four modalities when scaling execution-verified data from 1% to 100% and action-expert capacity from 64M to 911M parameters, while demonstrating that data quality and cross-modal supervision improve generation and execution.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Vision-Language & Action Models (VLA/VLM)
 
@@ -238,7 +238,7 @@
 - 2026-11-10, **A computational framework for understanding embodied plans**, Aalap D. Shah et.al., Paper: [@2611.13669](http://arxiv.org/abs/2611.13669)
 > **Abstract:** Reasoning about people's plans and goals based on their actions is fundamental to human social interaction and essential for cooperative, embodied artificial intelligence. Formalizing this capacity in naturalistic, embodied settings has been a longstanding challenge. Here, we present GenEA, a novel agent representation capable of reasoning over multi-step, long-horizon embodied plans. At the heart of GenEA lies a multilevel state-space that couples the coarse biomechanics of an articulated body and its interactions with nearby objects by extending the task-and-motion planning framework from robotics with simulation-based intuitive physics. By embedding this state-space in a generative model, GenEA yields a joint probability distribution over goals and embodied plans. Across several experiments spanning the qualitatively distinct domains of object manipulation and navigation, featuring diverse tasks and multiple behavioral measures, we show that GenEA, through simple transformations of this joint distribution, recapitulates how humans reason about embodied plans. Crucially, GenEA consistently outperforms strong alternative models, including plausible heuristics, standard task-and-motion planning, and a state-of-the-art vision-language model. GenEA thereby offers a new perspective on the architecture of human reasoning and social cognition, suggesting that embodied artificial intelligence systems seeking to seamlessly interact with humans should adopt GenEA-like generative models of action planning.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## World Models & Generative Video
 
@@ -431,7 +431,7 @@
 - 2026-11-04, **Chronos: Sequential Identity-Preserving Video Generation by Temporal Anchoring**, Mengqi Huang et.al., Paper: [@2611.05893](http://arxiv.org/abs/2611.05893)
 > **Abstract:** Identity-preserving video generation aims to synthesize high-quality and visually realistic videos from textual and visual conditions while faithfully maintaining the subject's identity across diverse motions. Prior methods have extensively introduced reference-guided control signals and identity-aware conditioning to improve facial alignment from reference images. However, improving static identity alignment alone creates a fundamental tension between identity fidelity and temporal controllability, which frequently causes identity drift or motion suppression under large pose variations and multi-segment sequential actions. To address this, we propose Chronos, a framework that unifies single-segment facial identity preservation and multi-segment sequential action generation under a common temporal formulation. Specifically, Chronos integrates Semantic Prompt Anchoring to adaptively refine the user prompt, Visual Frame Anchoring to transform conditions into visually grounded keyframe anchors for visual guidance, and Metric-Guided Candidate Routing to select the highest-quality videos from heterogeneous generators via multi-dimensional evaluation. Extensive evaluations demonstrate the superiority of our approach, which achieved first place in both Track 1 and Track 2 of the ACM MM 2026 Identity-Preserving Video Generation Challenge, demonstrating its effectiveness across both facial identity preservation and sequential action generation settings.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Computational Design, Mechanism & Fabrication
 
@@ -450,7 +450,7 @@
 - 2026-10-30, **Toolpath Overhang Optimization for the Large-Format 3D Printing of Bespoke Shapes**, Yefan Zhi et.al., Paper: [@2611.00371](http://arxiv.org/abs/2611.00371)
 > **Abstract:** This paper presents a closed curve trimming algorithm for overhang optimization in large-format support-free 3D printing of bespoke manifold shapes. Large-format 3D printing enables efficient fabrication of complex, bespoke shapes. Because of the material properties and surface quality requirements, such shapes are typically printed without support structures and have to be designed as support-free. Most current methods of overhang optimization are limited to certain types of geometry and do not apply to bespoke shapes. Our method directly optimizes sliced toolpath curves with minimal geometric modification. Given an overhang limit, it ensures that all resulting toolpath curves are strictly within the overhang limit while preserving their orientation and preventing intersections. The algorithm is based on curve offsetting and trimming, and is applicable to closed toolpath curves that represent the boundaries of a solid volume.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Sketch-based & Creative HCI Tools
 
@@ -465,7 +465,7 @@
 - 2026-11-01, **Capable but Not Scalable: Requirements and Interaction Costs of Building Multi-View CAD Datasets for Design Research**, Danyal Sarfraz et.al., Paper: [@2611.02108](http://arxiv.org/abs/2611.02108)
 > **Abstract:** Transforming CAD models into consistent multi-view image datasets is increasingly important for AI-driven product design research, yet existing workflows can impose substantial burdens on researchers without programming expertise. We examine this challenge from a human-computer interaction (HCI) perspective by analyzing ten reported rendering practices and deriving fourteen requirements spanning dataset quality, visual consistency, and user interaction. We then assess eleven development- and design-oriented tools against an illustrative task involving STEP models, interpreting potential interaction costs through the cognitive dimensions framework. Our analysis reveals a gap between technical capability and practical scalability: programming-based frameworks offer flexible automation but require coding expertise, while graphical design tools provide accessible functionality yet retain repetitive per-product operations. No assessed workflow combines a low programming threshold, low repetition viscosity, and flexible protocol configuration. Based on these findings, we propose design directions including reusable rendering presets, collection-wide previews and corrections, mixed-initiative orientation assignment, and automatic provenance recording. This work reframes CAD dataset generation as an end-user interaction design problem and establishes requirements for more accessible, scalable dataset creation tools.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## 3D Understanding: Reconstruction & Generation
 
@@ -622,7 +622,7 @@
 - 2026-10-30, **Coarse3D: Controllable and Faithful Sparse Structure Generation for Image-to-3D**, Gaige Wang et.al., Paper: [@2610.41231](http://arxiv.org/abs/2610.41231)
 > **Abstract:** Coarse-to-fine 3D-native generation relies heavily on the first-stage sparse structure, which determines the global orientation and overall geometry for subsequent refinement. However, existing coarse generators suffer from two key limitations: their orientation is difficult to control due to ambiguous semantic canonicalization, and their structures are often inconsistent with input images due to weak 2D-3D grounding. We propose Coarse3D, a sparse-structure generation model that produces orientation-controllable and structurally faithful voxel geometry from arbitrary unposed images. Coarse3D introduces three designs: a first-frame anchored canonical space that aligns generation with the first input view while preserving object-centric normalization; a dual-tower DiT that couples generation with auxiliary feed-forward reconstruction to learn spatially grounded features; and spatial-prior guided attention that regularizes cross-attention with pixel-to-voxel correspondence. Coarse3D can directly replace the coarse stage of existing pipelines. Experiments show that it substantially improves sparse structure quality and consistently enhances final 3D generation, achieving state-of-the-art performance.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Embodied AI & Robot Learning
 
@@ -729,7 +729,7 @@
 - 2026-10-30, **HandMimicX: Learning Human-Like Dexterous Manipulation via an Object-Centric Policy from Egocentric Videos**, Zihan Gao et.al., Paper: [@2610.41336](http://arxiv.org/abs/2610.41336)
 > **Abstract:** Learning dexterous manipulation from human videos remains an open challenge, particularly in the context of transferring a single demonstration into a spatially generalizable robotic skill and maintaining physically plausible human-like interactions. Unlike prior works that emphasize hand-motion imitation, we introduce an object-centric framework for acquiring dexterous skills from egocentric human RGB-D videos. Within our framework, we formulate the reinforcement learning (RL) objective in terms of object motion to decouple the underlying skill from the specific hand trajectory and impose constraints on hand-object interaction states to promote more anatomically natural hand configurations. Extensive experiments in simulation and on real robots demonstrate that our method enables efficient learning from human videos and generalizable skill transfer across novel spatial configurations.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Neural Rendering & Physics Simulation
 
@@ -760,7 +760,7 @@
 - 2026-10-30, **SketchForge: Training-Free Scene-to-Vector Sketching via Decoupled Structure and Texture Optimization**, Quang-Thinh Nguyen et.al., Paper: [@2611.00253](http://arxiv.org/abs/2611.00253)
 > **Abstract:** Converting a raster image into a resolution-independent, stroke-editable vector sketch while faithfully preserving both structural contours and tonal texture remains challenging: raster-space rendering pipelines are difficult to edit at the stroke level, while generation-from-scratch vectorization methods struggle to remain faithful to an arbitrary input image. We present SketchForge, a training-free framework that converts an input raster image into a resolution-independent SVG sketch through per-instance test-time optimization of Bezier curves, requiring no additional training or fine-tuning. Strokes are seeded via a contour and attention-guided initialization, then refined by a vector-native differentiable rendering pipeline that decouples structural contour strokes from free-form texture strokes under dedicated objectives, composited via multiply-blend layering. Extensive experiments show that SketchForge consistently outperforms existing vector-based baselines in structural fidelity and generation quality. Project page: https://khangcntn123.github.io/SketchForge
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 ## Narrative & Long-form Audio
 
@@ -773,7 +773,7 @@
 - 2026-10-30, **Hierarchical Dual-Graph Retrieval for Long-form Audio Reasoning**, Eunsang Lee et.al., Paper: [@2610.41390](http://arxiv.org/abs/2610.41390)
 > **Abstract:** Large audio language models (LALMs) struggle with long-form audio reasoning, as processing entire recordings often limits to capture query-relevant content distributed across distant segments while incurring substantial computational cost. We introduce AudioHelix, a hierarchical DualGraph framework tailored for LALMs' retrieval-augmented generation (RAG) systems. Unlike existing text-only or non-graph RAG approaches, AudioHelix connects related textual and acoustic evidence across temporally distant segments for multi-hop reasoning. Extensive experiments on TraceAV-Bench, MMAU-Pro, and AudioMarathon demonstrate that AudioHelix consistently outperforms full-audio processing and existing RAG methods. The project site is https://github.com/ewha-mmai/audiohelix.
 
-<p align=right>(<a href=#updated-on-20261114>back to top</a>)</p>
+<p align=right>(<a href=#updated-on-20261115>back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/AlanSynn/arxiv-digest.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlanSynn/arxiv-digest/graphs/contributors
