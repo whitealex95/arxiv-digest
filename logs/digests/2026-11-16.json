@@ -1,0 +1,610 @@
+{
+ "date": "2026-11-16",
+ "sections": [
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.18372",
+     "title": "Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment",
+     "authors_str": "Suvarna Kadam",
+     "abstract": "Vision-language-action (VLA) models adapt web-pretrained vision-language models to output robot actions, so that web knowledge carries over to physical control. In under 4 years the field has moved from RT-2, the first VLA, to open models that fine-tune on a single consumer GPU and to proprietary generalists that clean unseen homes. This survey reviews 88 works from December 2022 to October 2026, mainly on manipulation and navigation, plus humanoid control, world-action models and evaluation. We follow a VLA through its life cycle, from model design to training and deployment, along seven axes. Model design covers (a) inputs and memory, what the model observes; (b) architecture, how its pipeline is built; (c) action output, how it produces motor commands; and (d) intermediate predictions, what else it predicts, from reasoning steps to future observations. Training covers (e) pretraining data, the mix of robot, web, human and simulated data, and (f) post-training, adaptation to the target robot. Deployment covers (g) real-time execution, keeping pace with the robot. We analyse 22 models on these axes and report their training data, model size, inference speed and hardware. Three trends emerge: (i) training data has broadened, from about 10,000 hours of teleoperated robot data ($π_0$) to 23,000 community-collected episodes (SmolVLA) and 20,000 hours of egocentric human video (GR00T N1.7); (ii) model sizes have split: most recent models have 3-7 billion parameters, while a new group under one billion runs on consumer GPUs; and (iii) generalist VLAs are emerging that handle both manipulation and navigation, such as UniVLA and Qwen-VLA. We also compare VLAs with world-action models, which predict future observations as well as actions. We review evidence that some VLAs with near-perfect benchmark scores fail when objects or the camera move slightly, and open up further research questions.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.ET",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18372v1",
+     "abs_url": "http://arxiv.org/abs/2611.18372",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.18346",
+     "title": "VLAN: Vision-Language Accessible Navigation",
+     "authors_str": "Jie Hu",
+     "abstract": "Accessible mobility is user-conditioned rather than scene-intrinsic, as walkable paths for one embodiment are inaccessible to another. Yet, existing benchmarks evaluate traversability under a fixed and limited embodiment. We present Vision-Language Accessible Navigation (VLAN), containing 1,000 scenes, 20K navigation trajectories, and 160K keyframes across diverse lighting, environmental conditions, scene semantics, and path geometries. For each trajectory, VLAN provides embodiment-specific actions and accessibility features for legged and wheeled agents, including humanoid and quadruped robots and people with visual or mobility impairments, while everyday obstacles and accessibility labels are categorized as Passable, Bypass, HighRisk, and Blocked. Unlike goal-only evaluation, our benchmark measures physical safety and alignment with user-specific constraints via goal-reaching, collision-aware, and accessibility-aligned metrics. We benchmark modern vision-language models and find they often fail to consistently adapt obstacle relevance, path selection, and safety criteria across user profiles, suggesting accessibility-aware navigation requires dedicated datasets, tasks, and metrics beyond conventional embodied navigation evaluation. All data and code open-source at https://github.com/InSAI-Lab/VLAN.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18346v1",
+     "abs_url": "http://arxiv.org/abs/2611.18346",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.18176",
+     "title": "ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents",
+     "authors_str": "Yundi Cai",
+     "abstract": "Independently pretrained language models and vision-language-action (VLA) policies provide complementary building blocks for embodied agents, but connecting them does not automatically produce coordinated behavior. The VLA may generate actions that diverge from the LLM's intended subtask and, upon regaining control after a correction, undo the promising state restored by the LLM. We introduce ESI (Embodied Self-Improvement), an automated flywheel that uses environmental interaction to align reasoning and action. ESI treats the modular agent as the unit of post-training, repeatedly refining the prompts that guide the LLM, the shared skill interface that expresses its intent, and the VLA parameters that realize that intent, then redeploying these components together. Our key insight is that collaboration itself can supply supervision for improving this interface. The LLM's subtask decisions provide semantic supervision for what the policy should execute, while its effective corrections and subsequent student continuations provide action-level supervision for recovery and handoff. The student also learns from its own effective execution, allowing locally useful experience to contribute even when the overall episode fails. On ten selected RoboDojo tasks, ESI achieves a mean Score of 62.03 and a mean success rate of 49.41% using an LLM-VLA agent without generating task-specific control code. On both metrics, it outperforms the published reference results of all hybrid embodied agents, including the Agent+WAM system GO-3 Nano Preview (47.27 Score and 36.60% success), as well as all compared code-based methods.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18176v1",
+     "abs_url": "http://arxiv.org/abs/2611.18176",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17394",
+     "title": "Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training",
+     "authors_str": "Gongyue Teng",
+     "abstract": "Improving a pretrained vision-language-action (VLA) model requires demonstrations that address its weaknesses and provide effective supervision for learning. Coding agents can autonomously generate demonstrations through environment interaction, yet successful execution alone does not ensure effective supervision for VLA learning. We introduce Agentic-Teacher, an autonomous data engine for failure-driven VLA post-training. Given a VLA checkpoint, a task specification, and configured environment tools, the engine analyzes failed rollouts, selects intervention states, and iteratively develops closed-loop code policies through execution feedback. Validated policies become reusable demonstration generators that collect successful continuations from states where the VLA struggles. To make these demonstrations suitable for learning, Agentic-Teacher introduces temporally correlated action noise to broaden state-action coverage, removes idle frames while preserving gripper transitions, and filters trajectories using the frozen base model's flow-matching loss. The resulting demonstrations are combined with successful VLA rollouts for post-training, yielding an updated policy that operates without coding-agent assistance. Agentic-Teacher thus connects the weaknesses of a target VLA to both the generation and curation of its training data. In simulation, it improves $π_0$ success rates from 79.4% to 87.8% on LIBERO-10, from 80.4% to 90.6% on MetaWorld-10, and from 0% to 30.0% across three RoboCasa tasks.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17394v1",
+     "abs_url": "http://arxiv.org/abs/2611.17394",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.17775",
+     "title": "Beyond Prediction Gain: LASR as a Metric for Action-Grounded Latents in World Models",
+     "authors_str": "Yu Zhou",
+     "abstract": "World models that support planning, control, and interpretable reasoning require latent representations that genuinely encode action. Yet the large-scale video data from which such models are learned overwhelmingly lack action annotations. Latent-action models infer action-like variables from observation sequences, enabling action-aware learning from unlabeled videos or trajectories. A fundamental concern, however, remains: a latent that improves future prediction may simply encode the current state, episode progress, task identity, or other predictive shortcuts. Existing evaluation practices---reconstruction loss, rollout fidelity, action recovery, or downstream performance---cannot isolate this distinction. We introduce the Latent Action Support Ratio (LASR), a dimensionless metric that measures, under offline evaluation on held-out data, whether a learned latent provides predictive support for action-related targets beyond the current state and non-action alternatives. LASR provides two complementary summaries: GeoLASR captures typical support, while WorstLASR identifies the weakest case. We instantiate the LASR benchmark with recorded actions and corresponding physical state changes as targets, episode-held-out splits, one predictor type for all comparisons, and positive and negative controls. Experiments on recorded robot manipulation data and a matched multi-task panel demonstrate that LASR detects known action information, rejects representative non-action shortcuts, and enables graded comparisons among imperfect latent representations. We further use LASR to train and audit a lightweight residual adapter, obtaining descriptively better point estimates whose uncertainty is assessed with paired comparisons. LASR thus provides a principled offline protocol for measuring action-related predictive support in world-model latents.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17775v1",
+     "abs_url": "http://arxiv.org/abs/2611.17775",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17529",
+     "title": "Learning Latent Goal Costs for Visual World-Model Planning with an Expanding Curriculum",
+     "authors_str": "Konstantinos Mylonas",
+     "abstract": "Image-goal planning with a frozen visual world model depends on how predicted observations are scored against the goal. Mean-squared error (MSE) between embeddings from a pretrained visual encoder can provide a useful signal near a goal, yet favor states across an obstacle that are visually similar to the goal and difficult to reach. We fit a small residual adapter on top of frozen I-JEPA embeddings to improve this latent goal cost. Starting near each goal, a planner collects trajectories from progressively wider regions of initial states. The adapter learns from the order of observations along successful trajectories, with additional comparisons inferred from failed rollouts. No task-specific progress labels are used for fitting, so the procedure can be applied to other goal-reaching tasks. DotWall and PointMaze are used in this work. In paired 50-case evaluations with identical starts, goals, world models, and planner settings, success increases from 54% to 98% in DotWall and from 82% to 96% in PointMaze. On 16 unseen DotWall layout-goal cases, the adapter fitted on one fixed layout improves agreement between latent-cost ordering and shortest legal-path ordering from 71.9% to 85.8%. The results indicate that planning experience can improve a frozen visual representation's goal cost without retraining the encoder or the world model.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17529v1",
+     "abs_url": "http://arxiv.org/abs/2611.17529",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17336",
+     "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+     "authors_str": "Yanke Song",
+     "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17336v1",
+     "abs_url": "http://arxiv.org/abs/2611.17336",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 0.9166666666666666,
+     "matched_keywords": [
+      "video diffusion",
+      "video generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17324",
+     "title": "K2V: Generative Keyframing For Physically Plausible Video Generation",
+     "authors_str": "Felix O'Mahony",
+     "abstract": "Video diffusion models are able to generate samples with high-quality appearance and textural qualities. However, content produced by these methods is known to exhibit significant physical errors. This is because, in a classical video generation setting, all physical reasoning must take place simultaneously and exclusively within the diffusion process.We propose to resolve these issues by redistributing the task of physical reasoning onto a language model-backed keyframe generation module, which allows for explicit reasoning in language, and fine-grained control over the appearance of the video at important moments in the video. We then condition a video generation model with these keyframes, reducing the role of the diffusion model to the simpler task of interpolating between physically-correct intermediate states, rather than inferring an entire sequence with diffusion. Results demonstrate that our approach significantly outperforms existing approaches, achieving state-of-the-art performance on the Physics-IQ Verified benchmark and PhyGenBench.",
+     "published": "2026-11-12",
+     "updated": "2026-11-12",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17324v1",
+     "abs_url": "http://arxiv.org/abs/2611.17324",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "video generation",
+      "video diffusion"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Sketch-based & Creative HCI Tools",
+   "papers": [
+    {
+     "paper_key": "2611.17713",
+     "title": "DesignSpecs: A DESIGN.md Dataset of Visual Design Specifications for AI Agents",
+     "authors_str": "Jialiang Wei",
+     "abstract": "While AI agents increasingly generate and modify user interfaces, they rarely rely on a visual design specification for a certain project. The DESIGN$.$md format, which originated from Google's AI design tool Stitch and which was open-sourced in April 2026, addresses this gap by describing a visual identity through design tokens (such as named colors, text styles) and Markdown prose. To our knowledge, no large-scale research dataset of such design specification files exists. We present DesignSpecs, a dataset of 36,906 DESIGN$.$md files from 15,794 public, non-fork GitHub repositories, representing 17,240 unique file contents. We collected 613,207 files named DESIGN$.$md in October 2026. Because the same file name also denotes architectural plans and other design documents, we filtered those with YAML front matter, a design-system name, at least one recognized design token, and zero errors under the official linter. Our JSON Lines dataset provides file-level and deduplicated views of the original Markdown, links files to repositories, paths, and commits, and is released with related scripts. We outline research opportunities on visual design knowledge and design-aware AI agents. Dataset is available at: https://huggingface.co/datasets/Jl-wei/DesignSpecs",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.SE",
+     "all_categories": [
+      "cs.SE",
+      "cs.HC"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17713v1",
+     "abs_url": "http://arxiv.org/abs/2611.17713",
+     "code_url": null,
+     "project_url": null,
+     "category": "Sketch-based & Creative HCI Tools",
+     "score": 0.3333333333333333,
+     "matched_keywords": [
+      "design tool"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.17957",
+     "title": "MacroGS: Macro-Pixel Shared Gaussian Primitives for Arbitrary-Scale Light Field Super-Resolutio",
+     "authors_str": "Zeqiang Wei",
+     "abstract": "Arbitrary-scale light field spatial super-resolution reconstructs high-resolution views at any requested scale from low-resolution multi-view observations. Gaussian primitives enable continuous reconstruction, but generating separate primitive sets for each view redundantly encodes shared scene structure across views and causes the primitive count grow linearly with the number of views. To avoid such redundancy, we propose MacroGS, a feed-forward decoder that jointly predicts a single shared Gaussian set per macro pixel rather than generating separate sets for each view. Disparity-dependent replacement and angle-conditioned appearance allow each set to be reused across all output views, keeping the predicted primitive count independent of the number of views at each requested scale. The decoder iteratively predicts per-primitive disparities, retrieves the corresponding multi-view features, and updates the primitive states. Gaussian splatting and residual refinement then reconstruct the output light field. Despite being learned without geometric supervision, the predicted disparities strongly correlate with underlying scene geometry. Experiments across five benchmarks demonstrate that MacroGS integrates effectively with diverse light field encoders, improving reconstruction quality at fixed scales while achieving leading performance across most evaluated arbitrary-scale settings. The decoder also achieves speedups of approximately $2$-$10\\times$ over state-of-the-art implicit light field decoders and $10$-$18\\times$ over the view-wise Gaussian baseline.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17957v1",
+     "abs_url": "http://arxiv.org/abs/2611.17957",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.5,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17752",
+     "title": "Stage-wise Lineage-aware Dropout for Sparse-View 3D Gaussian Splatting",
+     "authors_str": "Yan Xing",
+     "abstract": "Sparse-view 3D Gaussian Splatting (3DGS) is prone to overfitting because only a limited number of images are available to constrain scene geometry. Dropout is one regularization strategy for alleviating this problem. We introduce the concept of a lineage family to describe a set of Gaussian primitives derived from the same founder through cloning or splitting operations. The founder Gaussians refer to all Gaussian primitives generated during initialization. Descendants within the same family often jointly contribute to the refinement of adjacent local regions. However, dropping individual Gaussians can be less effective due to the compensation effect from neighboring Gaussians for the dropped ones. To address this issue, we propose Stage-wise Lineage-aware Dropout(SLD), which applies lineage-family dropout during the structural regularization stage and switches to individual dropout during the later refinement stage. We further propose Lineage-Balanced Densification(LBD), which operates during densification by constructing an expanded candidate pool and reallocating the densification budget according to the mean gradient scores and existing descendant sizes of different families. Experiments on the LLFF, MipNeRF360, and Blender datasets show that the proposed framework achieves competitive performance in sparse-view reconstruction",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17752v1",
+     "abs_url": "http://arxiv.org/abs/2611.17752",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.13528",
+     "title": "GEMOR-GS: Global Extrinsic-calibration-refined Mapping and Online Relocalization for 3D Gaussian-Splatting SLAM",
+     "authors_str": "Yuchen Yang",
+     "abstract": "Photorealistic and metrically consistent world representations are a primary requirement for LiDAR--inertial--visual SLAM systems that serve robots over continuous operation. 3D Gaussian splatting makes such representations attainable by supplying an explicit, renderable, and queryable scene model. We present GEMOR-GS (Global Extrinsic-calibration-refined Mapping and Online Relocalization for 3D Gaussian-Splatting SLAM) to make the Gaussian map geometrically accurate, globally refined, and re-enterable, providing a better appearance for robot perception and decision-making. To improve the 3DGS map, the LiDAR--camera extrinsic is first estimated offline by direct-method alignment over dedicated calibration segments and reused by all following online and offline processes. Under the calibrated geometry, keyframe poses and Gaussian parameters are refined alternately under a gated differentiable-rendering and LiDAR--projection objective. The final global reconstruction is then rebuilt from the refined keyframe schema with all online constraints lifted. For the robot SLAM lifecycle, the method recovers the pose from the 3DGS map after tracking loss through an XFeat bypass map, RANSAC-PnP coarse localization, and Gaussian RGB-D warp refinement. Experiments on one self-collected and five public sequences quantify each element: the offline reconstruction wins all paired keyframes against the online map by 14.3--19.9 dB, improves PSNR by approximately 9 dB over Gaussian-LIC2, and achieves 86--100% held-out relocalization success tied to extrinsic quality. The results show that GEMOR-GS improves the geometric accuracy, appearance fidelity, and re-enterability of the 3DGS map, serving as a dependable robot world model for SLAM and downstream tasks.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13528v1",
+     "abs_url": "http://arxiv.org/abs/2611.13528",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 0.5,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Embodied AI & Robot Learning",
+   "papers": [
+    {
+     "paper_key": "2611.18365",
+     "title": "Heavy Metal Acrobatics: Learning Dynamic Control for Skid-Steer Loaders",
+     "authors_str": "Pierre-Jean Lorentz",
+     "abstract": "Automation of heavy machinery offers the opportunity to improve productivity in mechanized industries such as construction, mining, and material handling. Yet, automation of such machines is challenged by their complex dynamics, in part because of hydraulic actuation that involves fluids, flexible elements, and nonlinear delays. A concomitant challenge is the size and weight of these machines, which can make experiments on the physical systems exceedingly dangerous. Here, we show that \\ac{RL} in simulation, followed by transfer of the learned policies from simulation to reality, can successfully automate acrobatic maneuvers that push a heavy construction machine to the limits of its actuation and have only previously been accomplished by a small number of elite human operators in official world-record performances. We trained policies that perform autonomous acrobatic maneuvers on a John Deere 332G, an operational 5-tonne skid-steer loader. The policies can autonomously swing the machine up onto two wheels and, while balancing on two wheels, drive over rough terrain, trace out specified trajectories, spin around, and swing the bucket back and forth before landing it safely back onto four wheels. This work demonstrates that \\ac{RL} and sim-to-real transfer enable dynamic autonomous control of heavy machinery, directly contributing to greater automation in heavy equipment sectors. Videos: https://sites.google.com/leggedrobotics.com/heavy-metal-acrobatics   This is the author's version of the work. It is posted here by permission of the AAAS for personal use, not for redistribution. The definitive version was published in Science Robotics on 11 November 2026, DOI: https://doi.org/10.1126/scirobotics.aef0894",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18365v1",
+     "abs_url": "http://arxiv.org/abs/2611.18365",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 0.5,
+     "matched_keywords": [
+      "sim-to-real"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.17619",
+     "title": "TouchTwin: Scaling Human Touch Data via Real-to-Sim-to-Real",
+     "authors_str": "Huiwen Han",
+     "abstract": "Human demonstrations are becoming the main source of data for dexterous manipulation, and real-to-sim-to-real pipelines multiply each demonstration in simulation. These pipelines rebuild the interaction from vision, which recovers how the hand moves. Which fingers touch, when, and how hard remain unobserved, because a hand pose shows where each finger stops on the surface rather than how far it is driven to close. This gap is a force gap: on held-out recordings, a hand policy that imitates the observed pose grips with 0.31x the recorded force, and a policy trained on physics replays of vision-tracked poses grips with 1.55x. TouchTwin closes the gap with measured human touch. Each selected TouchScale recording, captured with head and wrist RGB-D cameras and an 880-taxel glove, is rebuilt in MuJoCo. Coding agents write the objects as physics-tested programs, and a per-subject tactile hand replays the interaction with the recorded touch setting the contact and the closing force of each finger. In simulation, a policy trained on touch-grounded replays grips at 0.99x the recorded force and succeeds in 20/20 trials on held-out recordings and 35/36 unseen perturbations; a contact predictor trained on them misses 13% of real contact frames, against 32% for vision-based replays. Each replay also seeds perturbed demonstrations with simulated contact and force labels, rendered as realistic video in new views and scenes.",
+     "published": "2026-11-13",
+     "updated": "2026-11-13",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17619v1",
+     "abs_url": "http://arxiv.org/abs/2611.17619",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "sim-to-real",
+      "dexterous manipulation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.13499",
+     "title": "DeRep: Learning Depth Representations for End-to-End Navigation in Cluttered Environments",
+     "authors_str": "Hanyu Jin",
+     "abstract": "End-to-end navigation in cluttered environments relies on compact visual representations to support collision avoidance and goal-directed motion. Existing methods typically learn these representations jointly with the policy or through observation reconstruction, which does not explicitly specify what information the representation should preserve. Moreover, they are usually evaluated with a single downstream policy learner, although the benefit of a representation may depend on how the policy is learned. It therefore remains unclear how different representation-learning objectives affect downstream navigation performance and robustness. This work proposes DeRep, a navigation-oriented representation-learning method that combines local bird's-eye-view reachability supervision with depth reconstruction. To compare representation objectives under controlled conditions, we pretrain encoders with a common architecture and freeze them during downstream learning. We evaluate the representations using a linear policy probe, flow-matching imitation learning, and reinforcement learning with PPO. DeRep achieves the lowest linear policy probe prediction error and outperforms reconstruction alone across all six tested PPO conditions. In imitation learning, both reachability-based objectives achieve higher mean success rates than reconstruction alone, with similar mean success rates between the reachability-only and joint objectives. These results demonstrate consistent benefits of incorporating reachability supervision into depth representation pretraining across different downstream learning methods and evaluation conditions. We further deploy the PPO policy with the frozen DeRep encoder in Gazebo and on a physical quadrotor without fine-tuning, demonstrating its capability for zero-shot sim-to-sim and sim-to-real transfer.",
+     "published": "2026-11-10",
+     "updated": "2026-11-10",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.13499v1",
+     "abs_url": "http://arxiv.org/abs/2611.13499",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 0.5,
+     "matched_keywords": [
+      "sim-to-real"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2611.18359",
+     "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
+     "authors_str": "Grid Robotics",
+     "abstract": "The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic harnesses matched or exceeded task-specific policies on many embodied benchmarks. Instead of training a dedicated policy for each family of tasks, an agentic robotic system applies a foundation model to open-world embodied tasks. It operates in a closed loop: observing the environment, interpreting user intent, reasoning about the task, invoking skills and tools, verifying outcomes, and adapting its strategy. Despite these advances, the community has yet to converge on a shared definition, a reliable evaluation framework, or a research roadmap. We argue that Embodied System 2, realized by a foundation model together with an embodied harness, forms the decision-making core of agentic robotics. Its central challenge is to translate general-purpose reasoning into effective and verifiable actions under physical constraints such as limited reaction time, mechanical limits, unpredictable environment changes, and irreversible consequences. Motivated by this perspective, we propose an evaluation framework that measures both model capabilities and closed-loop system performance. Furthermore, we identify the principles that carry over from digital to physical agents and the challenges that must be addressed to achieve reliable physical autonomy. On top of the Embodied System 2 and the evaluation framework, we envision a research roadmap toward sustained autonomy: the ability to perform work safely and reliably with progressively broader responsibility, from executing individual primitives to fulfilling standing roles.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18359",
+     "abs_url": "http://arxiv.org/abs/2611.18359",
+     "code_url": null,
+     "project_url": "https://grid-robotics-official.github.io/agentic-robotics-roadmap",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 107,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.18397",
+     "title": "Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent",
+     "authors_str": "Run Luo",
+     "abstract": "We introduce Gamer, a generalist agent framework built for long-horizon tasks in complex interactive environments. Its end-to-end architecture combines perception, memory management, and multi-step reasoning. A shared training and deployment pipeline supports interaction with both conventional 2D graphical interfaces and complex 3D simulated worlds. We first continue pre-training on a dataset constructed from tens of thousands of hours of device-level keyboard and mouse interaction. These trajectories span simulated games and embodied environments, allowing the model to learn environmental dynamics across both physical and virtual domains. Sparse-thinking instruction tuning then substantially reduces redundant computation while preserving the reasoning needed for complex decisions. We train the policy for long-horizon interaction with a stable multi-turn reinforcement learning method that addresses finite context windows, accumulated rollout errors, and sparse rewards. For real-time interaction, a cloud-edge inference engine serves numerous simulated game environments concurrently, supports unbounded-context execution, and keeps online inference latency low. Across multiple challenging 3D open-world games, Gamer demonstrates solid generalization and operational efficiency comparable to skilled players. It also achieves competitive results on a range of conventional 2D game benchmarks. These results suggest that even repetitive keyboard and mouse trajectories can support substantial gains from scaling data and learning algorithms. Training on these trajectories helps Gamer learn complex skills more steadily in environments with both physical and digital properties. This approach offers a path toward generalist agents that can interact across digital and physical worlds.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18397",
+     "abs_url": "http://arxiv.org/abs/2611.18397",
+     "code_url": "https://github.com/RainBowLuoCS/Gamer",
+     "project_url": "https://mihoyo-gamer.github.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 87,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.15789",
+     "title": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender",
+     "authors_str": "Yuzhe Chen",
+     "abstract": "Controllable real-world video generation models can condition on a rendered graybox proxy video, which fixes layout, motion and camera. Coding agents can build such videos by reconstructing a 4D scene in Blender, yet no benchmark checks both these videos and the long, multi-shot scenes behind them. We introduce VibePrevisBench, a benchmark for 4D scene reconstruction: an agent turns a brief into an executable 4D scene and renders its proxy video. Its 242 tasks span four input kinds, including scripts, photos, continuations, and reference videos. Each delivery is scored along two evaluation dimensions. Rule-based Scene Check re-runs the code and compares the exported 4D scene with hidden ground truth facts in nine dimensions. VLM-based Screen Check asks a VLM judge whether the facts that pass can be recognized in the proxy video. We analyze the evaluation results and trajectories of 11 frontier coding agents and identify three key observations. First, multimodal understanding separates the agents, especially in understanding space and camera motion. Second, all agents seem to already master basic camera work and staging, and fail at challenging requests. Third, agents inspect their own renders but fail to correct their errors. Agents thus need better visual understanding of space and camera, explicit checks for challenging requests, and item-by-item verification of renders against the brief.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15789",
+     "abs_url": "http://arxiv.org/abs/2611.15789",
+     "code_url": "https://github.com/vibeprevisbench/vibeprevisbench",
+     "project_url": "https://vibeprevisbench.github.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 83,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.12068",
+     "title": "MIRIX-2.0: Multi-Agent Memory System",
+     "authors_str": "Wei-Chieh Huang",
+     "abstract": "Long-term memory lets LLM agents personalize, stay consistent, and reuse what worked before. Parametric memories need training, consolidation can lose details for good, and keeping every record leaves a growing store to search. We present MIRIX-2.0, a multi-agent memory system designed to be practical, accurate, and efficient at once. It is the most accurate of the compared systems on four of five QA benchmarks. It reaches 91.4% on LoCoMo and 72.6% on LongMemEval-S, where it leads the strongest baseline by 14.3 points, and with AutoDream disabled it gains 31.0 and 22.0 points over HyperMem on single-hop and multi-hop document QA. As procedural memory, it yields the highest mean success among the compared memory methods on ALFWorld and WebShop and reaches 49.2% on MetaClaw-Bench, against 44.0% for MetaClaw's skill library. Six typed memory agents keep complete records as the system of record, and a provenance hypergraph indexes episodic and semantic records with n-ary frames that cite their rows. Retrieval runs under explicit budgets, so the evidence a question inspects does not grow with the history. AutoDream merges duplicate anchors outside the write path without rewriting any record, and it distills task sessions into skills. With AutoDream disabled, MIRIX-2.0 answers faster than HyperMem on all five timed benchmarks. It needs no fine-tuning, runs with closed and open models, and its code is public.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12068",
+     "abs_url": "http://arxiv.org/abs/2611.12068",
+     "code_url": "https://github.com/Mirix-AI/MIRIX",
+     "project_url": "https://mirix.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 45,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.18482",
+     "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
+     "authors_str": "Sicheng Feng",
+     "abstract": "Speculative decoding accelerates generation by letting a lightweight drafter propose tokens for parallel verification by a target model. Diffusion drafters such as DFlash propose an entire token block in a single forward pass, but mainly focus on text-only tasks, leaving multimodal drafting underexplored. To study this setting, we first introduce a metric of token-level visual dependence based on the KL divergence between next-token distributions with and without visual input. We find that acceptance rates decrease from 46% in the lowest visual-dependence quartile to 22% in the highest, with this disparity persisting after multimodal training. Motivated by this observation, we propose MMFlash, a simple and effective framework that adaptively upweights visually dependent tokens that the drafter predicts poorly. For long video inputs, MMFlash further employs sparse attention to reduce redundant attention computation and improve drafting quality. Across various multimodal benchmarks, MMFlash achieves lossless decoding speedups of up to 3.58times, outperforming EAGLE-3 and DFlash by up to 195.4% and 17.1%, respectively.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18482",
+     "abs_url": "http://arxiv.org/abs/2611.18482",
+     "code_url": "https://github.com/fscdc/MMFlash",
+     "project_url": "https://fscdc.github.io/MMFlash/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 35,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.12901",
+     "title": "Rethinking in Spikes: Mitigating Hallucinations in MDLMs with Step-Aware Decoding",
+     "authors_str": "Zhongxing Xu",
+     "abstract": "Recent advancements in multimodal diffusion language models (MDLMs) have exhibited strong global modeling capabilities through iterative refinement. We observe that mask uncertainty follows an overall downward trend during iterative denoising, while a few denoising steps exhibit localized entropy spikes closely associated with hallucinations. We argue that anomalous steps can be identified by measuring the entropy deviation of each denoising step from its neighboring temporal window. We hypothesize that discrete token commitment discards the distributional information at masked positions, limiting the continued interaction between candidate semantics and the context during entropy spikes. With this goal, we present StepRefine, a plug-and-play decoding strategy that leverages semantic context to achieve reliable denoising. The core of our method lies in a step-aware switch between discrete denoising and latent refinement. The model employs probability-weighted embeddings at entropy spike steps to preserve diverse reasoning hypotheses and performs multiple rounds of continuous refinement. Meanwhile, a refinement controller monitors distributional stability to reduce unnecessary loops and switch the model back to standard discrete denoising. Through extensive experiments, StepRefine demonstrates significant hallucination mitigation across different MDLMs on multimodal benchmarks.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.12901",
+     "abs_url": "http://arxiv.org/abs/2611.12901",
+     "code_url": "https://github.com/mdlm-steprefine/mdlm-steprefine",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 35,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.17831",
+     "title": "V-JEPA-LM: Video-Language Models That Read Dynamics Beyond Static, Text-Aligned Representations",
+     "authors_str": "Keuntae Kim",
+     "abstract": "World-model video encoders such as V-JEPA learn how scenes change (direction, speed, order, state) from video alone. To answer questions, they are joined to a language model trained on captions and question-answer pairs. But each caption or question names only a few attributes of a clip, so the model learns to retrieve those attributes rather than to read the clip, and the dynamics the encoder carries go unused: on the same items, a linear probe reads speed from frozen V-JEPA features at 87% while the VLM answers at chance. We show where dynamics lives in a frozen encoder: in a subspace shared across videos for predictive encoders such as V-JEPA, but not as a shared component of frame-wise, text-aligned encoders such as SigLIP. We then build counterfactual supervision that makes the language model read it: pixel transformations turn public videos into answer-balanced variants whose answers are set by the transformation and differ only in the change. Trained in a single stage on 4.53M public samples with 32 visual tokens per frame, where open video LLMs use several stages, 9M to 172M samples and 64 to 256 tokens per frame on average, the resulting V-JEPA-LM models (1B to 8B, Qwen3 and Llama) lead every size class in average score across eleven video benchmarks; our 4B model scores 72.1, against 61.1 for the best open 4B and 64.8 for the best open 8B model. A controlled encoder x supervision study shows that the encoder decides what can be read and the supervision what is read: at a matched budget, counterfactual supervision adds 4.5 points on average and 38 on the speed questions of natural benchmarks. Code and models: https://github.com/kkt94/Llama-V-JEPA-LM.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17831",
+     "abs_url": "http://arxiv.org/abs/2611.17831",
+     "code_url": "https://github.com/kkt94/Llama-V-JEPA-LM",
+     "project_url": "https://huggingface.co/spaces/kkt94/llama-v-jepa-lm-8b",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 21,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.17878",
+     "title": "DySENSE: Dynamic Spatiotemporal ENergy Synthesis and Emulation with Satellite Imagery",
+     "authors_str": "Kailai Sun",
+     "abstract": "Cities account for over two-thirds of the world's energy and more than 70% of global carbon dioxide emissions. City energy is essential for achieving the 2050 net-zero target and the UN's Sustainable Development Goals 7 and 11. Although existing studies have made progress, they are limited by data and methodological gaps. Existing studies are largely predictive for existing cities rather than generative for future cities; fine-grained, aligned monthly dynamic energy data are scarce; and existing GenAI models struggle to generate dynamic urban functional monthly energy. We present DySENSE, a joint multimodal GenAI framework that synthesizes static urban satellite imagery together with spatially aligned, dynamic monthly building energy consumption maps. We decouple long-term static urban morphology from short-term dynamic energy consumption. By conditioning on static urban land use, DySENSE can generate realistic, diverse and new static urban imagery with aligned energy maps. By conditioning on dynamic monthly and climate prompts, DySENSE can jointly generate dynamic, monthly energy consumption maps while keeping the urban morphology static. Experiments across four cities (New York, Washington, Norfolk, Busan) demonstrated that DySENSE can generate annotated high-fidelity synthetic energy data using less than 25% labelled data, boosting downstream prediction performance by 8% mIoU, and achieving strong energy dynamic consistency. Compared to existing methods, DySENSE significantly improved prediction performance (8.7% accuracy) and reduced prediction error (9%-18% CVRMSE, ASHRAE). DySENSE offers an effective foundation for energy-efficient cities, peak-load analysis, building performance simulation and dynamic demand response for city, energy, and building science. The data and code: https://huggingface.co/datasets/skl24/MUSE2 and https://github.com/kailaisun/DySENSE",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17878",
+     "abs_url": "http://arxiv.org/abs/2611.17878",
+     "code_url": "https://github.com/kailaisun/DySENSE",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 20,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.07226",
+     "title": "Loopback Transformer: Towards a Unified View of Residual Looped Transformers",
+     "authors_str": "Xuan Ouyang",
+     "abstract": "Looped Transformers reduce parameter count by repeatedly applying shared blocks, but parameter sharing alone does not determine how the results of repeated computation are reused. We take the depth-memory view of residual connections and analyze which representation is stored after each block application and how later reads weight it. A full block output contains both its input and its new update, so weighting that output also reweights the history already carried by the input. Reading individual updates instead, with the shared stack's input kept on a separate path, gives separate controls over input strength, total update weight, and allocation across updates. The Loopback Transformer implements these controls: geometric decay sets the total update weight and supplies a recency prior, and attention learns how to allocate that weight. On ClimbMix, Loopback reaches lower validation loss than standard Transformer baselines with 40-75% of their Transformer parameters (excluding token embeddings and the output head) at reference scales from 191M to 3B, with training tokens and executed depth matched. It also has higher mean accuracy over thirteen downstream tasks at 1.4B and 3B. At 191M, 374M, and 778M, it has the lowest validation loss and the highest thirteen-task mean among the standard Transformer and seven looped residual designs.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.07226",
+     "abs_url": "http://arxiv.org/abs/2611.07226",
+     "code_url": "https://github.com/yancyou/Loopback",
+     "project_url": "https://yancyou.github.io/Loopback_page/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 19,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.17814",
+     "title": "G-CAST: Governed Continual Self-Training for E-Commerce Agents under Evolving Demands",
+     "authors_str": "Yuechun Yu",
+     "abstract": "With the rapid advancement of Large Language Models (LLMs), an increasing number of users are turning to LLM-powered agents for conversational shopping in e-commerce. However, the user needs continue to change as new product categories, procurement scenarios, and feature requests emerge. At the same time, the product's execution harness-including its tools, skills, and operating procedures-continues to evolve to support increasingly sophisticated interactions. These changes create two practical challenges: 1) Demand drift alters the distribution, intent, and complexity of user requests, causing a model trained once to fall behind; 2) Harness evolution requires the model to use newly introduced capabilities correctly without losing behavior that users already rely on. Periodic manual retraining is too delayed and labor-intensive for this setting. To address these challenges, we present G-CAST, a governed continual self-training system that converts daily production evidence under evolving demand and capability contracts into reward-routed, entropy-prioritized training data and governed reward evolution. Governed checkpoint transition under cumulative evaluation controls each model update, enabling the agent to learn newly introduced behaviors without sacrificing previously accepted capabilities. Experiments on a real production e-commerce agent show that G-CAST achieves stronger adaptation to newly introduced demand while better preserving previously accepted behavior compared with a strong autonomous post-training baseline. Ablations further show that both reward-routed, entropy-prioritized data orchestration and governed reward evolution are important to these gains. G-CAST is now deployed in Yuancai(http://cai.1688.com/), a B2B procurement agent on Alibaba's 1688 platform.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17814",
+     "abs_url": "http://arxiv.org/abs/2611.17814",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 17,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}
