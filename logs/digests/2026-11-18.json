@@ -1,0 +1,614 @@
+{
+ "date": "2026-11-18",
+ "sections": [
+  {
+   "name": "Character Motion Synthesis & Animation",
+   "papers": [
+    {
+     "paper_key": "2611.22769",
+     "title": "ForceBody: Force-Paired Parametric Body Motion with Torque Uncertainty",
+     "authors_str": "Joonwoo Kwon",
+     "abstract": "Forces and torques drive human motion, central to biomechanics, robotics, and physics-aware animation, yet they are often absent from learning-based motion pipelines for body reconstruction and generation. Some motion datasets provide force annotations, but the paired motion sequences are incompatible with the parametric body models used in modern learning pipelines. In addition, existing datasets typically obtain joint torques through inverse dynamics, which is inherently sensitive to the quality of the input kinematics; however, they do not quantify the reliability of these torque estimates. We close this gap with ForceBody, the first dataset to bring ground truth force supervision into a parametric body representation, shipped with per-sample torque uncertainty. ForceBody pairs the SKEL body model with ground reaction forces and inverse-dynamics joint torques across 10,386 motion trials (9.7M frames, 26.9 hours) from 140 subjects. Each torque label is paired with a per-frame, per-joint uncertainty annotation obtained by Monte Carlo sampling through the inverse dynamics pipeline. We benchmark six architectures (MLP, Conv1D, LSTM, GRU, Mamba2, Transformer) on ground reaction force and joint torque prediction from SKEL motion. As one example use of the released uncertainty, finetuning a Transformer with per-sample uncertainty weighting reduces the MAE of joint torque estimation by 5%. Code and data are at https://github.com/DominoAI-Lab/ForceBody-NeurIPS-ED-2026.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22769v1",
+     "abs_url": "http://arxiv.org/abs/2611.22769",
+     "code_url": null,
+     "project_url": null,
+     "category": "Character Motion Synthesis & Animation",
+     "score": 0.8333333333333334,
+     "matched_keywords": [
+      "human motion"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Vision-Language & Action Models (VLA/VLM)",
+   "papers": [
+    {
+     "paper_key": "2611.22880",
+     "title": "Learning Agent-Centric Vision-Language-Action World Models for Autonomous Driving",
+     "authors_str": "Guoqing Wang",
+     "abstract": "Recent progress in integrating vision-language-action (VLA) models with world modeling has significantly advanced end-to-end autonomous driving by allowing systems to reason about imagined futures instead of merely reacting to current observations. However, most world VLA models generate future frames at the pixel level with plenty of dense visual tokens. Although such generated futures can be visually plausible, they preserve many driving-irrelevant appearance details, i.e., only a small portion of the tokens directly encode critical planning-relevant factors, such as agent geometry, motion dynamics, and interactions. This introduces a significant performance bottleneck. An important question thus arises: what world state should a world VLA model reason over to support planning beyond pixel-level prediction? We argue that planning-oriented world modeling should focus on a compact and structured agent-centric latent state that captures the interactions between objects in the driving scene over time. As such, we introduce AgentWorld, an agent-centric VLA world model that uses discrete agent tokens jointly for reasoning and trajectory planning. Each token is dynamically grounded to a surrounding agent associated with its object's state, such as semantic identity, 3D geometry, motion, and interaction context. AgentWorld learns these tokens through three key processes: explicit geometric grounding, reasoning-oriented supervised fine-tuning, and agent-oriented reinforcement learning. Extensive open-loop and closed-loop experiments under diverse driving scenarios show that AgentWorld enhances planning capabilities, fully exploits visual evidence and agent dynamics, and yields interpretable agent-centric world states.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22880v1",
+     "abs_url": "http://arxiv.org/abs/2611.22880",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22878",
+     "title": "Outcome-Balanced PPO and Policy-Induced Flow Rectification for Flow-Based VLA Policies",
+     "authors_str": "Yuhan Wang",
+     "abstract": "Reinforcement learning (RL) enables post-training of flow-based vision-language-action (VLA) policies by optimizing expected task return through environment interaction. However, this optimization raises two challenges: policy updates can alter the velocity-field geometry underlying the score approximation used for stochastic transitions, and sparse multi-task rollouts can yield uneven learning signals across tasks and advantage signs. We introduce an RL framework that combines Outcome-Balanced Proximal Policy Optimization (PPO) with policy-induced flow rectification. Outcome-Balanced PPO reweights positive advantages using task success-rate estimates and rescales positive and negative advantages while preserving their signs. Policy-induced rectification periodically fits a linear-bridge flow to ODE endpoint pairs generated by the current policy, refreshing the representation used in subsequent stochastic optimization. We evaluate the framework on simulated manipulation benchmarks and additionally study a component combination in a Real2Sim2Real task, examining task performance, optimization behavior, and flow consistency. The proposed framework improves success rates over the evaluated baselines across the simulated benchmarks.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22878v1",
+     "abs_url": "http://arxiv.org/abs/2611.22878",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "VLA",
+      "vision-language-action",
+      "vision-language"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22736",
+     "title": "RefCloth: Transferable Adversarial Tablecloths for Vision-Language-Action Models",
+     "authors_str": "Shaozhen Liu",
+     "abstract": "Closed-loop vision-language-action (VLA) policies rely continuously on multi-view cameras, yet existing visual attacks typically hijack sensor streams with 2D patches or alter target object meshes that require retraining when manipulation objects change. We introduce RefCloth, a framework that optimizes one persistent adversarial tablecloth on a frozen source policy and deploys it zero-shot across unseen tasks and target models without modifying task objects or cameras. Throughout manipulation, static third-person and moving wrist views observe this shared world-bound texture under evolving occlusions. To generalize across shifting surface views while bridging the gap between differentiable and native renderers, RefCloth combines bounded texture parameterization with shared surface UV transformations and a same-path clean reference that removes static rendering offsets at initialization. Across four LIBERO suites in native simulation, one frozen texture transfers from OpenVLA-OFT to $π_0$ and $π_{0.5}$, reducing success relative to an unoptimized cloth by 62.50 and 43.75 percentage points on average and far exceeding amplitude- and variation-matched random controls. Dual-view audits and target closed-loop camera interventions show that moving wrist exposure drives over twice the standalone drop of the main view with strong synergy, while ablations confirm the roles of UV diversification and path calibration.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22736v1",
+     "abs_url": "http://arxiv.org/abs/2611.22736",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22666",
+     "title": "VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models",
+     "authors_str": "Suho Yoo",
+     "abstract": "Our aim is to accelerate autoregressive vision-language-action models (VLAs), which generate robot actions one token at a time. Speculative decoding makes this possible: a lightweight draft model proposes several tokens at once, and the VLA verifies them in a single pass, accepting only those that match its own predictions, so decoding remains lossless. The speedup, however, is limited in robot control, where many different tokens encode nearly the same motion and a draft close to the correct action is still rejected. To address this, our approach, VSpark, is built upon three design choices: (i) rollouts collected with calibrated action noise, which expose the draft to a wider range of robot states; (ii) feature alignment, which trains the draft to match the VLA's hidden features rather than its output tokens alone; and (iii) continuation reuse, which keeps the predictions the VLA has already computed along rejected drafts as candidates for the next verification step, instead of discarding them. On four VLAs with different action tokenizers and four manipulation benchmarks, VSpark achieves 1.28x to 2.10x speedup while keeping the VLA's decoding lossless.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22666v1",
+     "abs_url": "http://arxiv.org/abs/2611.22666",
+     "code_url": null,
+     "project_url": null,
+     "category": "Vision-Language & Action Models (VLA/VLM)",
+     "score": 1.0,
+     "matched_keywords": [
+      "vision-language-action",
+      "vision-language",
+      "VLA"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Embodied AI & Robot Learning",
+   "papers": [
+    {
+     "paper_key": "2611.21908",
+     "title": "From Human Videos to Bimanual Dexterous Manipulation Data: Confidence-Guided RL Refinement of Video Priors",
+     "authors_str": "Yanghong Liu",
+     "abstract": "Collecting demonstrations for bimanual dexterous manipulation is costly, motivating the use of human videos as a source of robot training data. However, uncertainty in video-derived motion estimates and differences between human and robot embodiments make direct motion transfer challenging. In this work, we introduce PriDex, a framework that transforms human-video Priors into executable robot Dexterous manipulation demonstrations through reinforcement learning in simulation. PriDex preserves task-relevant interaction structure while allowing embodiment-specific behavior to be regenerated for the robot. Human-object interactions provide affordance cues for selecting task-relevant, robot-specific grasps from geometry-based candidates. For motion refinement, object trajectories provide a task-level reference, while relative bimanual wrist trajectories offer complementary guidance for coordinated motion. Since object-motion estimates can become unreliable under occlusion or visual ambiguity, PriDex uses object-motion confidence to adaptively balance these two priors, emphasizing object-level guidance when confidence is high and increasing the contribution of wrist-level guidance as confidence decreases. Reinforcement learning refines these video-derived priors under the robot's kinematic and physical constraints, and the resulting policies are rolled out to generate robot demonstrations for training a vision-based diffusion policy. We evaluate PriDex on four bimanual dexterous manipulation tasks, including pouring, sweeping into a dustpan, bottle-cap unscrewing, and plate cleaning, assessing both simulation-based robot data generation and downstream visuomotor policy learning.",
+     "published": "2026-11-16",
+     "updated": "2026-11-16",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.21908v1",
+     "abs_url": "http://arxiv.org/abs/2611.21908",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "dexterous manipulation",
+      "affordance"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.19318",
+     "title": "Residual Reinforcement Learning for Visual Servo Control with Zero-Shot Sim-to-Real Transfer",
+     "authors_str": "Mahdi Nobar",
+     "abstract": "We address tracking a moving object on a conveyor with a Franka Emika Panda robot arm, despite an imprecise digital twin, measurement errors, and noise. Our novel approach augments a loop-shaped inverse-Jacobian PI controller with a residual policy learned via Soft Actor-Critic in the digital twin. A delay-compensated Kalman filter fuses out-of-sequence camera measurements to provide latency-aware moving target position estimates. We compare the achieved performance to a performance bound for a class of model-based controllers derived from a frequency-domain sensitivity analysis, quantifying the minimum achievable error imposed by uncertain kinematic model mismatch. Simulation and hardware experiments indicate that our residual policy drives tracking error below the bound. Across conveyor speeds (27.9-41.8 mm/s), our method reduces mean tracking errors from 1.1-1.4 mm (baseline inverse-Jacobian PI) to 0.3-0.7 mm. These results show that learning residual corrections in a limited-fidelity simulator, combined with delay compensation, can substantially improve model-based control under modeling and measurement uncertainties while maintaining reliable sim-to-real transfer.",
+     "published": "2026-11-14",
+     "updated": "2026-11-14",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "eess.SY"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.19318v1",
+     "abs_url": "http://arxiv.org/abs/2611.19318",
+     "code_url": null,
+     "project_url": null,
+     "category": "Embodied AI & Robot Learning",
+     "score": 1.0,
+     "matched_keywords": [
+      "sim-to-real"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "World Models & Generative Video",
+   "papers": [
+    {
+     "paper_key": "2611.23118",
+     "title": "Auditing a Learned Simulator for Legged Robots: The Robotic World Model on ANYmal D",
+     "authors_str": "Joyjeet Singh",
+     "abstract": "A legged robot can learn to walk inside a learned simulator: a neural network that predicts the robot's next state and is run forward on its own predictions. They are usually trained and checked one step ahead, although a policy uses them for a hundred steps or more. We audit one published system end to end, without a GPU: the dynamics model of the Robotic World Model (RWM) for the ANYmal D quadruped, and the uncertainty estimate of its follow-up, RWM-U. We rebuilt the model to match the released code's outputs, losses and gradients exactly, measured 101 trained simulators, 200 compressed copies and 38 simulators of three other architectures, and trained policies inside simulators that we tested in a hand-built MuJoCo model of the robot. Training on the model's own rollouts beat one-step training at 368 steps on all ten held-out episodes (registered), although one-step training was better one step ahead. One-step checks therefore misjudge design choices: pruning 30% of the weights kept 90% of the model's skill one step ahead and 39% at 2 s. Ensemble disagreement ranked rollout error well (Spearman +0.90 at 100 steps), yet covered 4.6% of outcomes at one sigma, against 68% for a calibrated estimate, as each network's own variance collapses under the implemented loss. Two checks that need no recorded future ranked some pools of simulators well, but neither was shown better than 8-step error in a primary test. At the robot level, accuracy has not predicted walking: all 18 fine-tuned copies we tested predicted better than the released model one and eight steps ahead, yet 13 gave failing policies, and registered tests of whether any check ranks simulators by their policies were not settled. In a secondary test, running the authors' policy inside each simulator ranked them well. We also report nine of our own claims that we withdrew. Scope: one robot, one gait, simulated data, no hardware.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.RO",
+     "all_categories": [
+      "cs.RO",
+      "cs.LG"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.23118v1",
+     "abs_url": "http://arxiv.org/abs/2611.23118",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22998",
+     "title": "Residual-Guided Lightweight Reinforcement Learning for Risk-Aware Trajectory Selection with a Frozen World Model",
+     "authors_str": "Jiaqi Wu",
+     "abstract": "In automated driving, world models provide future scene predictions for evaluating candidate trajectories, but fixed selection rules may not capture scene-dependent trade-offs. We propose a residual-guided reinforcement learning (RL) framework for lightweight trajectory selection with a frozen world model and a fixed candidate bank. The framework uses proximal policy optimization (PPO) to fine-tune a joint policy over candidate selection and bounded trajectory residuals. A context-conditioned ranking network learns candidate preferences from feedback obtained by evaluating local perturbations of the selected trajectories. At inference, the selector combines learned preference and predicted risk ranks using fixed weights and returns the selected candidate trajectory without modification. Fine-tuning updates 16,106 parameters across the actor and critic, while the deployed selector retains only the 11,725-parameter ranking network, with the residual branch and critic used exclusively during training. In open-loop evaluation on the nuScenes validation set, the method reduces average Euclidean trajectory error (L2) by 3.99% relative to the RiskWorld model baseline without RL-based selection. Under matched budgets for feedback accesses and actor updates, residual exploration reduces L2 by 0.83% relative to the categorical PPO variant trained without residuals. The method also maintains lower L2 than RiskWorld when risk features are removed or shuffled.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.AI",
+     "all_categories": [
+      "cs.AI",
+      "cs.ET",
+      "cs.LG",
+      "cs.RO",
+      "eess.SY"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22998v1",
+     "abs_url": "http://arxiv.org/abs/2611.22998",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "world models"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22981",
+     "title": "SpikWM: Efficient End-to-End Spiking World Modeling for Visual Planning",
+     "authors_str": "Shuhan Ye",
+     "abstract": "Goal-conditioned planning with image observations and goals requires predictions that distinguish visual states and action consequences. Spiking neural networks offer sparse computation, but single-step spikes can obscure motion cues and merge actions with different physical outcomes. We propose the Spiking Latent World Model (SpikWM), an end-to-end joint-embedding predictive architecture (JEPA) with one simulation step per image and one neural update per latent position. Spiking Regional Encoding retains spatial cues through regional pooling. Bi-Spike Action Encoding combines positive and negative binary responses, while Causal Membrane Prediction carries subthreshold evidence across the latent history with learned group-wise time constants. The encoder and predictor are trained jointly on reward-free image--action trajectories using next-embedding prediction and SIGReg. With a common planner, SpikWM achieves mean success rates of $88.67\\%$, $97.33\\%$, $99.33\\%$, and $86.67\\%$ on Push-T, Two-Room, Reacher, and OGBench-Cube, respectively, outperforming two spiking baselines. Push-T ablations support each module, and controlled replays examine responses to appearance and physical state changes. Under a matched planning budget, SpikWM reduces estimated arithmetic energy by $75.6\\%$ relative to LeWM. Code will be released at https://github.com/ShawnYE618/SpikWM.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22981v1",
+     "abs_url": "http://arxiv.org/abs/2611.22981",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22925",
+     "title": "Code World Model 2.0: Towards Infinite Controllable Video Generation",
+     "authors_str": "Ruoyu Wang",
+     "abstract": "Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training videos. Training then shifts to continuous self-generated rollouts. A pipelined serving stack supports efficient streaming inference. Experiments show versatile control across proxy families, granularities, and camera paths, consistent gains over recent streaming baselines, and stable 30-minute racing rollouts that preserve scene and subject appearance.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22925v1",
+     "abs_url": "http://arxiv.org/abs/2611.22925",
+     "code_url": null,
+     "project_url": null,
+     "category": "World Models & Generative Video",
+     "score": 1.0,
+     "matched_keywords": [
+      "world model",
+      "video generation"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "3D Understanding: Reconstruction & Generation",
+   "papers": [
+    {
+     "paper_key": "2611.23054",
+     "title": "ReTouchGS: Ultralight Render-free Aesthetic Color Enhancement and Transfer for 3D Gaussian Splatting",
+     "authors_str": "Chuanzhi Xu",
+     "abstract": "3D Gaussian Splatting (3DGS) enables photorealistic scene reconstruction. Existing 3DGS color transfer and interactive editing methods are guided by reference images and user-specified color adjustments. However, in many applications, users simply want aesthetically guided color enhancement that automatically makes the scene more visually appealing while maintaining consistent colors and tones across viewpoints. We present ReTouchGS, to our knowledge the first framework for reference-free aesthetic color enhancement of pretrained 3DGS models. It predicts a scene-level color lookup table (LUT) from the model and its associated camera parameters. ReTouchGS also supports reference-guided color transfer by fitting a scene-level LUT using one edited view of the same scene and its corresponding original render. A shared blend-aware color refinement network with only 44.7K parameters refines an analytic color update to realize either color mapping without rendering. It preserves geometry and delivers standard 3DGS assets in seconds. We also design the ReTouch3D benchmark to support the evaluation of aesthetic color enhancement and reference-guided color transfer across viewpoints. Experiments demonstrate high color accuracy and strong generalization to unseen scenes in both aesthetic color enhancement and reference-guided color transfer.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.GR"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.23054v1",
+     "abs_url": "http://arxiv.org/abs/2611.23054",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22805",
+     "title": "DOOM-GS: Dynamic Out-of-core Optimization for Massive Gaussian Splatting",
+     "authors_str": "Doğa Yılmaz",
+     "abstract": "Traditional Gaussian Splatting (GS) methods use in-core training, i.e. assuming that GPU memory is large enough to accommodate all the primitives. This assumption breaks down when the primitives exceed the capacity of GPU memory, e.g. GS on large environments. Recent out-of-core training research starts to address this issue, but is limited to static scenes. Unlike static GS, dynamic GS primitives move in space and time, breaking common assumptions held in existing out-of-core research and impose new challenges in memory management and training. To this end, we propose Dynamic Out-of-core Optimization for Massive Gaussian Splatting (DOOM-GS), the first out-of-core optimization method designed specifically for massive-scale dynamic GS. DOOM-GS is equipped with novel memory management strategies that optimize caching for spatio-temporal primitives, and a fast learning method for large numbers of primitives. Due to the lack of suitable datasets for large-scale dynamic GS, we also contribute a new dataset for evaluation. Since there are no directly comparable methods, we adapt several closely related methods for comparison. Through extensive evaluation, we demonstrate the effectiveness of DOOM-GS which now makes it possible to reconstruct city-scale dynamic scenes with high quality on moderate hardware, serving as a foundational tool for diverse future research and applications.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.GR",
+     "all_categories": [
+      "cs.GR"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22805v1",
+     "abs_url": "http://arxiv.org/abs/2611.22805",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22240",
+     "title": "Cross3DGS: Unified Vulkan-Based 3D Gaussian Splatting Training from Workstations to Mobile Devices",
+     "authors_str": "Hiroyuki Sato",
+     "abstract": "Scenes captured with handheld and wearable cameras are still shipped to a CUDA workstation for 3D Gaussian Splatting (3DGS) training. Training on the device that captured them, or on its companion phone or laptop, requires more than translating kernels: GPUs and drivers differ in parallel features, memory limits, and command submission, and these differences decide whether a training schedule executes and returns the correct update. We present Cross3DGS, a cross-vendor, cross-platform Vulkan trainer that keeps one optimizer and chooses its execution schedule per device in two steps: rules on device limits, workload size, and observed driver failures exclude the schedules known not to run correctly, and a fixed preference order selects one of the remaining feasible schedules. The same core completes standard-quality training (30k updates, one million Gaussians) on every configuration we measured, spanning NVIDIA, Intel, Arm, Qualcomm, AMD, and Apple GPUs and including Android devices and an iPhone, whereas the existing portable trainers VkSplat and Brush do not run on some of the mobile GPUs. Averaged over 11 scenes on a workstation, Cross3DGS has higher quality than VkSplat with no significant difference in training time, and Brush reports about three times the training time at comparable quality. The final quality of Cross3DGS is nearly identical across devices. A mobile application turns a handheld capture into a viewable model entirely on the device.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV",
+      "cs.GR"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22240v1",
+     "abs_url": "http://arxiv.org/abs/2611.22240",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    },
+    {
+     "paper_key": "2611.22235",
+     "title": "CoSphere-SLAM: Multi-Agent Panoramic Gaussian Splatting SLAM with Spherical Loop Closure",
+     "authors_str": "Qi Shao",
+     "abstract": "Dense collaborative mapping is essential for search and rescue, building inspection, and warehouse automation, where panoramic cameras capture the entire surroundings in a single frame. Unlike pinhole agents that share views only at similar headings, panoramic agents observe overlapping scenes at any 3D orientation, yet searching full rotations also produces mutually consistent false loop closures across distinct symmetric rooms. Moreover, continuous monocular scale drift splits rigidly merged maps at revisited surfaces, while depth noise at short baselines distorts loop translation directions. To address these challenges, we propose CoSphere-SLAM, the first multi-agent Gaussian splatting SLAM framework for panoramic cameras, whose spherical loop closure aligns spherical features over $\\mathrm{SO}(3)$ via fast Fourier correlation across arbitrary orientations and rejects symmetric false closures through global $\\mathrm{Sim}(3)$ consensus. Building on these closures, directional global optimization solves a per-keyframe $\\mathrm{Sim}(3)$ pose graph with log-scale regularization to correct scale drift while separating optical-flow translation directions from depth-based magnitudes. Finally, omnidirectional Gaussian fusion transforms each Gaussian with its keyframe similarity and renders Gaussians at their maximum ray response to jointly refine poses and maps. Experiments on indoor and cross-session multi-agent panoramic benchmarks demonstrate that CoSphere-SLAM achieves state-of-the-art trajectory accuracy and rendering quality among single-agent and multi-agent methods. Project website: https://cosphere-slam.github.io.",
+     "published": "2026-11-17",
+     "updated": "2026-11-17",
+     "primary_category": "cs.CV",
+     "all_categories": [
+      "cs.CV"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22235v1",
+     "abs_url": "http://arxiv.org/abs/2611.22235",
+     "code_url": null,
+     "project_url": null,
+     "category": "3D Understanding: Reconstruction & Generation",
+     "score": 1.0,
+     "matched_keywords": [
+      "Gaussian Splatting"
+     ],
+     "upvotes": null,
+     "is_community_signal": false
+    }
+   ]
+  },
+  {
+   "name": "Trending on HuggingFace",
+   "papers": [
+    {
+     "paper_key": "2611.22115",
+     "title": "TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks",
+     "authors_str": "Xingchen AGI Lab",
+     "abstract": "We present Xing 4, a series of large language models that extends the TeleChat lineage through coordinated advances in model architecture and training infrastructure on Ascend. This report describes the design principles and systems engineering behind the series, spanning architecture selection, large-scale pretraining, and reasoning and agentic post-training. We study how sparse activation, attention design, model depth and width, and speculative decoding balance model capacity with computation, memory access, and execution overhead. Our pretraining infrastructure builds on MindSpore HyperParallel, combining topology-aware hybrid sharding, efficient distributed optimizer execution, and coordinated management of long-sequence workloads and activation memory. CPU affinity and core isolation further reduce host scheduling interference. Together, these mechanisms support the pretraining of a 285B-parameter model on 8,192 Ascend 910C cards, providing a concrete setting for the architectural and systems studies. For post-training, we introduce TeleGym, a unified agent execution platform that connects execution, evaluation, and trajectory construction to policy optimization. Disaggregated asynchronous execution, bounded oversampling, and partial rollout accommodate heterogeneous task durations while preserving trajectory continuity across policy updates. Together, these advances establish an Ascend-oriented training foundation for the continued development of Xing 4 across model scales and increasingly demanding reasoning and agent workloads.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22115",
+     "abs_url": "http://arxiv.org/abs/2611.22115",
+     "code_url": "https://github.com/XingChen-AGI",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 149,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.17621",
+     "title": "AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs",
+     "authors_str": "AI Training Platform Team",
+     "abstract": "Kernel optimization is essential for efficient large language model (LLM) training and inference on Ascend NPUs. Existing Ascend kernel benchmarks primarily focus on kernel generation, with less emphasis on the ability of agents to optimize existing implementations under input configurations drawn from real workloads. To address this requirement, we introduce AscendGYM, a benchmark whose initial suite comprises 48 kernels across three difficulty levels. Each kernel is paired with test cases whose data types and tensor shapes are collected from real-world training and inference tasks. Consequently, performance improvements on AscendGYM map directly to the corresponding workloads. In terms of usability, two evaluation modes are supported in AscendGYM: model evaluation and model-harness evaluation. The kernel optimization capabilities of both trained models and custom agents are allowed to be measured. It provides a complete execution environment that closely reproduces how Ascend kernels are invoked in practical pipelines. For model evaluation, it additionally includes a built-in harness equipped with search orchestration and experience accumulation. Finally, we propose a new metric, the Speedup-Token Score (STS), which quantifies performance gains relative to token cost. By jointly considering speedup and cost, STS enables the assessment of practical kernel optimization capability of a model or harness under an acceptable budget. AscendGYM is available at https://github.com/SLAI-AITP/AscendGYM.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.17621",
+     "abs_url": "http://arxiv.org/abs/2611.17621",
+     "code_url": "https://github.com/SLAI-AITP/AscendGYM",
+     "project_url": "https://slai-aitp.github.io/AscendGYM/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 91,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.22055",
+     "title": "Weight-Space Programming Doesn't Need Transformers",
+     "authors_str": "Hyunjong Ok",
+     "abstract": "Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22055",
+     "abs_url": "http://arxiv.org/abs/2611.22055",
+     "code_url": "https://github.com/effl-lab/Weight-Space-Programming",
+     "project_url": "https://wsp-no-transformer.github.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 47,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.19800",
+     "title": "Multi-Branch Transformer",
+     "authors_str": "Gaotang Li",
+     "abstract": "Transformer language models are commonly scaled by making their blocks wider or stacking them deeper. In this work, we explore a complementary path: branching, the parallel composition of full Transformer blocks. We introduce the Multi-Branch Transformer (MBT), which processes the input through shared initial layers, executes independently parameterized branches of sequential blocks in parallel, and fuses their outputs before shared final layers. At comparable training compute, we study three MBT variants: Wide-Shallow preserves block width, Narrow-Deep preserves sequential depth, and Balanced interpolates between them. In controlled pretraining experiments at four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Shallow MBTs consistently outperform sequential Transformers under matched parameter and training-compute budgets. Balanced MBTs improve further and retain comparable quality as the number of branches increases. To improve inference efficiency at long contexts, we introduce Joint-KV, which constructs a shared KV cache from branch representations at each depth. Our final recipe combines Balanced MBTs with Joint-KV, supported by an inference engine that exploits branch grouping and shared-cache reuse. Fitted scaling curves indicate that standard Transformers require up to 1.26x as much training body compute to match our final models' validation loss. These models reduce full-model KV-cache storage by up to 34% and deliver up to 51.4% higher decoding throughput on a single H200 GPU. Ablation studies show that branching yields gains beyond changes in width and depth, enables an effective KV-sharing strategy (Joint-KV), remains robust across fusion functions, and performs best in the middle layers. These findings show that branching offers a practical path for scaling language models toward both better modeling quality and faster inference.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.19800",
+     "abs_url": "http://arxiv.org/abs/2611.19800",
+     "code_url": "https://github.com/GaotangLi/Multi-Branch-Transformer",
+     "project_url": "https://gaotangli.github.io/project_page/Multi-Branch-Transformer/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 43,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.21099",
+     "title": "ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models",
+     "authors_str": "Ke Sun",
+     "abstract": "Frontier multimodal models can now control robots zero-shot from images, yet many manipulation tasks depend on contact forces that images cannot show. Bringing force to an API-only frozen model raises two challenges. First, contact evolves much faster than an API model can decide, so the system must close the loop on force beneath the model. Second, a frozen model cannot interpret raw force streams, so force must be returned in a form the model can reason about. Therefore, we present ForceHarness, a harness that lets frozen models use force without demonstrations or finetuning. After calibrating hand force from a wrist sensor or joint torques alone, ForceHarness addresses the first challenge with self-terminating force primitives that regulate force on their own and return at a contact event. To address the second challenge, a physics translation layer turns each force trace into physical quantities with uncertainty as the tool result. To evaluate ForceHarness against expert force controllers and learned policies under identical conditions, we also build HiddenPhys, a seven-task MuJoCo benchmark with hidden physical variables. On a real arm without a wrist force sensor, ForceHarness raises the zero-shot success rate of GPT-6 Astra from 3.3% to 90.0%. In simulation, it adds 17.5 percentage points on the public ForceBench suite and 34.3 percentage points on HiddenPhys, surpassing force-aware policies trained on demonstrations on both benchmarks and matching hand-written expert controllers on HiddenPhys. Ablations further show that smaller models make significantly better decisions when given physical quantities rather than raw force values.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.21099",
+     "abs_url": "http://arxiv.org/abs/2611.21099",
+     "code_url": "https://github.com/showlab/ForceHarness",
+     "project_url": "https://showlab.github.io/ForceHarness/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 38,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.15348",
+     "title": "Breath-Dx: A Time Series Classification Benchmark for Disease Screening with eNose",
+     "authors_str": "Ivan Poddiakov",
+     "abstract": "Electronic nose (eNose) technology offers a portable, non-invasive route for disease screening via exhaled breath analysis. However, progress in the field is hindered by the lack of systematic benchmarks that compare machine learning methods under realistic conditions, particularly sensor drift, a known but rarely quantified failure mode. Most existing studies rely on small, private datasets with inconsistent protocols, rendering results non-comparable and slowing progress. We introduce Breath-Dx, the first comprehensive benchmark of time series classification methods for breath-based disease screening. Our work leverages the Scent of Health (S-OH) dataset, the largest public clinical eNose collection to date, comprising 1,234 patients across nine diagnostic groups, each providing a 17-channel multivariate time series with explicit temporal train/test splits that account for sensor drift. We systematically evaluate 10 methods spanning four families: feature-based tabular learners, convolution-based models, graph-based, and time series architectures. All methods degrade significantly under temporal validation (0.05-0.12 AUC drop compared to random cross-validation), confirming that drift embeds a strong temporal signal. Under this realistic evaluation, the best methods achieve ROC AUC of 0.74-0.76 for some lung conditions, though others remain near chance. Recurrent architectures show the most consistent performance across diseases, while specialized time series methods achieve the highest peak results. Demographic confounders matter: breath signals provide independent diagnostic value for some conditions but add little beyond age for others. We release the S-OH dataset, all temporal splits, evaluation protocols, and code to enable reproducible research and accelerate progress in clinical breathomics.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.15348",
+     "abs_url": "http://arxiv.org/abs/2611.15348",
+     "code_url": "https://github.com/ivanpodd/Breath-Dx",
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 32,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.18856",
+     "title": "Self-Improvement Memory Enables Continual Recursive Self-Improvement",
+     "authors_str": "Xin Yu",
+     "abstract": "Harness optimization is often studied with a fixed policy model and benchmark. When either changes, the optimizer must decide which parts of an evolved harness to reuse or revise, but the harness alone may not explain why earlier edits were made or how they performed. In this work, we study Continual Recursive Self-Improvement (CRSI), a setting for continuing existing harness-optimization methods across compatible benchmarks or policy models. We propose Self-Improvement Memory (SIM) for the harness optimizer, rather than the task-solving policy. SIM groups edits by recurring harness problem and records their rationale, predicted and observed outcomes, and evaluation context. New attempts extend this history as optimization continues. In our experiments across four domains, SIM achieves higher final scores than harness-only and root-cause-only continuation in cross-dataset and pairwise cross-model comparisons. Across ten independent source runs in coding, paired continuations with SIM improve final scores by an average of 2.36 points over harness-only continuation (p=0.003).",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.18856",
+     "abs_url": "http://arxiv.org/abs/2611.18856",
+     "code_url": null,
+     "project_url": null,
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 28,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.23143",
+     "title": "TCP4D: A Unified Tool-Center-Point Tracking and Generation Model for Robot Manipulation",
+     "authors_str": "Haosong Peng",
+     "abstract": "Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present TCP4D, a unified model in which a shared 4D scene representation both tracks observed TCP motion and generates future TCP trajectories. Given a monocular video and initial 2D TCP queries, the tracker directly recovers metric TCP poses in SE(3) and gripper states alongside scene geometry and camera parameters. The generator samples local features from the same 4D representation along the recovered TCP tracks, then combines them with robot observations and language instructions to predict future TCP states. Our new cross-embodiment augmentation pipeline converts existing RGB videos into demonstrations for alternative embodiments by retargeting the recovered motion and synthesizing the corresponding observations, without recorded source-robot states. Experiments show that the tracker achieves absolute trajectory errors of 7.60 and 16.07 mm on DROID and RoboLab and adapts to a new embodiment with only ten demonstrations. The generator achieves 69.19% mean success on RoboTwin and outperforms well-established policy models on two real-world tasks, while joint training on source and augmented demonstrations improves target-robot success by 41.5% over augmented-only training.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.23143",
+     "abs_url": "http://arxiv.org/abs/2611.23143",
+     "code_url": "https://github.com/Livioni/TCP4D",
+     "project_url": "https://livioni.github.io/TCP4D/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 23,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.23226",
+     "title": "FastFrames: Video Generation at Interactive Latency",
+     "authors_str": "Gene Chou",
+     "abstract": "Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.23226",
+     "abs_url": "http://arxiv.org/abs/2611.23226",
+     "code_url": "https://github.com/apple-aiml-research/ml-fastframes",
+     "project_url": "https://apple-aiml-research.github.io/ml-fastframes/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 21,
+     "is_community_signal": true
+    },
+    {
+     "paper_key": "2611.22275",
+     "title": "Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration",
+     "authors_str": "Ting-Hsuan Chen",
+     "abstract": "Collaboration promises to extend humanoid capabilities beyond what individual robots can achieve. However, realizing this potential requires coordinated whole-body interactions, coherent long-horizon planning, and precise synchronization across robots. We introduce Heave-Ho, a decentralized framework for long-horizon collaborative multi-humanoid loco-manipulation. At the low level, we develop a multi-agent post-training framework that adapts a humanoid foundation tracking model to physically coupled interactions between humanoids, enabling coordinated decentralized control from local observations alone. At the high level, we train a vision-language planner and design a speech-based leader-follower coordination mechanism to synchronize decentralized execution without network communication. Trained with two identical humanoids, our system scales to teams of up to ten robots and generalizes to heterogeneous teams without retraining. To benchmark these capabilities, we introduce HH-Bench, comprising 12 tasks involving teams of 2 to 10 humanoids, including heterogeneous teams. Systematic evaluations show that Heave-Ho consistently outperforms baseline methods, while real-world experiments demonstrate robust decentralized collaboration across challenging tasks.",
+     "published": "2026-11-18",
+     "updated": "2026-11-18",
+     "primary_category": "HF",
+     "all_categories": [
+      "HF"
+     ],
+     "entry_id": "http://arxiv.org/abs/2611.22275",
+     "abs_url": "http://arxiv.org/abs/2611.22275",
+     "code_url": "https://github.com/heaveho-humanoid/Heave-Ho",
+     "project_url": "https://heaveho-humanoid.github.io/",
+     "category": "Trending on HuggingFace",
+     "score": 0.0,
+     "matched_keywords": [],
+     "upvotes": 21,
+     "is_community_signal": true
+    }
+   ]
+  }
+ ]
+}
